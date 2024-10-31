@@ -5,7 +5,7 @@
 }
 
 :root {
-    --primary-color: #4891ff;
+    --primary-color: #383981;
     --light-color: #f4f4f6;
     --dark-color: #111;
 }
@@ -73,19 +73,20 @@ img {
 }
 
 .hero .container {
-    background: url(../images/hero-bg.png) no-repeat;
+    background: url(../images/pastor.png) no-repeat ;
     background-size: contain;
     background-position: center bottom;
-    height: 550px;
+    height: 730px;
 }
 
 .hero .hero-content {
-    width: 70%;
+    width: 100%;
 }
 
 .hero .hero-text { 
     width: 70%;
-    margin-bottom: 20px;
+    color: #fff;
+    margin-bottom: 58%;
 }
 
 /* Video */
@@ -155,67 +156,6 @@ img {
 margin-right: 10px;
 }
 
-/* FAQ */
-
-.faq {
-    padding: 40px 0;
-}
-
-.faq .faq-group {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-}
-
-.faq .faq-group .faq-group-header {
-    padding: 20px 0;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.faq .faq-group .faq-group-header h4{
-    font-weight: 600;
-    width: 95%;
-}
-
-.faq .faq-group .faq-group-header i {
-    position: absolute;
-    right: 0;
-    top: 35px;
-    font-size: 1.3rem;
-    cursor: pointer;
-}
-
-.faq .faq-group .faq-group-body {
-    display: none;
-}
-
-.faq .faq-group .faq-group-body.open {
-    display: block;
-}
-
-.faq ul.faq-menu {
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ddd;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.faq ul.faq-menu li {
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.faq ul.faq-menu li.active {
-    background: var(--primary-color);
-    color: #fff;
-}
 
 /* Foother */
 
@@ -242,7 +182,7 @@ margin-right: 10px;
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr 2fr 1fr 1fr;
     gap: 30px;
     justify-content: center;
     align-items: center;
@@ -444,10 +384,10 @@ margin-right: 10px;
     }
   
     .hero .container {
-      background: url('../images/hero-bg-mobile.png') no-repeat;
-      background-size: 350px 400px;
+      background: url('../images/pastor.png') no-repeat;
+      background-size: contain;
       background-position: bottom;
-      height: 770px;
+      height: 400px;
     }
   
     .hero .hero-content,
