@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Church Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .full-width-image {
+            width: 100%;
+            height: 50vh; /* Adjust the height to take half the screen */
+            background-image: url('./images/about-bg.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            position: relative; /* Position relative for child elements */
+            display: flex;
+            flex-direction: column; /* Arrange children in a column */
+            justify-content: flex-end; /* Align children to the bottom */
+            align-items: center; /* Center horizontally */
+            text-align: center; /* Center text */
+            color: white; /* Text color */
+            padding: 20px; /* Space around text */
+        }
+        h2 {
+            font-size: 2.5em; /* Increase font size of h2 */
+            margin: 0; /* Remove default margin */
+        }
+        p {
+            margin-top: 10px; /* Space between h2 and p */
+        }
+        .container {
+            width: 100%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Flexbox for card layout */
+            flex-wrap: wrap; /* Allow cards to wrap */
+            justify-content: center; /* Center cards */
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            padding: 20px;
+            width: calc(30% - 40px); /* Three cards per row */
+            box-sizing: border-box; /* Include padding in width */
+            transition: transform 0.3s, box-shadow 0.3s; /* Add transitions for hover effects */
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Move up slightly on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+        .team-member img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .learn-more {
+            display: flex; /* Use flexbox for better alignment */
+            align-items: center; /* Center items vertically */
+            margin-top: 10px; /* Space above the link */
+            font-size: 1.2em; /* Bigger text */
+            color: #007BFF; /* Link color */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Make the text bold */
+        }
+        .learn-more:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .arrow {
+            margin-left: 5px; /* Space between text and arrow */
+            font-size: 1.5em; /* Adjust arrow size */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Full-width Header Image with Centered Text at the Bottom -->
+    <div class="full-width-image">
+        <h2>Learn more about the RFAG Church</h2>
+        <p>Your journey begins here, join us in exploring faith and community.</p>
+    </div>
+
+    <div class="container">
+        <!-- Mission & Vision Card -->
+        <div class="card">
+            <h1>Our Mission & Vision</h1>
+            <p>We are dedicated to bringing people closer to God, spreading His love, and building a supportive community.</p>
+            <a href="mission.html" class="learn-more">Learn More<span class="arrow">→</span></a> <!-- Link to Mission Page -->
+        </div>
+
+        <!-- Leadership Team Card -->
+        <div class="card">
+            <h1>Meet our Leadership</h1>
+            <p>Meet the lead Pastors who set the vision of RFAG Church.</p>
+            <a href="leadership.html" class="learn-more">Learn More<span class="arrow">→</span></a> <!-- Link to Leadership Page -->
+        </div>
+    </div>
+
+</body>
+</html>

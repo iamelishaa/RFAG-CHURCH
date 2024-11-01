@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFAG Church | Sermons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .featured-sermon {
+            width: 100%;
+            height: 80vh;
+            text-align: left;
+            margin-bottom: 80px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .featured-video {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+        .nav-slider {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin: 0px 0;
+            position: relative; /* Position relative for absolute children */
+        }
+        .sermon-list {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: calc(275px * 10); /* Adjust width based on total number of items */
+        }
+        .sermon-item {
+            min-width: 290px; /* Reduced width to allow overlap */
+            margin: 5px 10px;
+            text-align: center;
+            padding: none;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: left;
+        
+        }
+
+        .sermon-item h4 {
+            margin-bottom: 5px; /* Adjust as needed */
+        }
+
+        .sermon-item p {
+            margin: 0; /* Remove default margin */
+        }
+
+        .sermon-item:hover {
+        transform: scale(1.05); /* Scale the item slightly */
+        transition: transform 0.3s ease; /* Smooth transition */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+    }
+
+        
+        .preview-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+        }
+        .nav-button {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            position: absolute;
+            top: 35.3333%; /* Center vertically within nav-slider */
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .nav-button.prev {
+            left: -5px; /* Adjust left position */
+        }
+        .nav-button.next {
+            right: -5px; /* Adjust right position */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="featured-sermon">
+            <h2>Sermon</h2>
+            <iframe class="featured-video" id="featuredVideo"
+                src="https://www.youtube-nocookie.com/embed/OjBWRB5i8v4?controls=1&modestbranding=1&rel=0&iv_load_policy=3"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <h3>Recent Sermons</h3>
+        <div class="nav-slider">
+            <button class="nav-button prev" onclick="slide(-1)">❮</button>
+            <button class="nav-button next" onclick="slide(1)">❯</button>
+
+            <div class="sermon-list" id="sermonSlider">
+                <div class="sermon-item" onclick="changeVideo('wREIW1CFJyg')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/wREIW1CFJyg/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Family blessing service</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('BYY5OBEYp1A')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/BYY5OBEYp1A/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>Communion Service</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('T8HYXGSk2tI')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/T8HYXGSk2tI/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>Communion Service</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('ZJuCaaN4pZY')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/ZJuCaaN4pZY/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>Communion Service</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('pelmaCr2JsI')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/q7bM9KwF0GE/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>LIVE | SPECIAL SUNDAY SERVICE </h4>
+                    <p>PAS.DINESH DANIEL</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('B_6L-ngAIMA')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/B_6L-ngAIMA/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>LIVE | SPECIAL SUNDAY SERVICE</h4>
+                    <p>PAS.DINESH DANIEL</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('Uug843XfY8Y')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/Uug843XfY8Y/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>LIVE | FAMILY BLESSING PRAYER </h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('4VvBmVk0D-Q')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/4VvBmVk0D-Q/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>LIVE | SUNDAY SERVICE | 10:30AM</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('gSoc-DmTV98')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/gSoc-DmTV98/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>LIVE | SUNDAY SERVICE</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('IG98pWDO5vw')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/IG98pWDO5vw/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>LIVE | SUNDAY SERVICE</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" onclick="changeVideo('XxOB0WVhN44')">
+                    <img class="preview-image" src="https://img.youtube.com/vi/XxOB0WVhN44/hqdefault.jpg" alt="Communion Service preview">
+                    <h4>LIVE | FASTING PRAYER</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        const sermonSlider = document.getElementById('sermonSlider');
+        const sermonItems = document.querySelectorAll('.sermon-item');
+        const itemWidth = 275; // Width of each item
+        const visibleItems = 3; // Number of items to show
+        let currentIndex = 0; // Track the current index of visible items
+    
+        function slide(direction) {
+            // Update the current index based on the direction
+            currentIndex += direction;
+    
+            // Loop the index if it goes out of bounds
+            if (currentIndex < 0) {
+                currentIndex = 0; // Prevent moving before the first item
+            } else if (currentIndex > sermonItems.length - visibleItems) {
+                currentIndex = sermonItems.length - visibleItems; // Prevent moving past the last visible items
+            }
+    
+            const offset = -currentIndex * itemWidth; // Calculate new offset
+            sermonSlider.style.transform = `translateX(${offset}px)`; // Apply the transform
+        }
+    
+        function changeVideo(videoId) {
+            const featuredVideo = document.getElementById('featuredVideo');
+            featuredVideo.src = `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1&rel=0&iv_load_policy=3`;
+        }
+    
+        // Reset video to the first sermon when it ends
+        const featuredVideo = document.getElementById('featuredVideo');
+        featuredVideo.addEventListener('ended', () => {
+            const firstVideoId = sermonItems[0].onclick.toString().match(/'([^']+)'/)[1]; // Get first video ID
+            changeVideo(firstVideoId); // Change video to the first sermon
+        });
+    </script>
+    
+</body>
+</html>

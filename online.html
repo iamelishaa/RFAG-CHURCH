@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online | Church Name</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif; /* Use Poppins font */
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex; /* Use flexbox for layout */
+            align-items: flex-start; /* Align items to the start */
+        }
+
+        .live-stream {
+            margin: 20px;
+            position: relative; /* Position relative for text overlay */
+            text-align: left; /* Left align for image */
+            flex: 1; /* Allow image section to grow */
+        }
+        .live-stream img {
+            width: 100%; /* Make image responsive */
+            max-width: 1600px; /* Increased max width for a larger image */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Optional: rounded corners */
+        }
+        .live-stream .content {
+            position: absolute; /* Absolute positioning for content */
+            bottom: 10px; /* Position from the bottom */
+            left: 0; /* Align text to the left */
+            color: white; /* White text color */
+            text-align: left; /* Left text alignment */
+            padding: 10px; /* Padding around text */
+            border-radius: 5px; /* Rounded corners for overlay */
+        }
+
+        .watch-button {
+        background-color: white; /* YouTube red */
+        color: black; /* White text color */
+        padding: 10px 20px; /* Padding for button */
+        border: none; /* No border */
+        border-radius: 25px; /* Rounded corners */
+        text-decoration: none; /* No underline */
+        font-weight: bold; /* Bold text */
+        display: inline-block; /* Block display for button */
+        text-align: center; /* Center text */
+        margin-top: 0; /* Remove space above the button */
+        }   
+
+        .cards {
+            display: flex;
+            padding-top: 20px;
+            flex-direction: column; /* Stack cards vertically */
+            justify-content: flex-start; /* Align cards to the start */
+            margin-left: 20px; /* Space between image and cards */
+            gap: 30px; /* Increased space between cards */
+            max-width: 250px; /* Set a max width for cards */
+        }
+        .resource {
+            background-color: #fff; /* White background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            padding: 15px; /* Adjusted padding */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+        }
+
+        .social-media {
+            background-color: #fff; /* White background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            padding: 20px; /* Padding for the card */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+            display: flex;
+            flex-direction: column; /* Stack links vertically */
+        }
+
+        .social-media h2 {
+            margin-bottom: 15px; /* Margin for heading */
+            color: black; /* Darker color for headings */
+        }
+
+        .social-link {
+            display: flex; /* Use flexbox for horizontal layout */
+            align-items: center; /* Center align items */
+            padding: 10px 0; /* Padding for spacing */
+            border-top: 1px solid #ccc; /* Line above each item */
+        }
+        .social-link:first-child {
+            border-top: none; /* Remove top border for the first link */
+        }
+        .social-link a {
+            color: black; /* Link color */
+            text-decoration: none; /* No underline */
+            font-weight: bold; /* Bold text */
+            flex: 1; /* Allow the link to take up available space */
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Center align items */
+        }
+        .social-link a i {
+            margin-right: 10px; /* Space between icon and text */
+            font-size: 1.2em; /* Size of the icons */
+        }
+        .social-link a:hover {
+            color: #0073e6; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="live-stream">
+            <img src="./images/pastor.png" alt="Live Stream" /> <!-- Replace with your live stream image path -->
+            <div class="content">
+                <h3>Join our live services every Sunday at 7:30 AM & 10:30 AM.</h3>
+                <a href="live.html" target="_blank" class="watch-button">Watch Sermon </a>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="resource">
+                <h1>Online Resources</h1>
+                <p>Access our sermon archives</p>
+                <ul>
+                    <li><a href="sermons.html">Sermon Archives</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="social-media">
+                <h2>Follow Us</h2>
+                <div class="social-link">
+                    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                </div>
+                <div class="social-link">
+                    <a href="https://facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+                <div class="social-link">
+                    <a href="https://youtube.com/yourprofile" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+                <div class="social-link">
+                    <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
