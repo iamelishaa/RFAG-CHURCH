@@ -3,3 +3,255 @@
 
 
 		
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+    <link rel="stylesheet" href="css/stylesheet.css">  
+    <title>RFAG Church - A Mission With A Big Vision</title>
+    <link rel="shortcut icon" href="images/16.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: white; /* Navbar background */
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #343a40; /* Logo color */
+            transition: transform 0.3s ease;
+        }
+        .logo img {
+            height: 50px; /* Adjust the height of the logo */
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center; /* Center items vertically */
+        }
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black; /* Link color */
+            font-weight: 600;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        .navbar ul li a::after {
+            content: '';
+            display: block;
+            height: 2px;
+            background: #5a5ca4; /* Color for the underline */
+            width: 0;
+            transition: width 0.3s ease;
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+        }
+        .navbar ul li a:hover {
+            color: #5a5ca4; /* Change link color on hover */
+        }
+        .navbar ul li:hover a::after {
+            width: 100%; /* Expand underline on hover */
+        }
+        .navbar:hover .logo {
+            transform: scale(1.1); /* Scale logo on hover */
+        }
+
+        .footer {
+            background-color: #ffffff;
+            color: #343a40;
+            padding: 20px 10px; /* Reduced padding */
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h2 {
+            margin: 0 0 15px; /* Reduced margin */
+            color: #5a5ca4;
+            font-size: 1.4em; /* Slightly smaller font size */
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-around; /* Space evenly between sections */
+            flex-wrap: wrap;
+            margin: 10px 0; /* Reduced margin */
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 120px; /* Reduced minimum width */
+            margin: 5px; /* Reduced margin */
+        }
+
+        .footer-section h3 {
+            margin-bottom: 8px; /* Reduced space below headings */
+            font-size: 1.1em; /* Slightly smaller font size */
+            color: black;
+        }
+        .footer-section ul {
+            list-style: none; /* Remove default list styling */
+            padding: 0; /* Remove padding */
+        }
+
+        .footer-divider {
+            border: 0;
+            padding: 0;
+            height: 1px; /* Thinner divider */
+            background-color: black;
+            margin: 15px 0; /* Reduced spacing around the divider */
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: space-between; /* Distribute space between address and social icons */
+            align-items: center; /* Center alignment */
+            padding: 0; /* Spacing above and below */
+        }
+
+        .footer-address {
+            text-align: left; /* Align address text to the left */
+            flex: 1; /* Allow address to take available space */
+        }
+
+        .social-links {
+            display: flex; /* Flex for social icons */
+            gap: 15px; /* Space between icons */
+            justify-content: flex-end; /* Align social icons to the right */
+        }
+        .social-links a {
+            color: inherit; /* Default to inherit color */
+        }
+
+        .social-links a.facebook {
+            color: #3b5998; /* Facebook brand color */
+        }
+
+        .social-links a.twitter {
+            color: #1da1f2; /* Twitter brand color */
+        }
+
+        .social-links a.instagram {
+            color: #c13584; /* Instagram brand color */
+        }
+
+        .social-links a.youtube {
+            color: #ff0000; /* YouTube brand color */
+        }
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #343a40; /* Link color */
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #5a5ca4; /* Hover color */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="online.html">Online</a></li>
+            <li><a href="giving.html">Giving</a></li>
+        </ul>
+    </nav>
+    
+
+
+    
+    <footer class="footer">
+        <div class="footer-content">
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="mission.html">Our Mission</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Media</h3>
+                    <ul>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="online.html">Watch Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ministries</h3>
+                    <ul>
+                        <li><a href="#children">Children's Ministry</a></li>
+                        <li><a href="#youth">Youth Group</a></li>
+                        <li><a href="#outreach">Outreach Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Personal</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider"> <!-- Divider for separation -->
+            <div class="footer-social">
+                <div class="footer-address">
+                    <p>123 Rhema St, Cityville, ST 12345 | 12345-12345</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

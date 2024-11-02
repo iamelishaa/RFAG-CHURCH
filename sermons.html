@@ -3,102 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RFAG Church | Sermons</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .featured-sermon {
-            width: 100%;
-            height: 80vh;
-            text-align: left;
-            margin-bottom: 80px;
-        }
-
-        h3 {
-            font-size: 1.5em;
-            margin-top: 30px;
-            text-align: left;
-        }
-        .featured-video {
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-        }
-        .nav-slider {
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            margin: 0px 0;
-            position: relative; /* Position relative for absolute children */
-        }
-        .sermon-list {
-            display: flex;
-            transition: transform 0.5s ease;
-            width: calc(275px * 10); /* Adjust width based on total number of items */
-        }
-        .sermon-item {
-            min-width: 290px; /* Reduced width to allow overlap */
-            margin: 5px 10px;
-            text-align: center;
-            padding: none;
-            overflow: hidden;
-            cursor: pointer;
-            text-align: left;
-        
-        }
-
-        .sermon-item h4 {
-            margin-bottom: 5px; /* Adjust as needed */
-        }
-
-        .sermon-item p {
-            margin: 0; /* Remove default margin */
-        }
-
-        .sermon-item:hover {
-        transform: scale(1.05); /* Scale the item slightly */
-        transition: transform 0.3s ease; /* Smooth transition */
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
-    }
-
-        
-        .preview-image {
-            width: 100%;
-            height: 200px;
-            border-radius: 8px;
-        }
-        .nav-button {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            position: absolute;
-            top: 35.3333%; /* Center vertically within nav-slider */
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-        .nav-button.prev {
-            left: -5px; /* Adjust left position */
-        }
-        .nav-button.next {
-            right: -5px; /* Adjust right position */
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+    <link rel="stylesheet" href="css/sermons.css">  
+    <title>Sermons | RFAG Church</title>
+    <link rel="shortcut icon" href="images/16.png" type="image/x-icon">
+    
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="online.html">Online</a></li>
+            <li><a href="giving.html">Giving</a></li>
+        </ul>
+    </nav>
+    
+
     <div class="container">
         <div class="featured-sermon">
             <h2>Sermon</h2>
@@ -208,6 +136,57 @@
             changeVideo(firstVideoId); // Change video to the first sermon
         });
     </script>
+
     
+    <footer class="footer">
+        <div class="footer-content">
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="mission.html">Our Mission</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Media</h3>
+                    <ul>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="online.html">Watch Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ministries</h3>
+                    <ul>
+                        <li><a href="#children">Children's Ministry</a></li>
+                        <li><a href="#youth">Youth Group</a></li>
+                        <li><a href="#outreach">Outreach Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Personal</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider"> <!-- Divider for separation -->
+            <div class="footer-social">
+                <div class="footer-address">
+                    <p>123 Rhema St, Cityville, ST 12345 | 12345-12345</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
