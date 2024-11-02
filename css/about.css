@@ -1,117 +1,113 @@
+/* Basic styles for the body and font */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #f9f9f9; /* Light gray background */
+    color: #333; /* Dark text color */
 }
+
+/* Navigation bar styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: white;
-    position: relative;
+    background-color: white; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #343a40;
-    transition: transform 0.3s ease;
-}
+
+/* Logo styles */
 .logo img {
-    height: 50px;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+    height: 50px; /* Logo size */
 }
+
+/* Navbar links styles */
 .navbar ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
-    align-items: center;
 }
+
 .navbar ul li {
     margin: 0 20px;
-    position: relative;
 }
+
 .navbar ul li a {
     text-decoration: none;
     color: black;
     font-weight: 600;
-    padding: 5px 0;
-    transition: color 0.3s ease;
 }
-.navbar ul li a::after {
-    content: '';
-    display: block;
-    height: 2px;
-    background: #5a5ca4;
-    width: 0;
-    transition: width 0.3s ease;
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    transform: translateX(-50%);
-}
-.navbar ul li a:hover {
-    color: #5a5ca4;
-}
-.navbar ul li:hover a::after {
-    width: 100%;
-}
-.navbar:hover .logo {
-    transform: scale(1.1);
-}
+
+/* Full-width image section */
 .full-width-image {
-    width: 100%;
-    height: 50vh;
-    background-image: url('../images/about-bg.jpg');
-    background-size: cover;
+    width: 100%; 
+    max-width: 1200px; /* Keep the max-width to ensure it doesn't grow too large */
+    height: 400px; /* Set height for the image area */
+    margin: 0 auto; /* Center the image */
+    background-image: url('../images/about.png'); /* Path to your image */
+    background-size: cover; 
     background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Align items at the bottom */
     align-items: center;
     text-align: center;
     color: white;
-    padding: 20px;
+    padding: 20px; /* Add padding for better spacing */
+    box-sizing: border-box; /* Ensure padding doesn't affect overall width */
 }
-h2 {
+
+
+/* Title and paragraph styles within the full-width image */
+.full-width-image h2 {
     font-size: 2.5em;
     margin: 0;
 }
-p {
+
+.full-width-image p {
     margin-top: 10px;
 }
+
+/* Container for cards */
 .container {
-    width: 100%;
-    background-color: #f0f0f0;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; /* Center cards in the container */
+    flex-wrap: wrap; /* Allow cards to wrap */
+    padding: 20px; /* Padding around the container */
 }
+
+/* Individual card styles */
 .card {
     background: white;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin: 20px;
     padding: 20px;
-    width: calc(30% - 40px);
+    width: calc(45% - 88px); /* Adjusted width for two cards */
     box-sizing: border-box;
     transition: transform 0.3s, box-shadow 0.3s;
 }
+
+/* Hover effect for cards */
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-.team-member img {
-    max-width: 100%;
-    border-radius: 10px;
+
+/* Card title styles */
+.card h1 {
+    font-size: 1.8em; /* Title size */
+    margin-bottom: 10px; /* Space below the title */
 }
+
+/* Card paragraph styles */
+.card p {
+    margin: 10px 0; /* Margin for paragraphs */
+}
+
+/* Learn more link styles */
 .learn-more {
     display: flex;
     align-items: center;
@@ -121,144 +117,244 @@ p {
     text-decoration: none;
     font-weight: bold;
 }
-.learn-more:hover {
-    text-decoration: underline;
-}
+
+/* Arrow icon styles */
 .arrow {
     margin-left: 5px;
     font-size: 1.5em;
 }
+
+/* Footer styles */
 .footer {
     background-color: #ffffff;
     color: #343a40;
-    padding: 20px 10px;
+    padding: 20px 10px; /* Reduced padding */
     text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
 }
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
 }
 .footer h2 {
-    margin: 0 0 15px;
+    margin: 0 0 15px; /* Reduced margin */
     color: #5a5ca4;
-    font-size: 1.4em;
+    font-size: 1.4em; /* Slightly smaller font size */
 }
 .footer-links {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; /* Space evenly between sections */
     flex-wrap: wrap;
-    margin: 10px 0;
+    margin: 10px 0; /* Reduced margin */
 }
 .footer-section {
     flex: 1;
-    min-width: 120px;
-    margin: 5px;
+    min-width: 120px; /* Reduced minimum width */
+    margin: 5px; /* Reduced margin */
 }
 .footer-section h3 {
-    margin-bottom: 8px;
-    font-size: 1.1em;
+    margin-bottom: 8px; /* Reduced space below headings */
+    font-size: 1.1em; /* Slightly smaller font size */
     color: black;
 }
 .footer-section ul {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
 }
 .footer-divider {
     border: 0;
-    height: 1px;
+    padding: 0;
+    height: 1px; /* Thinner divider */
     background-color: black;
-    margin: 15px 0;
+    margin: 15px 0; /* Reduced spacing around the divider */
 }
 .footer-social {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
+    justify-content: space-between; /* Distribute space between address and social icons */
+    align-items: center; /* Center alignment */
+    padding: 0; /* Spacing above and below */
 }
 .footer-address {
-    text-align: left;
-    flex: 1;
+    text-align: left; /* Align address text to the left */
+    flex: 1; /* Allow address to take available space */
 }
 .social-links {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-end;
+    display: flex; /* Flex for social icons */
+    gap: 15px; /* Space between icons */
+    justify-content: flex-end; /* Align social icons to the right */
 }
 .social-links a {
-    color: inherit;
+    color: inherit; /* Default to inherit color */
 }
 .social-links a.facebook {
-    color: #3b5998;
+    color: #3b5998; /* Facebook brand color */
 }
 .social-links a.twitter {
-    color: #1da1f2;
+    color: #1da1f2; /* Twitter brand color */
 }
 .social-links a.instagram {
-    color: #c13584;
+    color: #c13584; /* Instagram brand color */
 }
 .social-links a.youtube {
-    color: #ff0000;
+    color: #ff0000; /* YouTube brand color */
+}
+.footer-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .footer-links a {
-    color: #343a40;
+    color: #343a40; /* Link color */
     text-decoration: none;
     margin: 0 15px;
     transition: color 0.3s;
 }
+
 .footer-links a:hover {
-    color: #5a5ca4;
+    color: #5a5ca4; /* Hover color */
 }
 
-/* Mobile styles */
+.hamburger {
+    display: none; /* Hide by default */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1.8em; /* Size of the icon */
+    position: absolute; /* Position it absolutely */
+    top: 15px; /* Space from the top */
+    right: 30px; /* Space from the right */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+/* Hamburger lines */
+.hamburger span {
+    display: block; /* Each line is a block */
+    width: 30px; /* Width of each line */
+    height: 3px; /* Height of each line */
+    background-color: black; /* Color of the lines */
+    margin: 9px auto; /* Margin for spacing */
+    transition: all 0.3s; /* Smooth transition for the transformation */
+}
+
+/* Change to X when active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px); /* First line */
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0; /* Middle line becomes invisible */
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px); /* Last line */
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+    /* Adjust navbar for small screens */
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Add some padding */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Stack navbar links */
+        margin-top: 10px; /* Space above navbar links */
+        width: 100%; /* Full width for the dropdown */
+    }
+
+    .navbar ul li {
+        margin: 5px 0; /* Space between navbar items */
+    }
+
+    /* Adjust card styles */
+    .card {
+        width: calc(90% - 20px); /* Full width minus margins */
+        margin: 10px 0; /* Reduce margin between cards */
+    }
+
+    /* Adjust full-width image text */
+    .full-width-image {
+        padding: 10px; /* Less padding on small screens */
+    }
+
+    .full-width-image h2 {
+        font-size: 1.5em; /* Smaller title */
+    }
+
+    .full-width-image p {
+        font-size: 0.9em; /* Smaller paragraph text */
+    }
+}
+
+/* Small devices (landscape phones, 601px to 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    /* Navbar and card adjustments for larger phones */
+    .navbar {
+        padding: 10px; /* Adjust padding */
+        justify-content: space-between; /* Space items evenly */
+    }
+
+    .card {
+        width: calc(45% - 20px); /* Two cards side by side */
+        margin: 10px; /* Space between cards */
+    }
+
+    .full-width-image h2 {
+        font-size: 1.6em; /* Slightly smaller title */
+    }
+
+    .full-width-image p {
+        font-size: 1em; /* Adjust paragraph text */
+    }
+}
+
+/* Medium devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Navbar adjustments for tablets */
+    .navbar {
+        padding: 15px; /* Increased padding */
+    }
+
+    .card {
+        width: calc(30% - 20px); /* Three cards side by side */
+    }
+
+    .full-width-image h2 {
+        font-size: 1.8em; /* Adjust title size */
+    }
+
+    .full-width-image p {
+        font-size: 1.1em; /* Adjust paragraph text */
+    }
+}
+
+/* Navbar styles for smaller screens */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        padding: 10px;
+        position: relative; /* Make navbar relative for absolute positioning of hamburger */
     }
+
     .navbar ul {
-        flex-direction: column;
-        align-items: flex-start;
+        display: none; /* Hide menu links by default on small screens */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Full width */
+        background: white; /* Background for dropdown */
+        position: absolute; /* Position it absolutely */
+        top: 60px; /* Below the navbar */
+        left: 0; /* Align left */
+        z-index: 10; /* Ensure it's above other content */
     }
-    .navbar ul li {
-        margin: 10px 0;
-    }
-    .card {
-        width: calc(100% - 40px);
-    }
-    .full-width-image {
-        height: 30vh;
-    }
-    h2 {
-        font-size: 2em;
-    }
-    .learn-more {
-        font-size: 1em;
-    }
-}
 
-/* Tablet styles */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .card {
-        width: calc(45% - 40px);
+    .navbar ul.active {
+        display: flex; /* Show the menu when active */
     }
-    .navbar ul li {
-        margin: 0 15px;
-    }
-    h2 {
-        font-size: 2.2em;
-    }
-}
 
-/* Desktop styles */
-@media (min-width: 1025px) {
-    .card {
-        width: calc(30% - 40px);
+    .navbar ul li {
+        margin: 10px 0; /* Space between links */
     }
-    .navbar {
-        padding: 15px 30px;
-    }
-    h2 {
-        font-size: 2.5em;
+
+    .hamburger {
+        display: block; /* Show hamburger icon on small screens */
     }
 }

@@ -144,3 +144,14 @@ function slide(direction) {
     const offset = -currentIndex * 320; // Width of item + margin
     slider.style.transform = `translateX(${offset}px)`;
 }
+
+// hamburger.js
+
+// Get references to the hamburger icon and the navigation links
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+// Toggle the active class on click
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});

@@ -8,16 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
     <link rel="stylesheet" href="css/about.css">  
-    <title>About  RFAG Church</title>
+    <title>RFAG Church - A Mission With A Big Vision</title>
     <link rel="shortcut icon" href="images/16.png" type="image/x-icon">
-
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">
             <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
         </div>
-        <ul>
+        <div class="hamburger" id="hamburger">
+           
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="sermons.html">Sermons</a></li>
             <li><a href="about.html">About</a></li>
@@ -26,9 +31,8 @@
         </ul>
     </nav>
     
-
-     <!-- Full-width Header Image with Centered Text at the Bottom -->
-     <div class="full-width-image">
+    <!-- Full-width Header Image with Centered Text at the Bottom -->
+    <div class="full-width-image">
         <h2>Learn more about the RFAG Church</h2>
         <p>Your journey begins here, join us in exploring faith and community.</p>
     </div>
@@ -49,10 +53,8 @@
         </div>
     </div>
 
-    
     <footer class="footer">
         <div class="footer-content">
-            
             <div class="footer-links">
                 <div class="footer-section">
                     <h3>About</h3>
@@ -100,5 +102,26 @@
             <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Get references to the hamburger icon and the navigation links
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
+
+// Toggle the active class on hamburger click
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // Toggle the active class for the hamburger
+});
+
+// Close the menu when a link is clicked
+Array.from(navItems).forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active'); // Remove active class to close the menu
+        hamburger.classList.remove('active'); // Remove active class from hamburger
+    });
+});
+    </script> <!-- Include JavaScript for hamburger menu -->
 </body>
 </html>

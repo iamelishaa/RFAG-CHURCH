@@ -179,6 +179,55 @@
         .footer-links a:hover {
             color: #5a5ca4; /* Hover color */
         }
+        .hamburger span {
+    display: block; /* Each line is a block */
+    width: 30px; /* Width of each line */
+    height: 3px; /* Height of each line */
+    background-color: black; /* Color of the lines */
+    margin: 9px auto; /* Margin for spacing */
+    transition: all 0.3s; /* Smooth transition for the transformation */
+}
+
+/* Change to X when active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px); /* First line */
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0; /* Middle line becomes invisible */
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px); /* Last line */
+}
+        @media (max-width: 768px) {
+    .navbar ul {
+        display: none; /* Hide menu links by default on small screens */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Full width */
+        background: white; /* Background for dropdown */
+        position: absolute; /* Position it absolutely */
+        top: 60px; /* Below the navbar */
+        left: 0; /* Align left */
+        z-index: 10; /* Ensure it's above other content */
+    }
+
+    .navbar ul.active {
+        display: flex; /* Show the menu when active */
+    }
+
+    .navbar ul li {
+        margin: 10px 0; /* Space between links */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on small screens */
+    }
+
+    .close-button {
+        display: block; /* Show close button when menu is open */
+    }
+}
     </style>
 </head>
 <body>
@@ -186,7 +235,12 @@
         <div class="logo">
             <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
         </div>
-        <ul>
+        <div id="hamburger" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="sermons.html">Sermons</a></li>
             <li><a href="about.html">About</a></li>
@@ -314,5 +368,25 @@
             <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
         </div>
     </footer>
+    <script>
+       // Get references to the hamburger icon and the navigation links
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
+
+// Toggle the active class on hamburger click
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // Toggle the active class for the hamburger
+});
+
+// Close the menu when a link is clicked
+Array.from(navItems).forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active'); // Remove active class to close the menu
+        hamburger.classList.remove('active'); // Remove active class from hamburger
+    });
+});
+    </script>
 </body>
 </html>

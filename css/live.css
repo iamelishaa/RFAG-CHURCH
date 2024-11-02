@@ -62,3 +62,63 @@ iframe {
     width: 100%;
     border-radius: 8px;
 }
+
+/* Media Queries for Responsiveness */
+
+/* Tablet View (Landscape) */
+@media (max-width: 1024px) {
+    iframe {
+        height: 450px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+    .large-card {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
+
+/* Tablet View (Portrait) */
+@media (max-width: 768px) {
+    .video-container {
+        width: 90%;
+    }
+    iframe {
+        height: 400px;
+    }
+    .large-card {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.95em;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+    iframe {
+        height: 300px;
+    }
+    .video-container {
+        width: 100%;
+    }
+    .large-card {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    .cards {
+        gap: 8px;
+    }
+    .card h3 {
+        font-size: 0.9em;
+    }
+    .card img {
+        height: auto;
+    }
+}
