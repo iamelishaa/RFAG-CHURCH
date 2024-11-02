@@ -26,6 +26,7 @@
             position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
         }
+        
         .logo {
             font-size: 1.5em;
             font-weight: bold;
@@ -179,55 +180,58 @@
         .footer-links a:hover {
             color: #5a5ca4; /* Hover color */
         }
+        
+        .hamburger {
+            display: none; /* Hide hamburger by default */
+        }
+
         .hamburger span {
-    display: block; /* Each line is a block */
-    width: 30px; /* Width of each line */
-    height: 3px; /* Height of each line */
-    background-color: black; /* Color of the lines */
-    margin: 9px auto; /* Margin for spacing */
-    transition: all 0.3s; /* Smooth transition for the transformation */
-}
+            display: block; /* Each line is a block */
+            width: 30px; /* Width of each line */
+            height: 3px; /* Height of each line */
+            background-color: black; /* Color of the lines */
+            margin: 9px auto; /* Margin for spacing */
+            transition: all 0.3s; /* Smooth transition for the transformation */
+        }
 
-/* Change to X when active */
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px); /* First line */
-}
+        /* Change to X when active */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px); /* First line */
+        }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0; /* Middle line becomes invisible */
-}
+        .hamburger.active span:nth-child(2) {
+            opacity: 0; /* Middle line becomes invisible */
+        }
 
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px); /* Last line */
-}
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px); /* Last line */
+        }
+
+        /* Media query for mobile screens */
         @media (max-width: 768px) {
-    .navbar ul {
-        display: none; /* Hide menu links by default on small screens */
-        flex-direction: column; /* Stack links vertically */
-        width: 100%; /* Full width */
-        background: white; /* Background for dropdown */
-        position: absolute; /* Position it absolutely */
-        top: 60px; /* Below the navbar */
-        left: 0; /* Align left */
-        z-index: 10; /* Ensure it's above other content */
-    }
+            .navbar ul {
+                display: none; /* Hide menu links by default on small screens */
+                flex-direction: column; /* Stack links vertically */
+                width: 100%; /* Full width */
+                background: white; /* Background for dropdown */
+                position: absolute; /* Position it absolutely */
+                top: 60px; /* Below the navbar */
+                left: 0; /* Align left */
+                z-index: 10; /* Ensure it's above other content */
+            }
 
-    .navbar ul.active {
-        display: flex; /* Show the menu when active */
-    }
+            .navbar ul.active {
+                display: flex; /* Show the menu when active */
+            }
 
-    .navbar ul li {
-        margin: 10px 0; /* Space between links */
-    }
+            .navbar ul li {
+                margin: 10px 0; /* Space between links */
+            }
 
-    .hamburger {
-        display: block; /* Show hamburger icon on small screens */
-    }
-
-    .close-button {
-        display: block; /* Show close button when menu is open */
-    }
-}
+            .hamburger {
+                display: block; /* Show hamburger icon on small screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -248,6 +252,7 @@
             <li><a href="giving.html">Giving</a></li>
         </ul>
     </nav>
+
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -316,77 +321,59 @@
 
      <!--Pricing-->
 
+    <script>
+        // Toggle the active class on hamburger click
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
 
-    
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active'); // Toggle the visibility of the menu
+        });
+    </script>
+
     <footer class="footer">
         <div class="footer-content">
-            
+            <h2>Stay Connected</h2>
             <div class="footer-links">
                 <div class="footer-section">
                     <h3>About</h3>
                     <ul>
-                        <li><a href="mission.html">Our Mission</a></li>
-                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Media</h3>
+                    <h3>Services</h3>
                     <ul>
-                        <li><a href="sermons.html">Sermons</a></li>
-                        <li><a href="online.html">Watch Online</a></li>
+                        <li><a href="#">Counseling</a></li>
+                        <li><a href="#">Community Service</a></li>
+                        <li><a href="#">Outreach</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Ministries</h3>
+                    <h3>Contact</h3>
                     <ul>
-                        <li><a href="#children">Children's Ministry</a></li>
-                        <li><a href="#youth">Youth Group</a></li>
-                        <li><a href="#outreach">Outreach Program</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Personal</h3>
-                    <ul>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#terms">Terms of Service</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Location</a></li>
+                        <li><a href="#">Support</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="footer-divider"> <!-- Divider for separation -->
+            <div class="footer-divider"></div>
             <div class="footer-social">
                 <div class="footer-address">
-                    <p>123 Rhema St, Cityville, ST 12345 | 12345-12345</p>
+                    <p>123 Church Street, City, Country</p>
                 </div>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
         </div>
     </footer>
-    <script>
-       // Get references to the hamburger icon and the navigation links
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
-const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
-
-// Toggle the active class on hamburger click
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active'); // Toggle the active class for the hamburger
-});
-
-// Close the menu when a link is clicked
-Array.from(navItems).forEach(item => {
-    item.addEventListener('click', () => {
-        navLinks.classList.remove('active'); // Remove active class to close the menu
-        hamburger.classList.remove('active'); // Remove active class from hamburger
-    });
-});
-    </script>
 </body>
 </html>

@@ -17,7 +17,12 @@
         <div class="logo">
             <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
         </div>
-        <ul>
+        <div id="hamburger" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="sermons.html">Sermons</a></li>
             <li><a href="about.html">About</a></li>
@@ -25,6 +30,7 @@
             <li><a href="giving.html">Giving</a></li>
         </ul>
     </nav>
+    
     
 
     <div class="container">
@@ -103,38 +109,79 @@
     </div>
 
     <script>
-        const sermonSlider = document.getElementById('sermonSlider');
-        const sermonItems = document.querySelectorAll('.sermon-item');
-        const itemWidth = 275; // Width of each item
-        const visibleItems = 3; // Number of items to show
-        let currentIndex = 0; // Track the current index of visible items
-    
-        function slide(direction) {
-            // Update the current index based on the direction
-            currentIndex += direction;
-    
-            // Loop the index if it goes out of bounds
-            if (currentIndex < 0) {
-                currentIndex = 0; // Prevent moving before the first item
-            } else if (currentIndex > sermonItems.length - visibleItems) {
-                currentIndex = sermonItems.length - visibleItems; // Prevent moving past the last visible items
-            }
-    
-            const offset = -currentIndex * itemWidth; // Calculate new offset
-            sermonSlider.style.transform = `translateX(${offset}px)`; // Apply the transform
-        }
-    
-        function changeVideo(videoId) {
-            const featuredVideo = document.getElementById('featuredVideo');
-            featuredVideo.src = `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1&rel=0&iv_load_policy=3`;
-        }
-    
-        // Reset video to the first sermon when it ends
-        const featuredVideo = document.getElementById('featuredVideo');
-        featuredVideo.addEventListener('ended', () => {
-            const firstVideoId = sermonItems[0].onclick.toString().match(/'([^']+)'/)[1]; // Get first video ID
-            changeVideo(firstVideoId); // Change video to the first sermon
-        });
+
+        
+   // Get references to the sermon slider and items
+const sermonSlider = document.getElementById('sermonSlider');
+const sermonItems = document.querySelectorAll('.sermon-item');
+const itemWidth = 275; // Width of each sermon item (without margins)
+const visibleItemsCount = 3; // Number of visible items at once
+let currentIndex = 0; // Tracks the current index of visible items
+
+// Function to slide items in the specified direction
+function slide(direction) {
+    // Update current index based on the direction
+    currentIndex += direction;
+
+    // Ensure currentIndex remains within bounds
+    if (currentIndex < 0) {
+        currentIndex = 0; // Prevent moving before the first item
+    } else if (currentIndex > sermonItems.length - visibleItemsCount) {
+        currentIndex = sermonItems.length - visibleItemsCount; // Prevent moving past the last visible items
+    }
+
+    // Calculate the new offset for the slider
+    const offset = -currentIndex * (itemWidth + 10); // itemWidth + margin
+    sermonSlider.style.transform = `translateX(${offset}px)`; // Apply transform to the slider
+}
+
+// Add event listeners for navigation buttons
+document.querySelector('.nav-button.next').addEventListener('click', () => slide(1)); // Move right
+document.querySelector('.nav-button.prev').addEventListener('click', () => slide(-1)); // Move left
+
+// Function to change the featured video based on the selected sermon
+function changeVideo(videoId) {
+    const featuredVideo = document.getElementById('featuredVideo');
+    featuredVideo.src = `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1&rel=0&iv_load_policy=3`;
+}
+
+// Event listener to reset the video to the first sermon when it ends
+const featuredVideo = document.getElementById('featuredVideo');
+featuredVideo.addEventListener('ended', () => {
+    const firstVideoId = sermonItems[0].getAttribute('data-video-id'); // Get the ID of the first sermon video
+    changeVideo(firstVideoId); // Change to the first sermon video
+});
+
+// Setup click handlers for sermon items
+sermonItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        const videoId = item.getAttribute('data-video-id'); // Get the video ID from data attribute
+        changeVideo(videoId); // Change the video to the selected sermon
+        currentIndex = index; // Update the current index to the selected item
+        slide(0); // Reset the slide to the selected item
+    });
+});
+
+// Get references to the hamburger icon and navigation links
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const navItems = navLinks.getElementsByTagName('li'); // Get all nav list items
+
+// Toggle the active class on hamburger click
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // Toggle the hamburger's active class
+});
+
+// Close the menu when a link is clicked
+Array.from(navItems).forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active'); // Close the menu
+        hamburger.classList.remove('active'); // Remove the active class from hamburger
+    });
+});
+
+
     </script>
 
     

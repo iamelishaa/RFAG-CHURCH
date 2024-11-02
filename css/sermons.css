@@ -230,3 +230,118 @@ h3 {
 .footer-links a:hover {
     color: #5a5ca4; /* Hover color */
 }
+
+.hamburger span {
+    display: block; /* Each line is a block */
+    width: 30px; /* Width of each line */
+    height: 3px; /* Height of each line */
+    background-color: black; /* Color of the lines */
+    margin: 9px auto; /* Margin for spacing */
+    transition: all 0.3s; /* Smooth transition for the transformation */
+}
+
+/* Change to X when active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px); /* First line */
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0; /* Middle line becomes invisible */
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px); /* Last line */
+}
+
+/* Media Queries */
+
+/* For tablets and small laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 20px; /* Adjust navbar padding */
+    }
+    
+    .logo {
+        font-size: 1.2em; /* Smaller logo font size */
+    }
+    
+    .navbar ul {
+        flex-direction: column; /* Stack nav items vertically */
+        display: none; /* Initially hide the menu */
+    }
+    
+    .navbar.active ul {
+        display: flex; /* Show menu when active */
+    }
+    
+    .sermon-item {
+        min-width: 260px; /* Adjust item width */
+        margin: 5px; /* Reduce margin */
+    }
+
+    .nav-button {
+        width: 40px; /* Smaller nav button */
+        height: 40px; /* Smaller nav button */
+    }
+
+    .featured-sermon {
+        height: 60vh; /* Reduce height for smaller screens */
+    }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Smaller base font size */
+    }
+
+    .navbar {
+        flex-direction: column; /* Stack navbar items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+    
+    .navbar ul {
+        width: 100%; /* Full width for nav links */
+        padding: 10px 0; /* Add padding to the menu */
+    }
+
+    .nav-button {
+        width: 35px; /* Further reduce button size */
+        height: 35px; /* Further reduce button size */
+    }
+
+    .footer {
+        padding: 15px; /* Adjust footer padding */
+    }
+
+    .footer-section {
+        min-width: auto; /* Allow flexibility in width */
+    }
+}
+
+/* For very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    h3 {
+        font-size: 1.3em; /* Smaller heading size */
+    }
+
+    .featured-video {
+        height: 50vh; /* Further reduce video height */
+    }
+
+    .preview-image {
+        height: 150px; /* Reduce image height */
+    }
+
+    .footer h2 {
+        font-size: 1.2em; /* Smaller footer title size */
+    }
+
+    .footer-section h3 {
+        font-size: 1em; /* Smaller section heading */
+    }
+
+    .hamburger span {
+        width: 25px; /* Smaller hamburger lines */
+    }
+}
