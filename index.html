@@ -3,377 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="./css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
-    <link rel="stylesheet" href="css/stylesheet.css">  
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
     <title>RFAG Church - A Mission With A Big Vision</title>
-    <link rel="shortcut icon" href="images/16.png" type="image/x-icon">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background-color: white; /* Navbar background */
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
-        }
-        
-        .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #343a40; /* Logo color */
-            transition: transform 0.3s ease;
-        }
-        .logo img {
-            height: 50px; /* Adjust the height of the logo */
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            align-items: center; /* Center items vertically */
-        }
-        .navbar ul li {
-            margin: 0 20px;
-            position: relative;
-        }
-        .navbar ul li a {
-            text-decoration: none;
-            color: black; /* Link color */
-            font-weight: 600;
-            padding: 5px 0;
-            transition: color 0.3s ease;
-        }
-        .navbar ul li a::after {
-            content: '';
-            display: block;
-            height: 2px;
-            background: #5a5ca4; /* Color for the underline */
-            width: 0;
-            transition: width 0.3s ease;
-            position: absolute;
-            left: 50%;
-            bottom: -5px;
-            transform: translateX(-50%);
-        }
-        .navbar ul li a:hover {
-            color: #5a5ca4; /* Change link color on hover */
-        }
-        .navbar ul li:hover a::after {
-            width: 100%; /* Expand underline on hover */
-        }
-        .navbar:hover .logo {
-            transform: scale(1.1); /* Scale logo on hover */
-        }
-
-        .footer {
-            background-color: #ffffff;
-            color: #343a40;
-            padding: 20px 10px; /* Reduced padding */
-            text-align: center;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer h2 {
-            margin: 0 0 15px; /* Reduced margin */
-            color: #5a5ca4;
-            font-size: 1.4em; /* Slightly smaller font size */
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: space-around; /* Space evenly between sections */
-            flex-wrap: wrap;
-            margin: 10px 0; /* Reduced margin */
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 120px; /* Reduced minimum width */
-            margin: 5px; /* Reduced margin */
-        }
-
-        .footer-section h3 {
-            margin-bottom: 8px; /* Reduced space below headings */
-            font-size: 1.1em; /* Slightly smaller font size */
-            color: black;
-        }
-        .footer-section ul {
-            list-style: none; /* Remove default list styling */
-            padding: 0; /* Remove padding */
-        }
-
-        .footer-divider {
-            border: 0;
-            padding: 0;
-            height: 1px; /* Thinner divider */
-            background-color: black;
-            margin: 15px 0; /* Reduced spacing around the divider */
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: space-between; /* Distribute space between address and social icons */
-            align-items: center; /* Center alignment */
-            padding: 0; /* Spacing above and below */
-        }
-
-        .footer-address {
-            text-align: left; /* Align address text to the left */
-            flex: 1; /* Allow address to take available space */
-        }
-
-        .social-links {
-            display: flex; /* Flex for social icons */
-            gap: 15px; /* Space between icons */
-            justify-content: flex-end; /* Align social icons to the right */
-        }
-        .social-links a {
-            color: inherit; /* Default to inherit color */
-        }
-
-        .social-links a.facebook {
-            color: #3b5998; /* Facebook brand color */
-        }
-
-        .social-links a.twitter {
-            color: #1da1f2; /* Twitter brand color */
-        }
-
-        .social-links a.instagram {
-            color: #c13584; /* Instagram brand color */
-        }
-
-        .social-links a.youtube {
-            color: #ff0000; /* YouTube brand color */
-        }
-        .footer-links {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            color: #343a40; /* Link color */
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #5a5ca4; /* Hover color */
-        }
-        
-        .hamburger {
-            display: none; /* Hide hamburger by default */
-        }
-
-        .hamburger span {
-            display: block; /* Each line is a block */
-            width: 30px; /* Width of each line */
-            height: 3px; /* Height of each line */
-            background-color: black; /* Color of the lines */
-            margin: 9px auto; /* Margin for spacing */
-            transition: all 0.3s; /* Smooth transition for the transformation */
-        }
-
-        /* Change to X when active */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px); /* First line */
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0; /* Middle line becomes invisible */
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px); /* Last line */
-        }
-
-        /* Media query for mobile screens */
-        @media (max-width: 768px) {
-            .navbar ul {
-                display: none; /* Hide menu links by default on small screens */
-                flex-direction: column; /* Stack links vertically */
-                width: 100%; /* Full width */
-                background: white; /* Background for dropdown */
-                position: absolute; /* Position it absolutely */
-                top: 60px; /* Below the navbar */
-                left: 0; /* Align left */
-                z-index: 10; /* Ensure it's above other content */
-            }
-
-            .navbar ul.active {
-                display: flex; /* Show the menu when active */
-            }
-
-            .navbar ul li {
-                margin: 10px 0; /* Space between links */
-            }
-
-            .hamburger {
-                display: block; /* Show hamburger icon on small screens */
-            }
-        }
-    </style>
+    <link rel="shortcut icon" href="./images/16.png" type="image/x-icon">
+    
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
-        </div>
-        <div id="hamburger" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sermons.html">Sermons</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="online.html">Online</a></li>
-            <li><a href="giving.html">Giving</a></li>
-        </ul>
-    </nav>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-heading text-xxl">
-                 
-                </h1>
-                <p class="hero-text">
-                  And the master said to the servant, ‘Go out to the highways and hedges and compel people to come in, that my house may be filled.  Luke 14:23.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn"><i class=""></i> Watch Sermons</a>
+    <!-- Navbar  -->
+
+   <!-- Navbar  -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="./images/120.png" alt="Church Logo">
+    </div>
+    <div class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <ul class="navbar-links" id="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="online.html">Online</a></li>
+        <li><a href="giving.html">Giving</a></li>
+    </ul>
+</nav>
+
+
+    <!-- Pastor image with typewriting effect  -->
+    <div class="content-container">
+        <img src="./images/pastor.png" alt="pastor image" class="content-image"> <!-- Replace with your image path -->
+        <div class="overlay">
+            <h2 id="typewriter-text"></h2> <!-- Text to display with typewriter effect -->
+        </div>
+    </div>
+
+    <!-- Cards Container -->
+
+    <div class="text-container">
+        <h1 class="main-heading">Find your place at Rhema Faith AG Church</h1>
+        <h2 class="sub-heading">Discover the ministry that fits your calling and make a difference within our Community</h2>
+    </div>
+
+    <div class="cards-container">
+        <div class="card">
+            <img src="/images/worship-team.png" alt="Worship-team" class="card-image">
+            <h3>Worship-team</h3>
+            <p>Join our passionate worship team to lead others in powerful, spirit-filled worship</p>
+            <a href="#" class="card-button">Join Us</a> <!-- Join Us button -->
+        </div>
+        <div class="card">
+            <img src="/images/childerns-min.png" alt="childerns" class="card-image">
+            <h3>Childerns Ministry</h3>
+            <p>Help guide our young generation with love, faith, and fun-filled learning.</p>
+            <a href="#" class="card-button">Learn More</a> <!-- Join Us button -->
+        </div>
+        <div class="card">
+            <img src="/images/youths.png" alt="Youths-Group" class="card-image">
+            <h3>Youths Group</h3>
+            <p>Connect with other youth and build a strong foundation of faith for life’s journey.</p>
+            <a href="#" class="card-button">Join Now</a> <!-- Join Us button -->
+        </div>
+        <div class="card">
+            <img src="/images/outreach-pgm.png" alt="Outreach" class="card-image">
+            <h3>Outreach Ministry</h3>
+            <p>Be the hands and feet of Jesus in our community, sharing His love with those in need.</p>
+            <a href="#" class="card-button">Volunteer</a> <!-- Join Us button -->
+        </div>
+    </div>
+
+
+    <div class="parallax-section" id="parallax">
+        <div class="parallax-background"></div>
+        <div class="parallax-content">
+            <div class="video-grid">
+                <div class="service-video">
+                    <iframe src="https://www.youtube.com/embed/IG98pWDO5vw?si=VCVqKTx6fk4czO8v" title="YouTube video player" allowfullscreen></iframe>
+                </div>
+                <div class="service-video">
+                    <iframe src="https://www.youtube.com/embed/BYY5OBEYp1A?si=apPhdCoXGl7BtSqz" title="YouTube video player" allowfullscreen></iframe>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Video Section-->
-     <section class="video bg-black">
-        <div class="container-sm">
-            <h2 class="video-heading text-xl text-center">
-                Video Preview Can go here -- Needs work later 
-            </h2>
-            <div class="video-content">
-                <a href="#">
-                    <img src="images/video-preview.png" alt="video" class="video-preview">
-                </a>
-
-                <a href="#" class="btn btn-primary">Join us Live</a>
+            
+            <!-- Title and Button Below the Videos -->
+            <div class="watch-more">
+                <h2>Watch the Latest Sermons from RFAG Church</h2>
+                <a href="#" class="watch-more-button">Watch More</a>
             </div>
         </div>
-     </section>
-
-     <!-- Testimonials-->
-
-     <section class="testimonials bg-dark">
-        <div class="container">
-            <h3 class="testimonials-heading text-xl">
-                Get involved 
-            </h3>
-            <div class="testimonials-grid">
-                <div class="card">
-                    <p>
-                        Childerns Ministry
-                    </p>
-                    <p>Childerns Ministry </p>
-                    <p></p>
-                </div>
-                <div class="card">
-                    <p>
-                        Youths & Young Adults
-                    </p>
-                    <p>Youths & Young Adults</p>
-                    <p></p>
-                </div>
-                <div class="card">
-                    <p>
-                        Womens Ministry
-                      </p>
-          
-                      <p>Womens Ministry</p>
-                    <p> </p>
-                </div>
-            </div>
-        </div>
-     </section>
-
-     <!--Pricing-->
-
-    <script>
-        // Toggle the active class on hamburger click
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active'); // Toggle the visibility of the menu
-        });
-    </script>
+    </div>
+    
+    <!-- Footer -->
 
     <footer class="footer">
         <div class="footer-content">
-            <h2>Stay Connected</h2>
             <div class="footer-links">
                 <div class="footer-section">
                     <h3>About</h3>
                     <ul>
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Our Team</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="mission.html">Our Mission</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Services</h3>
+                    <h3>Media</h3>
                     <ul>
-                        <li><a href="#">Counseling</a></li>
-                        <li><a href="#">Community Service</a></li>
-                        <li><a href="#">Outreach</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="online.html">Watch Online</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact</h3>
+                    <h3>Ministries</h3>
                     <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Location</a></li>
-                        <li><a href="#">Support</a></li>
+                        <li><a href="#children">Children's Ministry</a></li>
+                        <li><a href="#youth">Youth Group</a></li>
+                        <li><a href="#outreach">Outreach Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Personal</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-divider"></div>
+            <hr class="footer-divider"> <!-- Divider for separation -->
             <div class="footer-social">
                 <div class="footer-address">
-                    <p>123 Church Street, City, Country</p>
+                    <p>123 Rhema St, Cityville, ST 12345 | 12345-12345</p>
                 </div>
                 <div class="social-links">
-                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
+            <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
         </div>
     </footer>
+    
+    
+    <script>
+
+
+            const hamburger = document.getElementById('hamburger');
+            const navbarLinks = document.getElementById('navbar-links');
+
+            hamburger.addEventListener('click', () => {
+                navbarLinks.classList.toggle('active'); // Toggle links visibility
+                hamburger.classList.toggle('active'); // Toggle hamburger to X
+            });
+        // Typewriter text content and typing speed
+        const text = "“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.” - Jeremiah 29:11";
+        const typingSpeed = 100;
+        let index = 0;
+    
+        // Function to display text with a typewriter effect
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("typewriter-text").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, typingSpeed);
+            }
+        }
+    
+        // Start typewriter effect when the page loads
+        window.onload = typeWriter;
+    
+        // Parallax effect setup
+        const parallaxSection = document.getElementById('parallax');
+        const originalColor = '#f9f9f9';  // Initial background color
+        const scrollColor = '#5a5ca4';    // Color after scrolling
+        const iframeContainer = document.querySelector('.iframe-container');
+        const iframe1 = document.getElementById('iframe1');
+        const iframe2 = document.getElementById('iframe2');
+    
+        // Scroll event listener for parallax effect
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+    
+            // Adjust background color and iframe visibility based on scroll position
+            if (scrollPosition < 500) {
+                parallaxSection.style.backgroundColor = originalColor;
+                iframeContainer.style.opacity = 0; // Hide iframes
+            } else if (scrollPosition < 1000) {
+                // Calculate the transition effect based on scroll position
+                const ratio = (scrollPosition - 500) / 500;
+                parallaxSection.style.backgroundColor = `rgba(90, 92, 164, ${ratio})`;
+                iframeContainer.style.opacity = 0; // Keep iframes hidden
+            } else {
+                // Set final color and display iframes at full opacity
+                parallaxSection.style.backgroundColor = scrollColor;
+                iframeContainer.style.opacity = 1;
+                iframe1.style.opacity = 1;
+                iframe2.style.opacity = 1;
+            }
+        });
+    </script>
+    
+    
 </body>
 </html>
