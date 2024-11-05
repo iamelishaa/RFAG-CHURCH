@@ -10,14 +10,17 @@
     <link rel="stylesheet" href="css/sermons.css">  
     <title>Sermons | RFAG Church</title>
     <link rel="shortcut icon" href="images/16.png" type="image/x-icon">
-    
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">
             <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
         </div>
-       
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="sermons.html">Sermons</a></li>
@@ -26,8 +29,6 @@
             <li><a href="giving.html">Giving</a></li>
         </ul>
     </nav>
-    
-    
 
     <div class="container">
         <div class="featured-sermon">
@@ -43,147 +44,129 @@
             <button class="nav-button next" onclick="slide(1)">❯</button>
 
             <div class="sermon-list" id="sermonSlider">
-                <div class="sermon-item" onclick="changeVideo('wREIW1CFJyg')">
+                <!-- Sermon items here -->
+                <div class="sermon-item" data-video-id="wREIW1CFJyg" onclick="changeVideo(this.dataset.videoId)">
                     <img class="preview-image" src="https://img.youtube.com/vi/wREIW1CFJyg/hqdefault.jpg" alt="Family blessing service preview">
                     <h4>Family blessing service</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                <div class="sermon-item" onclick="changeVideo('BYY5OBEYp1A')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/BYY5OBEYp1A/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>Communion Service</h4>
+                <div class="sermon-item" data-video-id="i4DIRlhR8B4" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/i4DIRlhR8B4/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Sunday Service</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                <div class="sermon-item" onclick="changeVideo('T8HYXGSk2tI')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/T8HYXGSk2tI/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>Communion Service</h4>
+                <div class="sermon-item" data-video-id="33oBG4EU9To" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/33oBG4EU9To/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Sunday Service</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                <div class="sermon-item" onclick="changeVideo('ZJuCaaN4pZY')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/ZJuCaaN4pZY/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>Communion Service</h4>
+                <div class="sermon-item" data-video-id="l_W5EAbkVZ0" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/l_W5EAbkVZ0/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Fasting Prayer</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                <div class="sermon-item" onclick="changeVideo('pelmaCr2JsI')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/q7bM9KwF0GE/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>LIVE | SPECIAL SUNDAY SERVICE </h4>
-                    <p>PAS.DINESH DANIEL</p>
-                </div>
-                <div class="sermon-item" onclick="changeVideo('B_6L-ngAIMA')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/B_6L-ngAIMA/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>LIVE | SPECIAL SUNDAY SERVICE</h4>
-                    <p>PAS.DINESH DANIEL</p>
-                </div>
-                <div class="sermon-item" onclick="changeVideo('Uug843XfY8Y')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/Uug843XfY8Y/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>LIVE | FAMILY BLESSING PRAYER </h4>
+                <div class="sermon-item" data-video-id="7kj4EHJ8K-k" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/7kj4EHJ8K-k/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Family blessing Service</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                <div class="sermon-item" onclick="changeVideo('4VvBmVk0D-Q')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/4VvBmVk0D-Q/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>LIVE | SUNDAY SERVICE | 10:30AM</h4>
+                <div class="sermon-item" data-video-id="BYY5OBEYp1A" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/BYY5OBEYp1A/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Communion Sunday Service</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                <div class="sermon-item" onclick="changeVideo('gSoc-DmTV98')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/gSoc-DmTV98/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>LIVE | SUNDAY SERVICE</h4>
+                <div class="sermon-item" data-video-id="ZJuCaaN4pZY" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/ZJuCaaN4pZY/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Fasting Prayer</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                <div class="sermon-item" onclick="changeVideo('IG98pWDO5vw')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/IG98pWDO5vw/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>LIVE | SUNDAY SERVICE</h4>
+                <div class="sermon-item" data-video-id="q7bM9KwF0GE" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/q7bM9KwF0GE/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Family blessing Service</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                <div class="sermon-item" onclick="changeVideo('XxOB0WVhN44')">
-                    <img class="preview-image" src="https://img.youtube.com/vi/XxOB0WVhN44/hqdefault.jpg" alt="Communion Service preview">
-                    <h4>LIVE | FASTING PRAYER</h4>
+                <div class="sermon-item" data-video-id="pelmaCr2JsI" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/pelmaCr2JsI/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Sunday Service</h4>
                     <p>Rev. R Prabhu</p>
                 </div>
-                
+                <div class="sermon-item" data-video-id="B_6L-ngAIMA" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/B_6L-ngAIMA/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Sunday Service</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" data-video-id="Uug843XfY8Y" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/Uug843XfY8Y/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Family blessing service</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" data-video-id="4VvBmVk0D-Q" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/4VvBmVk0D-Q/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Family blessing service</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
+                <div class="sermon-item" data-video-id="gSoc-DmTV98" onclick="changeVideo(this.dataset.videoId)">
+                    <img class="preview-image" src="https://img.youtube.com/vi/gSoc-DmTV98/hqdefault.jpg" alt="Family blessing service preview">
+                    <h4>Family blessing service</h4>
+                    <p>Rev. R Prabhu</p>
+                </div>
             </div>
         </div>
-        
     </div>
 
     <script>
+        const sermonSlider = document.getElementById('sermonSlider');
+        const sermonItems = document.querySelectorAll('.sermon-item');
+        const itemWidth = 275; // Width of each sermon item
+        const visibleItemsCount = 3; // Number of visible items at once
+        let currentIndex = 0; // Tracks the current index of visible items
 
-        
-   // Get references to the sermon slider and items
-const sermonSlider = document.getElementById('sermonSlider');
-const sermonItems = document.querySelectorAll('.sermon-item');
-const itemWidth = 275; // Width of each sermon item (without margins)
-const visibleItemsCount = 3; // Number of visible items at once
-let currentIndex = 0; // Tracks the current index of visible items
+        function slide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = 0;
+            else if (currentIndex > sermonItems.length - visibleItemsCount) currentIndex = sermonItems.length - visibleItemsCount;
+            const offset = -currentIndex * (itemWidth + 10);
+            sermonSlider.style.transform = `translateX(${offset}px)`;
+        }
 
-// Function to slide items in the specified direction
-function slide(direction) {
-    // Update current index based on the direction
-    currentIndex += direction;
+        // Change video function
+        function changeVideo(videoId) {
+            const featuredVideo = document.getElementById('featuredVideo');
+            featuredVideo.src = `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1&rel=0&iv_load_policy=3`;
+            currentIndex = Array.from(sermonItems).findIndex(item => item.dataset.videoId === videoId);
+            slide(0); // Reset to selected item
+        }
 
-    // Ensure currentIndex remains within bounds
-    if (currentIndex < 0) {
-        currentIndex = 0; // Prevent moving before the first item
-    } else if (currentIndex > sermonItems.length - visibleItemsCount) {
-        currentIndex = sermonItems.length - visibleItemsCount; // Prevent moving past the last visible items
-    }
+        // Event listener for navigation buttons
+        document.querySelector('.nav-button.next').addEventListener('click', () => slide(1));
+        document.querySelector('.nav-button.prev').addEventListener('click', () => slide(-1));
 
-    // Calculate the new offset for the slider
-    const offset = -currentIndex * (itemWidth + 10); // itemWidth + margin
-    sermonSlider.style.transform = `translateX(${offset}px)`; // Apply transform to the slider
-}
+        // Reset the video when it ends
+        const featuredVideo = document.getElementById('featuredVideo');
+        featuredVideo.addEventListener('ended', () => changeVideo(sermonItems[0].getAttribute('data-video-id')));
 
-// Add event listeners for navigation buttons
-document.querySelector('.nav-button.next').addEventListener('click', () => slide(1)); // Move right
-document.querySelector('.nav-button.prev').addEventListener('click', () => slide(-1)); // Move left
+        // Get references to the hamburger icon and the navigation links
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
 
-// Function to change the featured video based on the selected sermon
-function changeVideo(videoId) {
-    const featuredVideo = document.getElementById('featuredVideo');
-    featuredVideo.src = `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1&rel=0&iv_load_policy=3`;
-}
+        // Toggle the active class on hamburger click
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active'); // Toggle the active class for the hamburger
+        });
 
-// Event listener to reset the video to the first sermon when it ends
-const featuredVideo = document.getElementById('featuredVideo');
-featuredVideo.addEventListener('ended', () => {
-    const firstVideoId = sermonItems[0].getAttribute('data-video-id'); // Get the ID of the first sermon video
-    changeVideo(firstVideoId); // Change to the first sermon video
+        // Close the menu when a link is clicked
+        Array.from(navItems).forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active'); // Remove active class to close the menu
+                hamburger.classList.remove('active'); // Remove active class from hamburger
+        });
 });
-
-// Setup click handlers for sermon items
-sermonItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        const videoId = item.getAttribute('data-video-id'); // Get the video ID from data attribute
-        changeVideo(videoId); // Change the video to the selected sermon
-        currentIndex = index; // Update the current index to the selected item
-        slide(0); // Reset the slide to the selected item
-    });
-});
-
-// Get references to the hamburger icon and navigation links
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
-const navItems = navLinks.getElementsByTagName('li'); // Get all nav list items
-
-// Toggle the active class on hamburger click
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active'); // Toggle the hamburger's active class
-});
-
-// Close the menu when a link is clicked
-Array.from(navItems).forEach(item => {
-    item.addEventListener('click', () => {
-        navLinks.classList.remove('active'); // Close the menu
-        hamburger.classList.remove('active'); // Remove the active class from hamburger
-    });
-});
-
-
     </script>
 
-    
     <footer class="footer">
         <div class="footer-content">
-            
             <div class="footer-links">
                 <div class="footer-section">
                     <h3>About</h3>
@@ -216,7 +199,7 @@ Array.from(navItems).forEach(item => {
                     </ul>
                 </div>
             </div>
-            <hr class="footer-divider"> <!-- Divider for separation -->
+            <hr class="footer-divider">
             <div class="footer-social">
                 <div class="footer-address">
                     <p>123 Rhema St, Cityville, ST 12345 | 12345-12345</p>

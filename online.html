@@ -12,61 +12,64 @@
     <link rel="shortcut icon" href="images/16.png" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
-        </div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sermons.html">Sermons</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="online.html">Online</a></li>
-            <li><a href="giving.html">Giving</a></li>
-        </ul>
-    </nav>
+    <body>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sermons.html">Sermons</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="online.html">Online</a></li>
+                <li><a href="giving.html">Giving</a></li>
+            </ul>
+        </nav>
+        
     
-    <div class="container">
-        <div class="live-stream">
-            <img src="./images/pastor.png" alt="Live Stream" /> <!-- Replace with your live stream image path -->
+    <main class="container"> <!-- Changed to <main> for better semantics -->
+        <section class="live-stream">
+            <img src="./images/pastor.png" alt="Live Stream of Services" /> <!-- Improved alt text -->
             <div class="content">
                 <h3>Join our live services every Sunday at 7:30 AM & 10:30 AM.</h3>
-                <a href="live.html" target="_blank" class="watch-button">Watch Sermon </a>
+                <a href="live.html" target="_blank" class="watch-button">Watch Sermon</a>
             </div>
-        </div>
+        </section>
 
-        <div class="cards">
+        <aside class="cards"> <!-- Changed to <aside> for better semantics -->
             <div class="resource">
                 <h1>Online Resources</h1>
                 <p>Access our sermon archives</p>
                 <ul>
                     <li><a href="sermons.html">Sermon Archives</a></li>
-                    
                 </ul>
             </div>
 
             <div class="social-media">
                 <h2>Follow Us</h2>
                 <div class="social-link">
-                    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
                 </div>
                 <div class="social-link">
-                    <a href="https://facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
                 </div>
                 <div class="social-link">
-                    <a href="https://youtube.com/yourprofile" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a href="https://youtube.com/yourprofile" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i> YouTube</a>
                 </div>
                 <div class="social-link">
-                    <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
                 </div>
             </div>
-        </div>
-    </div>
-    
-
+        </aside>
+    </main>
     
     <footer class="footer">
         <div class="footer-content">
-            
             <div class="footer-links">
                 <div class="footer-section">
                     <h3>About</h3>
@@ -99,20 +102,40 @@
                     </ul>
                 </div>
             </div>
-            <hr class="footer-divider"> <!-- Divider for separation -->
+            <hr class="footer-divider">
             <div class="footer-social">
                 <div class="footer-address">
                     <p>123 Rhema St, Cityville, ST 12345 | 12345-12345</p>
                 </div>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/yourprofile" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/yourprofile" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/yourprofile" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/yourprofile" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
         </div>
     </footer>
+    
+    <script>
+
+const hamburger = document.querySelector('.hamburger');
+const navbar = document.querySelector('.navbar');
+const navItems = navbar.querySelectorAll('ul li a'); // Select nav items
+
+hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('active'); // Toggle the active class on navbar
+    hamburger.classList.toggle('active'); // Toggle active class on hamburger
+});
+
+// Close the menu when a link is clicked
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navbar.classList.remove('active'); // Remove active class to close the menu
+        hamburger.classList.remove('active'); // Remove active class from hamburger
+    });
+});
+    </script>
 </body>
 </html>

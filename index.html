@@ -16,19 +16,19 @@
 </head>
 <body>
 
-    <!-- Navbar  -->
+  
 
    <!-- Navbar  -->
-<nav class="navbar">
+   <nav class="navbar">
     <div class="logo">
-        <img src="./images/120.png" alt="Church Logo">
+        <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
     </div>
     <div class="hamburger" id="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    <ul class="navbar-links" id="navbar-links">
+    <ul id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="sermons.html">Sermons</a></li>
         <li><a href="about.html">About</a></li>
@@ -156,14 +156,24 @@
     
     <script>
 
+// Get references to the hamburger icon and the navigation links
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
 
-            const hamburger = document.getElementById('hamburger');
-            const navbarLinks = document.getElementById('navbar-links');
+// Toggle the active class on hamburger click
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // Toggle the active class for the hamburger
+});
 
-            hamburger.addEventListener('click', () => {
-                navbarLinks.classList.toggle('active'); // Toggle links visibility
-                hamburger.classList.toggle('active'); // Toggle hamburger to X
-            });
+// Close the menu when a link is clicked
+Array.from(navItems).forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active'); // Remove active class to close the menu
+        hamburger.classList.remove('active'); // Remove active class from hamburger
+    });
+});
         // Typewriter text content and typing speed
         const text = "“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.” - Jeremiah 29:11";
         const typingSpeed = 100;
