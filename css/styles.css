@@ -334,6 +334,16 @@ body {
     color: #5a5ca4; 
 }
 
+.hamburger {
+    display: none; /* Hide by default */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1.8em; /* Size of the icon */
+    position: absolute; /* Position it absolutely */
+    top: 15px; /* Space from the top */
+    right: 30px; /* Space from the right */
+    z-index: 100; /* Ensure it's above other content */
+}
+
 /* Hamburger lines */
 .hamburger span {
     display: block; /* Each line is a block */
