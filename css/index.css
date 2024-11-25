@@ -281,59 +281,109 @@ body {
 .footer {
     background-color: #ffffff;
     color: #343a40;
-    padding: 20px 10px;
+    padding: 20px 10px; /* Reduced padding */
     text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.footer-content {
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
+  }
+  
+  .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.footer h2 {
-    margin: 0 0 15px;
+  }
+  
+  .footer h2 {
+    margin: 0 0 15px; /* Reduced margin */
     color: #5a5ca4;
-    font-size: 1.4em;
-}
-
-.footer-links {
+    font-size: 1.4em; /* Slightly smaller font size */
+  }
+  
+  .footer-links {
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around; /* Space evenly between sections */
     flex-wrap: wrap;
-    margin: 10px 0; 
-}
-
-.footer-section {
+    margin: 10px 0; /* Reduced margin */
+  }
+  
+  .footer-section {
     flex: 1;
-    min-width: 120px; 
-    margin: 5px; 
-}
-
-.footer-section h3 {
-    margin-bottom: 8px; 
-    font-size: 1.1em; 
+    min-width: 120px; /* Reduced minimum width */
+    margin: 5px; /* Reduced margin */
+  }
+  
+  .footer-section h3 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.1em;
     color: black;
-}
-
-.footer-section ul {
-    list-style: none; 
-    padding: 0; 
-}
-
-.footer-section ul li {
-    margin: 5px 0;
-}
-
-.footer-section ul li a {
-    text-decoration: none; 
-    color: #343a40; 
-}
-
-.footer-section ul li a:hover {
-    color: #5a5ca4; 
-}
-
+    text-align: center; /* Center text within each section */
+  }
+  
+  .footer-section ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+  }
+  
+  .footer-divider {
+    border: 0;
+    height: 1px; /* Thinner divider */
+    background-color: black;
+    margin: 15px 0; /* Reduced spacing around the divider */
+  }
+  
+  .footer-social {
+    display: flex;
+    justify-content: space-between; /* Distribute space between address and social icons */
+    align-items: center; /* Center alignment */
+  }
+  
+  .footer-address {
+    text-align: left; /* Align address text to the left */
+    flex: 1; /* Allow address to take available space */
+  }
+  
+  .social-links {
+    display: flex; /* Flex for social icons */
+    gap: 15px; /* Space between icons */
+    justify-content: flex-end; /* Align social icons to the right */
+  }
+  
+  .social-links a {
+    color: inherit; /* Default to inherit color */
+  }
+  
+  .social-links a.facebook {
+    color: #3b5998; /* Facebook brand color */
+  }
+  
+  .social-links a.twitter {
+    color: #1da1f2; /* Twitter brand color */
+  }
+  
+  .social-links a.instagram {
+    color: #c13584; /* Instagram brand color */
+  }
+  
+  .social-links a.youtube {
+    color: #ff0000; /* YouTube brand color */
+  }
+  
+  .footer-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links a {
+    color: #343a40; /* Link color */
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #5a5ca4; /* Hover color */
+  }
 .hamburger {
     display: none; /* Hide by default */
     cursor: pointer; /* Pointer on hover */
