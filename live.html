@@ -52,10 +52,10 @@
     </div>
 
     <script>
-         const API_KEY = 'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70'; // Replace with your YouTube API Key
-    const CHANNEL_ID = 'UCxq5Pft2tXvwK-_GVhPrutQ'; // Replace with your YouTube Channel ID
+         const API_KEY = 'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70'; //  YouTube API Key
+    const CHANNEL_ID = 'UCfGHCtW5XlkY78l97_Rwu4Q'; // YouTube Channel ID
 
-    // Function to check if the channel is live
+    // Fun() to check if the channel is live
     function checkIfLive() {
         fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&eventType=live&type=video`)
             .then(response => response.json())
@@ -64,14 +64,14 @@
                 const videoIframe = document.querySelector('.video-container iframe');
 
                 if (data.items.length > 0) {
-                    // A live stream is available
+                    // live stream logic
                     liveIndicator.style.display = 'block'; // Show the live indicator
                     const liveVideoId = data.items[0].id.videoId;
                     videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`; // Load the live stream
                 } else {
-                    // No live stream, show an embedded video
+                    // no live stream logic
                     liveIndicator.style.display = 'none'; // Hide the live indicator
-                    videoIframe.src = "https://www.youtube.com/embed/yVOp_IUB17o"; // Replace with your fallback video ID
+                    videoIframe.src = "https://www.youtube.com/embed/GYIhVxt7Ro8"; // Replace with your fallback video ID
                 }
             })
             .catch(error => {

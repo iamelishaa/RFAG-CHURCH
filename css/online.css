@@ -86,58 +86,58 @@ body {
 
 .live-stream {
     margin: 20px;
-    position: relative; /* Position relative for text overlay */
-    text-align: left; /* Left align for image */
-    flex: 1; /* Allow image section to grow */
+    position: relative; 
+    text-align: left; 
+    flex: 1; 
 }
 
 .live-stream img {
-    width: 100%; /* Make image responsive */
-    max-width: 1600px; /* Increased max width for a larger image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: rounded corners */
+    width: 100%; 
+    max-width: 1600px; 
+    height: auto; 
+    border-radius: 10px; 
 }
 
 .live-stream .content {
-    position: absolute; /* Absolute positioning for content */
-    bottom: 10px; /* Position from the bottom */
-    left: 0; /* Align text to the left */
-    color: white; /* White text color */
-    text-align: left; /* Left text alignment */
-    padding: 10px; /* Padding around text */
-    border-radius: 5px; /* Rounded corners for overlay */
+    position: absolute; 
+    bottom: 10px; 
+    left: 0; 
+    color: white; 
+    text-align: left; 
+    padding: 10px; 
+    border-radius: 5px;
 }
 
 .watch-button {
-    background-color: white; /* Button background */
-    color: black; /* Button text color */
-    padding: 10px 20px; /* Padding for button */
-    border: none; /* No border */
-    border-radius: 25px; /* Rounded corners */
-    text-decoration: none; /* No underline */
-    font-weight: bold; /* Bold text */
-    display: inline-block; /* Block display for button */
-    text-align: center; /* Center text */
-    margin-top: 0; /* Remove space above the button */
+    background-color: white; 
+    color: black; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 25px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    display: inline-block; 
+    text-align: center; 
+    margin-top: 0; 
 }
 
 .cards {
    grid-auto-columns: auto;
     padding-top: 20px;
     padding-bottom: 20px;
-    flex-direction: row; /* Default to row layout */
-    justify-content: flex-start; /* Align cards to the start */
-    margin-left: 20px; /* Space between image and cards */
-    gap: 50px; /* Space between cards */
-    flex-wrap: wrap; /* Allow cards to wrap in smaller screens */
-    max-width: 100%; /* Ensure max width is 100% */
+    flex-direction: row; 
+    justify-content: flex-start; 
+    margin-left: 20px; 
+    gap: 50px; 
+    flex-wrap: wrap; 
+    max-width: 100%; 
 }
 .resource, .social-media {
-    background-color: #fff; /* White background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    padding: 15px; /* Adjusted padding */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    padding: 15px; 
+    transition: transform 0.3s, box-shadow 0.3s; 
 }
 
 .social-media h2 {
@@ -147,9 +147,9 @@ body {
 
 .social-link {
     display: flex; /* Use flexbox for horizontal layout */
-    align-items: center; /* Center align items */
-    padding: 10px 0; /* Padding for spacing */
-    border-top: 1px solid #ccc; /* Line above each item */
+    align-items: center; 
+    padding: 10px 0; 
+    border-top: 1px solid #ccc; 
 }
 
 .social-link:first-child {
@@ -157,17 +157,17 @@ body {
 }
 
 .social-link a {
-    color: black; /* Link color */
-    text-decoration: none; /* No underline */
-    font-weight: bold; /* Bold text */
-    flex: 1; /* Allow the link to take up available space */
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center align items */
+    color: black; 
+    text-decoration: none; 
+    font-weight: bold; 
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
 }
 
 .social-link a i {
-    margin-right: 10px; /* Space between icon and text */
-    font-size: 1.2em; /* Size of the icons */
+    margin-right: 10px; 
+    font-size: 1.2em; 
 }
 
 .social-link a:hover {
@@ -177,9 +177,9 @@ body {
 .footer {
     background-color: #ffffff;
     color: #343a40;
-    padding: 20px 10px; /* Reduced padding */
+    padding: 20px 10px; 
     text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .footer-content {
@@ -202,45 +202,45 @@ body {
 
 .footer-section {
     flex: 1;
-    min-width: 120px; /* Reduced minimum width */
-    margin: 5px; /* Reduced margin */
+    min-width: 120px; 
+    margin: 5px; 
 }
 
 .footer-section h3 {
-    margin-bottom: 8px; /* Reduced space below headings */
-    font-size: 1.1em; /* Slightly smaller font size */
+    margin-bottom: 8px; 
+    font-size: 1.1em; 
     color: black;
 }
 
 .footer-section ul {
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove padding */
+    list-style: none; 
+    padding: 0; 
 }
 
 .footer-divider {
     border: 0;
     padding: 0;
-    height: 1px; /* Thinner divider */
+    height: 1px; 
     background-color: black;
-    margin: 15px 0; /* Reduced spacing around the divider */
+    margin: 15px 0; 
 }
 
 .footer-social {
     display: flex;
-    justify-content: space-between; /* Distribute space between address and social icons */
-    align-items: center; /* Center alignment */
-    padding: 0; /* Spacing above and below */
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0; 
 }
 
 .footer-address {
-    text-align: left; /* Align address text to the left */
-    flex: 1; /* Allow address to take available space */
+    text-align: left; 
+    flex: 1; 
 }
 
 .social-links {
-    display: flex; /* Flex for social icons */
-    gap: 15px; /* Space between icons */
-    justify-content: flex-end; /* Align social icons to the right */
+    display: flex; 
+    gap: 15px; 
+    justify-content: flex-end; 
 }
 
 .social-links a {
@@ -318,14 +318,14 @@ body {
     }
 
     .navbar ul {
-        display: none; /* Hide nav links on small screens */
-        flex-direction: column; /* Stack links vertically */
-        position: absolute; /* Position absolute for dropdown */
-        top: 60px; /* Position below navbar */
-        left: 0; /* Align left */
-        background-color: white; /* White background for dropdown */
-        width: 100%; /* Full width */
-        z-index: 1000; /* Ensure above other elements */
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 60px; 
+        left: 0; 
+        background-color: white; 
+        width: 100%; 
+        z-index: 1000; 
     }
 
     .navbar.active ul {
@@ -356,26 +356,26 @@ body {
 
 @media (max-width: 480px) {
     .navbar {
-        padding: 10px 15px; /* Reduce padding for smaller screens */
+        padding: 10px 15px; 
     }
 
     .logo {
-        font-size: 1.2em; /* Smaller logo size */
+        font-size: 1.2em; 
     }
 
     .live-stream img {
-        border-radius: 5px; /* Reduce border radius for smaller screens */
+        border-radius: 5px; 
     }
 
     .footer h2 {
-        font-size: 1.2em; /* Adjust footer heading size */
+        font-size: 1.2em; 
     }
 
     .footer-section {
-        min-width: 100px; /* Further reduce minimum width */
+        min-width: 100px; 
     }
 
     .footer-links a {
-        margin: 0 5px; /* Reduce margin for footer links */
+        margin: 0 5px; 
     }
 }

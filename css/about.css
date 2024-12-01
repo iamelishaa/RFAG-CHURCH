@@ -70,20 +70,20 @@ body {
 /* Full-width image section */
 .full-width-image {
     width: 100%; 
-    max-width: 1200px; /* Keep the max-width to ensure it doesn't grow too large */
-    height: 400px; /* Set height for the image area */
-    margin: 0 auto; /* Center the image */
-    background-image: url('../images/about.png'); /* Path to your image */
+    max-width: 1200px; 
+    height: 400px;
+    margin: 0 auto; 
+    background-image: url('../images/about.png'); 
     background-size: cover; 
     background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align items at the bottom */
+    justify-content: flex-end; 
     align-items: center;
     text-align: center;
     color: white;
-    padding: 20px; /* Add padding for better spacing */
-    box-sizing: border-box; /* Ensure padding doesn't affect overall width */
+    padding: 20px; 
+    box-sizing: border-box; 
 }
 
 
@@ -100,9 +100,9 @@ body {
 /* Container for cards */
 .container {
     display: flex;
-    justify-content: center; /* Center cards in the container */
-    flex-wrap: wrap; /* Allow cards to wrap */
-    padding: 20px; /* Padding around the container */
+    justify-content: center; 
+    flex-wrap: wrap; 
+    padding: 20px; 
 }
 
 /* Individual card styles */
@@ -112,7 +112,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin: 20px;
     padding: 20px;
-    width: calc(45% - 88px); /* Adjusted width for two cards */
+    width: calc(45% - 88px); 
     box-sizing: border-box;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -151,7 +151,7 @@ body {
     font-size: 1.5em;
 }
 
-/* Footer styles */
+/* Footer */
 .footer {
     background-color: #ffffff;
     color: #343a40;
@@ -258,27 +258,26 @@ body {
   .footer-links a:hover {
     color: #5a5ca4; /* Hover color */
   }
-  
-
 .hamburger {
-    display: none; /* Hide by default */
-    cursor: pointer; /* Pointer on hover */
-    font-size: 1.8em; /* Size of the icon */
-    position: absolute; /* Position it absolutely */
-    top: 15px; /* Space from the top */
-    right: 30px; /* Space from the right */
-    z-index: 100; /* Ensure it's above other content */
+    display: none; 
+    cursor: pointer; 
+    font-size: 1.8em; 
+    position: absolute; 
+    top: 15px; 
+    right: 30px;
+    z-index: 100; 
 }
 
 /* Hamburger lines */
 .hamburger span {
-    display: block; /* Each line is a block */
-    width: 30px; /* Width of each line */
-    height: 3px; /* Height of each line */
-    background-color: black; /* Color of the lines */
-    margin: 9px auto; /* Margin for spacing */
-    transition: all 0.3s; /* Smooth transition for the transformation */
+    display: block; 
+    width: 30px; 
+    height: 3px; 
+    background-color: black; 
+    margin: 9px auto; 
+    transition: all 0.3s; 
 }
+
 
 /* Change to X when active */
 .hamburger.active span:nth-child(1) {
@@ -297,15 +296,15 @@ body {
 @media (max-width: 600px) {
     /* Adjust navbar for small screens */
     .navbar {
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the left */
-        padding: 10px; /* Add some padding */
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding: 10px; 
     }
 
     .navbar ul {
-        flex-direction: column; /* Stack navbar links */
-        margin-top: 10px; /* Space above navbar links */
-        width: 100%; /* Full width for the dropdown */
+        flex-direction: column; 
+        margin-top: 10px; 
+        width: 100%; 
     }
 
     .navbar ul li {
@@ -381,14 +380,14 @@ body {
     }
 
     .navbar ul {
-        display: none; /* Hide menu links by default on small screens */
-        flex-direction: column; /* Stack links vertically */
-        width: 100%; /* Full width */
-        background: white; /* Background for dropdown */
-        position: absolute; /* Position it absolutely */
-        top: 60px; /* Below the navbar */
-        left: 0; /* Align left */
-        z-index: 10; /* Ensure it's above other content */
+        display: none; 
+        flex-direction: column; 
+        width: 100%; 
+        background: white; 
+        position: absolute;
+        top: 60px; 
+        left: 0; 
+        z-index: 10; 
     }
 
     .navbar ul.active {

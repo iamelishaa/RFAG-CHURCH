@@ -79,9 +79,9 @@ nav .sign-in-link:hover {
     background-color: #000000;
     padding: 20px;
     box-sizing: content-box;
-    overflow-y: auto; /* Enables scrolling for the side column */
-    height: 100%; /* Ensure it takes full height of the video section */
-    border-radius: 20px; /* Optional: Adds rounded corners to the side column */
+    overflow-y: auto; 
+    height: 100%; 
+    border-radius: 20px; 
 }
 
 iframe {
@@ -93,16 +93,16 @@ iframe {
 
 /* Live symbol styling */
 .live-indicator {
-    position: fixed; /* Fixed to the top */
-    top: 17px; /* Adjust the space from the top */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
+    position: fixed; 
+    top: 17px; 
+    left: 50%; 
+    transform: translateX(-50%); 
     background-color: red;
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
-    display: none; /* Hidden by default */
-    z-index: 1100; /* Ensure it's on top of the navbar */
+    display: none; 
+    z-index: 1100; 
 }

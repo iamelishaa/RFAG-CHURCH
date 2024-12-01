@@ -157,17 +157,16 @@ h1 {
     color: inherit; /* Default to inherit color */
 }
 .social-links a.facebook {
-    color: #3b5998; /* Facebook brand color */
+    color: #3b5998; 
 }
 .social-links a.twitter {
-    color: #1da1f2; /* Twitter brand color */
+    color: #1da1f2; 
 }
 .social-links a.instagram {
-    color: #c13584; /* Instagram brand color */
+    color: #c13584; 
 }
 .social-links a.youtube {
-    color: #ff0000; /* YouTube brand color */
-}
+    color: #ff0000; 
 .footer-links {
     margin: 20px 0;
     display: flex;
