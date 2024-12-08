@@ -132,24 +132,25 @@
         };
 
         // Load slides for a specific song (image-based)
-        const loadSlidesForSong = (song) => {
-            slideImages = [];
-            let totalSlides = song.totalSlides; // Assuming each song metadata contains the number of slides
+    const loadSlidesForSong = (song) => {
+        slideImages = [];
+        let totalSlides = song.totalSlides; // Assuming each song metadata contains the number of slides
 
-            for (let i = 1; i <= totalSlides; i++) {
-                slideImages.push(`/path/to/slides/${song.fileId}_slide${i}.jpg`);
-            }
+        for (let i = 1; i <= totalSlides; i++) {
+            // Use a template literal to construct the slide image URL
+            slideImages.push(`${song.basePath}/${song.fileId}_slide${i}.jpg`);
+        }
 
-            // Show the first slide
-            currentSlide = 0;
-            showSlide(currentSlide);
+        // Show the first slide
+        currentSlide = 0;
+        showSlide(currentSlide);
 
-            pptViewer.style.display = "block"; // Show the slide viewer
-            navigationBtns.style.display = "block"; // Show navigation buttons
-        };
+        pptViewer.style.display = "block"; // Show the slide viewer
+        navigationBtns.style.display = "block"; // Show navigation buttons
+    };
 
-        // Show the current slide
-        const showSlide = (index) => {
+    // Show the current slide
+    const showSlide = (index) => {
             if (index >= 0 && index < slideImages.length) {
                 slideImage.src = slideImages[index];
             }
@@ -189,6 +190,7 @@
 
             renderResults(filteredSongs);
         });
-    </script>
+</script>
 </body>
 </html>
+
