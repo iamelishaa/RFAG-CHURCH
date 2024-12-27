@@ -2,16 +2,32 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9; /* Consistent background */
+    background-color: #f9f9f9;  
 }
+
+/* Navbar and logo */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: white; /* Navbar background */
+    background-color: white; 
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #343a40;
+    transition: transform 0.3s ease;
+}
+
+.logo img {
+    height: 50px; 
+    padding-left: 30px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
 }
 
 /* Log name  */
@@ -29,41 +45,32 @@ body {
 .logo-text span {
     font-size: 18px;
 }
-
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #343a40; /* Logo color */
-    transition: transform 0.3s ease;
-}
-.logo img {
-    height: 50px; /* Adjust the height of the logo */
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-}
 .navbar ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
-    align-items: center; /* Center items vertically */
+    align-items: center;
 }
+
 .navbar ul li {
     margin: 0 20px;
     position: relative;
 }
+
 .navbar ul li a {
     text-decoration: none;
-    color: black; /* Link color */
+    color: black; 
     font-weight: 600;
     padding: 5px 0;
     transition: color 0.3s ease;
 }
+
 .navbar ul li a::after {
     content: '';
     display: block;
     height: 2px;
-    background: #5a5ca4; /* Color for the underline */
+    background: #5a5ca4; 
     width: 0;
     transition: width 0.3s ease;
     position: absolute;
@@ -71,22 +78,28 @@ body {
     bottom: -5px;
     transform: translateX(-50%);
 }
+
 .navbar ul li a:hover {
-    color: #5a5ca4; /* Change link color on hover */
+    color: #5a5ca4;
 }
+
 .navbar ul li:hover a::after {
-    width: 100%; /* Expand underline on hover */
+    width: 100%;
 }
 .logo-text span {
     font-size: 16px; /* Adjust the font size as needed */
   }
 
+
+
 h1 {
     font-size: 2.2em;
     margin-bottom: 40px;
-    text-align: center; /* Center-align the heading */
+    text-align: center;
     width: 100%;
 }
+
+/* Leadership Page */
 .leadership-container {
     display: flex;
     align-items: center;
@@ -95,9 +108,7 @@ h1 {
     text-align: left;
     margin: 40px auto;
     padding: 20px;
-    /* background-color: #f5f5f5; Light background color */
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Soft shadow */
 }
 
 .pastor-photo {
@@ -105,172 +116,203 @@ h1 {
     height: 330px;
     border-radius: 50%;
     margin-right: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for image */
-    object-fit: cover;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
 
 .pastor-bio {
     font-size: 1.2em;
     line-height: 1.5;
-    max-width: 500px; /* Limit bio width for a more centered look */
+    max-width: 500px;
 }
+
+/* Footer Styles */
 .footer {
     background-color: #ffffff;
     color: #343a40;
-    padding: 20px 10px; /* Reduced padding */
+    padding: 20px 10px;
     text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
-  }
-  
-  .footer-content {
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
     max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  .footer h2 {
-    margin: 0 0 15px; /* Reduced margin */
+}
+
+.footer h2 {
+    margin: 0 0 15px;
     color: #5a5ca4;
-    font-size: 1.4em; /* Slightly smaller font size */
-  }
-  
-  .footer-links {
+    font-size: 1.4em;
+}
+
+.footer-links {
     display: flex;
-    justify-content: space-around; /* Space evenly between sections */
+    justify-content: space-around;
     flex-wrap: wrap;
-    margin: 10px 0; /* Reduced margin */
-  }
-  
-  .footer-section {
+    margin: 10px 0;
+}
+
+.footer-section {
     flex: 1;
-    min-width: 120px; /* Reduced minimum width */
-    margin: 5px; /* Reduced margin */
-  }
-  
-  .footer-section h3 {
+    min-width: 120px;
+    margin: 5px;
+}
+
+.footer-section h3 {
     margin: 0;
     padding: 10px 0;
     font-size: 1.1em;
     color: black;
-    text-align: center; /* Center text within each section */
-  }
-  
-  .footer-section ul {
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove padding */
-  }
-  
-  .footer-divider {
+    text-align: center;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-divider {
     border: 0;
-    height: 1px; /* Thinner divider */
+    height: 1px;
     background-color: black;
-    margin: 15px 0; /* Reduced spacing around the divider */
-  }
-  
-  .footer-social {
+    margin: 15px 0;
+}
+
+.footer-social {
     display: flex;
-    justify-content: space-between; /* Distribute space between address and social icons */
-    align-items: center; /* Center alignment */
-  }
-  
-  .footer-address {
-    text-align: left; /* Align address text to the left */
-    flex: 1; /* Allow address to take available space */
-  }
-  
-  .social-links {
-    display: flex; /* Flex for social icons */
-    gap: 15px; /* Space between icons */
-    justify-content: flex-end; /* Align social icons to the right */
-  }
-  
-  .social-links a {
-    color: inherit; /* Default to inherit color */
-  }
-  
-  .social-links a.facebook {
-    color: #3b5998; /* Facebook brand color */
-  }
-  
-  .social-links a.twitter {
-    color: #1da1f2; /* Twitter brand color */
-  }
-  
-  .social-links a.instagram {
-    color: #c13584; /* Instagram brand color */
-  }
-  
-  .social-links a.youtube {
-    color: #ff0000; /* YouTube brand color */
-  }
-  
-  .footer-links {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-address {
+    text-align: left;
+    flex: 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.social-links a {
+    color: inherit;
+}
+
+.social-links a.facebook {
+    color: #3b5998;
+}
+
+.social-links a.twitter {
+    color: #1da1f2;
+}
+
+.social-links a.instagram {
+    color: #c13584;
+}
+
+.social-links a.youtube {
+    color: #ff0000;
+}
+
+.footer-links {
     margin: 20px 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-  }
-  
-  .footer-links a {
-    color: #343a40; /* Link color */
+}
+
+.footer-links a {
+    color: #343a40;
     text-decoration: none;
     margin: 0 15px;
     transition: color 0.3s;
-  }
-  
-  .footer-links a:hover {
-    color: #5a5ca4; /* Hover color */
-  }
-/* Responsive styles for Leadership Page */
-@media (max-width: 960px) {
-    .navbar {
-        padding: 10px 20px;
-    }
-    
-    .navbar ul li {
-        margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: #5a5ca4;
+}
+
+/* Hamburger styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8em;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    z-index: 100;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    margin: 9px auto;
+    transition: all 0.3s;
+}
+
+/* Change to X when active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Media Queries */
+
+/* 1024px and below: Tablet Landscape */
+@media (max-width: 1024px) {
+    iframe {
+        height: 450px;
     }
 
-    .leadership-container {
-        max-width: 700px; /* Slightly narrower container */
-        padding: 15px;
-        margin: 20px auto; /* Adjust margins for smaller screens */
-    }
-
-    .pastor-photo {
-        width: 150px;
-        height: 150px;
-        margin-right: 15px;
-    }
-
-    .pastor-bio {
-        font-size: 1.1em;
+    .cards {
+        grid-template-columns: 1fr;
+        width: 90%;
     }
 }
 
-@media (max-width: 670px) {
-    .navbar {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center;
-        padding: 10px;
-    }
-    
+/* 768px and below: Tablet Portrait / Small Devices */
+@media (max-width: 768px) {
     .navbar ul {
-        flex-direction: column; /* Stack navbar items */
-        align-items: center;
-        gap: 10px;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 10;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
     }
 
     .leadership-container {
         flex-direction: column;
-        max-width: 90%; /* Set to 90% of viewport width for extra space */
-        text-align: center;
+        max-width: 90%;
         padding: 10px;
+        text-align: center;
     }
 
     .pastor-photo {
         width: 120px;
         height: 120px;
-        margin: 0 auto 15px; /* Center image and add space below */
+        margin: 0 auto 15px;
     }
 
     .pastor-bio {
@@ -290,9 +332,9 @@ h1 {
 
     .footer-section {
         margin: 10px 0;
-        min-width: 100px; /* Set a minimum width to maintain alignment */
+        min-width: 100px;
     }
-    
+
     .footer-social {
         flex-direction: column;
         align-items: center;
@@ -304,56 +346,74 @@ h1 {
     }
 
     .social-links {
-        justify-content: center; /* Center align icons */
-    }
-}
-/* Media Queries for Responsiveness */
-
-/* Tablet View (Landscape) */
-@media (max-width: 1024px) {
-    iframe {
-        height: 450px;
-    }
-    .cards {
-        grid-template-columns: 1fr;
-        width: 90%;
+        justify-content: center;
     }
 }
 
-/* Tablet View (Portrait) */
-@media (max-width: 768px) {
-    .video-container {
-        width: 90%;
+/* 670px and below: Very Small Devices */
+@media (max-width: 670px) {
+    .navbar {
+        position: relative;
     }
-    iframe {
-        height: 400px;
-    }
-    .large-card {
-        width: 100%;
-        padding: 15px;
-    }
-    .cards {
-        grid-template-columns: 1fr;
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: left;
         gap: 10px;
-        width: 100%;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .leadership-container {
+        max-width: 90%;
+    }
+
+    .footer .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+        min-width: 100px;
+    }
+
+    .footer-social {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-address {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 }
 
-/* Mobile View */
+/* 480px and below: Mobile */
 @media (max-width: 480px) {
     iframe {
         height: 300px;
     }
+
     .video-container {
         width: 100%;
     }
+
     .large-card {
         padding: 8px;
         font-size: 0.9em;
     }
+
     .cards {
         gap: 8px;
     }
+
     .card h3 {
         font-size: 0.9em;
     }

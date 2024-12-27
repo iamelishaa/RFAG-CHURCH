@@ -20,6 +20,11 @@
                 <span style="font-weight: normal;">AG Church</span>
             </div>
         </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="dynamicnavbar.html">Sermons</a></li>
@@ -27,7 +32,7 @@
             <li><a href="online.html">Online</a></li>
             <li><a href="giving.html">Giving</a></li>
         </ul>
-        </nav>
+    </nav>
         <h1>Our Leadership</h1>
         
         <div class="leadership-container">
@@ -87,5 +92,25 @@
             <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
         </div>
     </footer>
+    <script>
+        // Get references to the hamburger icon and the navigation links
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
+    
+        // Toggle the active class on hamburger click
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation menu
+            hamburger.classList.toggle('active'); // Toggle the "X" animation for hamburger
+        });
+    
+        // Close the menu when a navigation link is clicked
+        Array.from(navItems).forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active'); // Hide the menu
+                hamburger.classList.remove('active'); // Reset hamburger icon
+            });
+        });
+        </script>
 </body>
 </html>

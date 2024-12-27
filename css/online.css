@@ -312,86 +312,112 @@ body {
     transition: all 0.3s ease; /* Smooth transition for changes */
 }
 
-/* Styles for active state */
+/* Hamburger lines */
+.hamburger span {
+    display: block; 
+    width: 30px; 
+    height: 3px; 
+    background-color: black; 
+    margin: 9px auto; 
+    transition: all 0.3s; 
+}
+
+/* Change to X when active */
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg); /* Rotate the first line */
-    top: 10px; /* Adjust position */
+    transform: rotate(45deg) translate(6px, 6px); /* First line */
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0; /* Hide the middle line */
+    opacity: 0; /* Middle line becomes invisible */
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg); /* Rotate the third line */
-    top: 10px; /* Adjust position */
+    transform: rotate(-45deg) translate(6px, -6px); /* Last line */
 }
 
-/* Responsive styles to show the hamburger on smaller screens */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex; /* Show hamburger on smaller screens */
+    .navbar {
+        position: relative; /* Make navbar relative for absolute positioning of hamburger */
+        padding: 10px 15px; /* Reduce padding */
     }
-
+ 
     .navbar ul {
-        display: none; 
-        flex-direction: column; 
-        position: absolute; 
-        top: 60px; 
-        left: 0; 
-        background-color: white; 
-        width: 100%; 
-        z-index: 1000; 
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
     }
 
-    .navbar.active ul {
-        display: flex; /* Show links when navbar is active */
+    .navbar ul.active {
+        display: flex; /* Show the menu when active */
     }
 
     .navbar ul li {
-        margin: 15px 0; /* Space for vertical links */
+        margin: 10px 0; /* Space between links */
+        text-align: center; /* Center links horizontally */
     }
-    
+
+    .hamburger {
+        display: block; /* Show hamburger icon on small screens */
+    }
 }
 
 /* Additional media queries for larger screens */
 @media (max-width: 1024px) {
     .container {
         flex-direction: column; /* Stack container elements vertically on smaller screens */
+        padding: 10px; /* Adjust padding */
     }
 
     .cards {
-        margin-left: 20px; /* Remove left margin for cards */
+        flex-direction: column; /* Stack cards vertically */
+        margin-left: 0; /* Remove left margin for cards */
         align-items: center; /* Center align cards */
+        gap: 20px; /* Adjust gap between cards */
     }
 
     .resource, .social-media {
-        align-items: center; /* Allow cards to take full width */
+        align-items: center; /* Center align items in resource and social-media sections */
+        width: 100%; /* Ensure full width */
     }
 }
 
+/* For very small screens (e.g., mobile phones) */
 @media (max-width: 480px) {
     .navbar {
         padding: 10px 15px; 
     }
 
     .logo {
-        font-size: 1.2em; 
+        font-size: 1.2em; /* Adjust logo size */
+        padding-left: 10px; /* Reduce padding for the logo */
     }
 
     .live-stream img {
-        border-radius: 5px; 
+        border-radius: 5px; /* Slightly rounded corners for small screens */
+        width: 100%; /* Ensure image takes full width */
+        height: auto; /* Maintain aspect ratio */
     }
 
     .footer h2 {
-        font-size: 1.2em; 
+        font-size: 1.2em; /* Reduce heading size in footer */
     }
 
     .footer-section {
-        min-width: 100px; 
+        min-width: 100px; /* Smaller minimum width for footer sections */
     }
 
     .footer-links a {
         margin: 0 5px; 
+        font-size: 0.9em; /* Smaller font size for links */
+    }
+
+    .social-links {
+        gap: 10px; /* Adjust gap between social links */
     }
 }

@@ -99,6 +99,7 @@ body {
     margin: 0 auto;
 }
 
+/* Default - For large screens (1080px width) */
 .content-image {
     width: 1080px;
     height: 580px;
@@ -108,7 +109,51 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* For screens up to 1200px */
+@media (max-width: 1200px) {
+    .content-image {
+        width: 900px; /* Adjusted for smaller screens */
+        height: 480px; /* Maintain aspect ratio */
+    }
+}
+
+/* For screens up to 992px (tablets and small laptops) */
+@media (max-width: 992px) {
+    .content-image {
+        width: 720px; /* Scaled down further */
+        height: 400px;
+    }
+}
+
+/* For screens up to 768px (portrait tablets and large phones) */
+@media (max-width: 768px) {
+    .content-image {
+        width: 100%; /* Full width of the container */
+        height: auto; /* Maintain aspect ratio automatically */
+    }
+}
+
+/* For screens up to 576px (small phones) */
+@media (max-width: 576px) {
+    .content-image {
+        width: 100%; /* Full width of the container */
+        height: auto; /* Maintain aspect ratio */
+        margin: 10px 0; /* Add extra spacing for smaller screens */
+    }
+}
+
+/* For very small screens (up to 375px) */
+@media (max-width: 375px) {
+    .content-image {
+        width: 100%; /* Full width */
+        height: auto;
+        border-radius: 5px; /* Slightly reduced radius for smaller space */
+    }
+}
+
+
 /* Typewriter overlay */
+/* Default - For large screens */
 .overlay {
     position: absolute;
     font-family: 'DM-Sans', sans-serif;
@@ -121,8 +166,55 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
+
+/* For screens up to 1200px */
+@media (max-width: 1200px) {
+    .overlay {
+        top: 75%; /* Slightly lower position */
+        left: 20px; /* Reduce left margin */
+        font-size: 0.9em; /* Increase font size slightly */
+    }
+}
+
+/* For screens up to 992px (tablets and small laptops) */
+@media (max-width: 992px) {
+    .overlay {
+        top: 70%; /* Adjust top positioning */
+        left: 15px; /* Reduce left margin */
+        font-size: 0.7em; /* Larger font size for better readability */
+    }
+}
+
+/* For screens up to 768px (portrait tablets and large phones) */
+@media (max-width: 768px) {
+    .overlay {
+        top: 70%; /* Move overlay further down */
+        left: 10px; /* Minimal left margin */
+        font-size: 0.7em; /* Further increase font size */
+        text-align: center; /* Center text alignment */
+    }
+}
+
+/* For screens up to 576px (small phones) */
+@media (max-width: 576px) {
+    .overlay {
+        top: 50%; /* Near the bottom */
+        left: 5px; /* Minimal margin */
+        font-size: 0.7em; /* Larger font size for small screens */
+        padding: 10px; /* Add some padding for better spacing */
+        border-radius: 5px; /* Reduce border radius for smaller space */
+    }
+}
+
+/* For very small screens (up to 375px) */
+@media (max-width: 375px) {
+    .overlay {
+       display: none;
+    }
+}
+
 
 /* Cards container */
 .cards-container {
@@ -398,7 +490,7 @@ body {
   .footer-links a:hover {
     color: #5a5ca4; /* Hover color */
   }
-.hamburger {
+  .hamburger {
     display: none; 
     cursor: pointer; 
     font-size: 1.8em; 
@@ -430,6 +522,37 @@ body {
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px); /* Last line */
 }
+
+/* Navbar styles for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        position: relative; /* Make navbar relative for absolute positioning of hamburger */
+    }
+
+    .navbar ul {
+        display: none; 
+        flex-direction: column; 
+        width: 100%; 
+        background: white; 
+        position: absolute;
+        top: 60px; 
+        left: 0; 
+        z-index: 10; 
+    }
+
+    .navbar ul.active {
+        display: flex; /* Show the menu when active */
+    }
+
+    .navbar ul li {
+        margin: 10px 0; /* Space between links */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on small screens */
+    }
+}
+
 
 
 /* Responsive Styles */
@@ -476,48 +599,5 @@ body {
 
     .main-heading {
         font-size: 1.8rem; 
-    }
-}
-
-/* Add this to toggle mobile menu */
-@media (max-width: 800px) {
-    .navbar .menu-toggle {
-        display: block; 
-        cursor: pointer; 
-        font-size: 1.5em; 
-    }
-
-    .navbar .menu-toggle:hover {
-        color: #5a5ca4; 
-    }
-}
-
-/* Navbar styles for smaller screens */
-@media (max-width: 768px) {
-    .navbar {
-        position: relative; /* Make navbar relative for absolute positioning of hamburger */
-    }
-
-    .navbar ul {
-        display: none; 
-        flex-direction: column; 
-        width: 100%; 
-        background: white; 
-        position: absolute; 
-        top: 60px; 
-        left: 0; 
-        z-index: 10; 
-    }
-
-    .navbar ul.active {
-        display: flex; /* Show the menu when active */
-    }
-
-    .navbar ul li {
-        margin: 10px 0; /* Space between links */
-    }
-
-    .hamburger {
-        display: block; /* Show hamburger icon on small screens */
     }
 }
