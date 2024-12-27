@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.sermon-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+.container {
+    position: relative; /* Ensures absolute buttons align to container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.swiper-container {
+    width: 70%;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Custom Previous Button */
+.custom-prev {
+    position: absolute;
+    top: 50%;
+    left: 230px; /* Aligned to left edge */
+    transform: translateY(-50%);
+    background-color: white;
+    color: #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Custom Next Button */
+.custom-next {
+    position: absolute;
+    top: 50%;
+    right: 230px; /* Aligned to right edge */
+    transform: translateY(-50%);
+    background-color: white;
+    color: #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Hide default swiper navigation */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none;
+}

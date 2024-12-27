@@ -24,6 +24,22 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
 }
 
+/* Log name  */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text span {
+    font-size: 18px;
+}
+
 .logo {
     font-size: 1.5em;
     font-weight: bold;
@@ -79,10 +95,10 @@ body {
 .navbar ul li:hover a::after {
     width: 100%; /* Expand underline on hover */
 }
+.logo-text span {
+    font-size: 16px; /* Adjust the font size as needed */
+  }
 
-.navbar:hover .logo {
-    transform: scale(1.1); /* Scale logo on hover */
-}
 
 .live-stream {
     margin: 20px;

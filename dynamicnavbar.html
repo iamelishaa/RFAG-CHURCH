@@ -16,6 +16,10 @@
     <nav class="navbar">
         <div class="logo">
             <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
+            <div class="logo-text">
+                <span style="font-weight: bold;">Rhema Faith</span>
+                <span style="font-weight: normal;">AG Church</span>
+            </div>
         </div>
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -61,21 +65,21 @@
     <script>
         const API_KEYS = [
             'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70',  // API keys
-            'AIzaSyDLFdsSN9_v-zRZCsNH0hfFxyMw3aOe6qM',  
-            'AIzaSyDMTXBQ7sfGi4AE8PxdbwOQ-FSKbwwmxIc',  
-            'AIzaSyCT-z6sflyUCNWuZ-hgWymtpZFqOioksYE',  
-            'AIzaSyA-IxduYTFzO_ytnWBQEMm-KEPyH-szyfU',  
-            'AIzaSyCrJ1LGrmqPwvapuZSHLaLagIYjRoJFZzA',  
-            'AIzaSyBR-X3AgiTdc9l5rquxLc-Ttk_92IqEKNA'  
+            'AIzaSyDLFdsSN9_v-zRZCsNH0hfFxyMw3aOe6qM',
+            'AIzaSyDMTXBQ7sfGi4AE8PxdbwOQ-FSKbwwmxIc',
+            'AIzaSyCT-z6sflyUCNWuZ-hgWymtpZFqOioksYE',
+            'AIzaSyA-IxduYTFzO_ytnWBQEMm-KEPyH-szyfU',
+            'AIzaSyCrJ1LGrmqPwvapuZSHLaLagIYjRoJFZzA',
+            'AIzaSyBR-X3AgiTdc9l5rquxLc-Ttk_92IqEKNA'
         ];
-        const CHANNEL_ID = 'UCfGHCtW5XlkY78l97_Rwu4Q'; // channel ID
+        const CHANNEL_ID = 'UCxq5Pft2tXvwK-_GVhPrutQ'; // channel ID
         const MAX_RESULTS = 10; // Number of videos to fetch
         const carousel = document.getElementById('carousel');
         const featuredVideo = document.getElementById('featured-video');
         
         let currentIndex = 0;
         let currentAPIKeyIndex = 0; // Track current API key index
-
+    
         // Function to check the remaining API quota
         async function checkQuota(apiKey) {
             const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}`);
@@ -90,19 +94,19 @@
             }
             return true;
         }
-
+    
         // Rotate API Key (switch to the next available API key)
         function rotateAPIKey() {
             currentAPIKeyIndex = (currentAPIKeyIndex + 1) % API_KEYS.length;
             console.log(`Switched to API key: ${API_KEYS[currentAPIKeyIndex]}`);
         }
-
+    
         // Function to fetch videos from the YouTube Data API
         async function fetchVideos() {
             // Check if the API quota is still valid before making the request
             const isQuotaValid = await checkQuota(API_KEYS[currentAPIKeyIndex]);
             if (!isQuotaValid) return; // Stop if the quota is exceeded
-
+    
             try {
                 // First, check if we have cached data in localStorage
                 const cachedData = localStorage.getItem('youtubeVideos');
@@ -112,13 +116,13 @@
                     populateCarousel(data);
                     return;
                 }
-
+    
                 // Fetch videos from YouTube Data API
                 const response = await fetch(
                     `https://www.googleapis.com/youtube/v3/search?key=${API_KEYS[currentAPIKeyIndex]}&channelId=${CHANNEL_ID}&part=snippet&type=video&order=date&maxResults=${MAX_RESULTS}`
                 );
                 const data = await response.json();
-
+    
                 // Cache the response in localStorage
                 localStorage.setItem('youtubeVideos', JSON.stringify(data));
                 populateCarousel(data);
@@ -126,14 +130,14 @@
                 console.error('Error fetching videos:', error);
             }
         }
-
+    
         // Populate the carousel with video data
         function populateCarousel(data) {
             data.items.forEach((video, index) => {
                 const videoId = video.id.videoId;
                 const thumbnail = video.snippet.thumbnails.medium.url;
                 const title = video.snippet.title;
-
+    
                 // Create carousel item
                 const item = document.createElement('div');
                 item.classList.add('carousel-item');
@@ -141,28 +145,33 @@
                     <img src="${thumbnail}" alt="${title}" data-video-id="${videoId}">
                     <p>${title}</p>
                 `;
-
+    
                 // Add click event to change the featured video and enable autoplay
                 item.addEventListener('click', () => {
                     featuredVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`; // Enable autoplay
                 });
-
+    
                 carousel.appendChild(item);
-
+    
                 // Set the first video as the featured video
                 if (index === 0) {
                     featuredVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`; // Set autoplay for the first video
                 }
             });
+    
+            // Update the items array and the carousel
+            items.length = 0;  // Clear the previous items
+            items.push(...carousel.querySelectorAll('.carousel-item'));  // Re-populate items
+            updateCarousel();  // Update carousel view
         }
-
+    
         // Carousel Navigation
         const items = [];
         function updateCarousel() {
             const itemWidth = items[0].clientWidth + 16; // Include gap
             carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
-
+    
         document.getElementById('nextBtn').addEventListener('click', () => {
             if (currentIndex < items.length - 3) {
                 currentIndex++;
@@ -171,7 +180,7 @@
             }
             updateCarousel();
         });
-
+    
         document.getElementById('prevBtn').addEventListener('click', () => {
             if (currentIndex > 0) {
                 currentIndex--;
@@ -180,14 +189,17 @@
             }
             updateCarousel();
         });
-
-        // Initialize
+    
+        // Initialize the carousel with videos
         fetchVideos().then(() => {
             items.push(...carousel.querySelectorAll('.carousel-item'));
             updateCarousel();
         });
-
+    
+        // Periodically update the carousel every 30 minutes
+        setInterval(fetchVideos, 1 * 60 * 1000);
     </script>
+    
 
 <footer class="footer">
     <div class="footer-content">
@@ -202,7 +214,7 @@
             <div class="footer-section">
                 <h3>Media</h3>
                 <ul>
-                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="dynamicnavbar.html">Sermons</a></li>
                     <li><a href="online.html">Watch Online</a></li>
                 </ul>
             </div>
@@ -217,22 +229,20 @@
             <div class="footer-section">
                 <h3>Personal</h3>
                 <ul>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#terms">Terms of Service</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="termsofuse.html">Terms of Service</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
         <hr class="footer-divider">
         <div class="footer-social">
             <div class="footer-address">
-                <p>123 Rhema St, Cityville, ST 12345 | 12345-12345</p>
+                <p>145/12, N.R.Square, 2nd floor, 1st main road, Chamrajpet, B'lore 18</p>
             </div>
             <div class="social-links">
-                <a href="#" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/rhema.faithag/" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/rfag_church_/" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@RhemaFaithAGChurch" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>

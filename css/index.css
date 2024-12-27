@@ -30,6 +30,21 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* Log name  */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text span {
+    font-size: 18px;
+}
 .navbar ul {
     list-style: none;
     display: flex;
@@ -71,10 +86,10 @@ body {
 .navbar ul li:hover a::after {
     width: 100%;
 }
+.logo-text span {
+    font-size: 16px; /* Adjust the font size as needed */
+  }
 
-.navbar:hover .logo {
-    transform: scale(1.1);
-}
 
 /* Container */
 .content-container {
@@ -85,10 +100,9 @@ body {
 }
 
 .content-image {
-    width: 100%;
-    max-height: 700px;
+    width: 1080px;
+    height: 580px;
     object-fit: cover;
-    height: auto;
     margin: 5px 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

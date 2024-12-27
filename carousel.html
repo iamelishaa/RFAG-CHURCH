@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sermon Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://apis.google.com/js/api.js"></script>
+    <style>
+        /* Custom styling for the page */
+        .sermon-video {
+            width: 100%;
+            height: 450px;
+        }
+        .carousel-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        .carousel-item img {
+            max-height: 200px;
+            object-fit: cover;
+            width: 32%;  /* Display 3 videos per slide */
+        }
+        .carousel-caption {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sermon Heading and Recent Video -->
+    <div class="container mt-5">
+        <h2>Sermon of the Week</h2>
+        <div class="embed-responsive embed-responsive-16by9 sermon-video">
+            <iframe id="recent-sermon" class="embed-responsive-item" 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Popular Sermons -->
+        <h3 class="mt-5">Popular Sermons</h3>
+        <div id="popularSermonsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="popularSermonsCarouselItems">
+                <!-- Dynamic Content will be loaded here -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#popularSermonsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#popularSermonsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- Recent Sermons -->
+        <h3 class="mt-5">Recent Sermons</h3>
+        <div id="recentSermonsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="recentSermonsCarouselItems">
+                <!-- Dynamic Content will be loaded here -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#recentSermonsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#recentSermonsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to fetch data from YouTube API (example)
+        function loadYouTubeVideos() {
+            gapi.client.setApiKey('YOUR_YOUTUBE_API_KEY');
+            gapi.client.load('youtube', 'v3', function() {
+                // Fetch most popular videos from the YouTube channel
+                fetchPopularVideos();
+                fetchRecentVideos();
+            });
+        }
+
+        function fetchPopularVideos() {
+            var request = gapi.client.youtube.search.list({
+                part: 'snippet',
+                channelId: 'YOUR_CHANNEL_ID',
+                maxResults: 9,  // Fetch 9 videos to show 3 at a time
+                order: 'viewCount' // Most popular videos based on view count
+            });
+
+            request.execute(function(response) {
+                var items = response.items;
+                var carouselInner = document.getElementById('popularSermonsCarouselItems');
+                var slides = '';
+                for (var i = 0; i < items.length; i += 3) {
+                    slides += `<div class="carousel-item ${i === 0 ? 'active' : ''}">`;
+                    for (var j = i; j < i + 3 && j < items.length; j++) {
+                        slides += `
+                            <div class="col-4">
+                                <a href="sermon-video.html?videoId=${items[j].id.videoId}">
+                                    <img src="${items[j].snippet.thumbnails.medium.url}" class="d-block w-100" alt="${items[j].snippet.title}">
+                                    <h5>${items[j].snippet.title}</h5>
+                                </a>
+                            </div>
+                        `;
+                    }
+                    slides += '</div>';
+                }
+                carouselInner.innerHTML = slides;
+            });
+        }
+
+        function fetchRecentVideos() {
+            var request = gapi.client.youtube.search.list({
+                part: 'snippet',
+                channelId: 'YOUR_CHANNEL_ID',
+                maxResults: 9,  // Fetch 9 videos to show 3 at a time
+                order: 'date' // Most recent videos
+            });
+
+            request.execute(function(response) {
+                var items = response.items;
+                var carouselInner = document.getElementById('recentSermonsCarouselItems');
+                var slides = '';
+                for (var i = 0; i < items.length; i += 3) {
+                    slides += `<div class="carousel-item ${i === 0 ? 'active' : ''}">`;
+                    for (var j = i; j < i + 3 && j < items.length; j++) {
+                        slides += `
+                            <div class="col-4">
+                                <a href="sermon-video.html?videoId=${items[j].id.videoId}">
+                                    <img src="${items[j].snippet.thumbnails.medium.url}" class="d-block w-100" alt="${items[j].snippet.title}">
+                                    <h5>${items[j].snippet.title}</h5>
+                                </a>
+                            </div>
+                        `;
+                    }
+                    slides += '</div>';
+                }
+                carouselInner.innerHTML = slides;
+            });
+        }
+
+        // Load YouTube API
+        gapi.load('client', loadYouTubeVideos);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

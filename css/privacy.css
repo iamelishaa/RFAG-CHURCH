@@ -1,10 +1,17 @@
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-}
-.navbar {
+    background-color: #f9f9f9; /* Consistent background */
+  }
+  
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,53 +19,54 @@ body {
     background-color: white; /* Navbar background */
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
-}
-
-/* Log name  */
-.logo {
+  }
+  
+  /* Log name  */
+  .logo {
     display: flex;
     align-items: center;
-}
-
-.logo-text {
+  }
+  
+  .logo-text {
     margin-left: 5px;
     display: flex;
     flex-direction: column;
-}
-
-.logo-text span {
+  }
+  
+  .logo-text span {
     font-size: 18px;
-}
-.logo {
+  }
+  .logo {
     font-size: 1.5em;
     font-weight: bold;
     color: #343a40; /* Logo color */
     transition: transform 0.3s ease;
-}
-.logo img {
+  }
+  .logo img {
     height: 50px; /* Adjust the height of the logo */
+    padding-left: 30px;
     border-radius: 5px;
     transition: transform 0.3s ease;
-}
-.navbar ul {
+  }
+  .navbar ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
     align-items: center; /* Center items vertically */
-}
-.navbar ul li {
+  }
+  .navbar ul li {
     margin: 0 20px;
     position: relative;
-}
-.navbar ul li a {
+  }
+  .navbar ul li a {
     text-decoration: none;
     color: black; /* Link color */
     font-weight: 600;
     padding: 5px 0;
     transition: color 0.3s ease;
-}
-.navbar ul li a::after {
+  }
+  .navbar ul li a::after {
     content: '';
     display: block;
     height: 2px;
@@ -69,17 +77,43 @@ body {
     left: 50%;
     bottom: -5px;
     transform: translateX(-50%);
-}
-.navbar ul li a:hover {
+  }
+  .navbar ul li a:hover {
     color: #5a5ca4; /* Change link color on hover */
-}
-.navbar ul li:hover a::after {
+  }
+  .navbar ul li:hover a::after {
     width: 100%; /* Expand underline on hover */
-}
-.logo-text span {
+  }
+  .logo-text span {
     font-size: 16px; /* Adjust the font size as needed */
   }
 
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #555;
+}
+
+p, ul {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+ul {
+    padding-left: 20px;
+}
 
 .footer {
     background-color: #ffffff;
@@ -87,126 +121,103 @@ body {
     padding: 20px 10px; /* Reduced padding */
     text-align: center;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
-}
-
-.footer-content {
+  }
+  
+  .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.footer h2 {
+  }
+  
+  .footer h2 {
     margin: 0 0 15px; /* Reduced margin */
     color: #5a5ca4;
     font-size: 1.4em; /* Slightly smaller font size */
-}
-
-.footer-links {
+  }
+  
+  .footer-links {
     display: flex;
     justify-content: space-around; /* Space evenly between sections */
     flex-wrap: wrap;
     margin: 10px 0; /* Reduced margin */
-}
-
-.footer-section {
+  }
+  
+  .footer-section {
     flex: 1;
     min-width: 120px; /* Reduced minimum width */
     margin: 5px; /* Reduced margin */
-}
-
-.footer-section h3 {
-    margin-bottom: 8px; /* Reduced space below headings */
-    font-size: 1.1em; /* Slightly smaller font size */
+  }
+  
+  .footer-section h3 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.1em;
     color: black;
-}
-.footer-section ul {
+    text-align: center; /* Center text within each section */
+  }
+  
+  .footer-section ul {
     list-style: none; /* Remove default list styling */
     padding: 0; /* Remove padding */
-}
-
-.footer-divider {
+  }
+  
+  .footer-divider {
     border: 0;
-    padding: 0;
     height: 1px; /* Thinner divider */
     background-color: black;
     margin: 15px 0; /* Reduced spacing around the divider */
-}
-
-.footer-social {
+  }
+  
+  .footer-social {
     display: flex;
     justify-content: space-between; /* Distribute space between address and social icons */
     align-items: center; /* Center alignment */
-    padding: 0; /* Spacing above and below */
-}
-
-.footer-address {
+  }
+  
+  .footer-address {
     text-align: left; /* Align address text to the left */
     flex: 1; /* Allow address to take available space */
-}
-
-.social-links {
+  }
+  
+  .social-links {
     display: flex; /* Flex for social icons */
     gap: 15px; /* Space between icons */
     justify-content: flex-end; /* Align social icons to the right */
-}
-.social-links a {
+  }
+  
+  .social-links a {
     color: inherit; /* Default to inherit color */
-}
-
-.social-links a.facebook {
+  }
+  
+  .social-links a.facebook {
     color: #3b5998; /* Facebook brand color */
-}
-
-.social-links a.twitter {
+  }
+  
+  .social-links a.twitter {
     color: #1da1f2; /* Twitter brand color */
-}
-
-.social-links a.instagram {
+  }
+  
+  .social-links a.instagram {
     color: #c13584; /* Instagram brand color */
-}
-
-.social-links a.youtube {
+  }
+  
+  .social-links a.youtube {
     color: #ff0000; /* YouTube brand color */
-}
-.footer-links {
+  }
+  
+  .footer-links {
     margin: 20px 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-.footer-links a {
+  }
+  
+  .footer-links a {
     color: #343a40; /* Link color */
     text-decoration: none;
     margin: 0 15px;
     transition: color 0.3s;
-}
-
-.footer-links a:hover {
+  }
+  
+  .footer-links a:hover {
     color: #5a5ca4; /* Hover color */
-}
-
-.mission-statement, .mission-section {
-max-width: 800px;
-margin: 40px auto; /* Center horizontally with margin */
-text-align: center; /* Center text */
-background-color: white;
-padding: 20px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Style for H1 and H2 */
-h1 {
-    font-size: 3em; /* Larger font size */
-    color: black;
-    text-align: start;
-    margin-bottom: 20px;
-}
-
-.mission-section h2 {
-    font-size: 2.2em; /* Larger font size for H2 */
-    color: black;
-    text-align: start;
-    margin: 40px auto;
-}
-.mission-statement, .mission-section p {
-    text-align: left;
-}
+  }

@@ -13,6 +13,23 @@ body {
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
 }
+
+/* Log name  */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text span {
+    font-size: 18px;
+}
+
 .logo {
     font-size: 1.5em;
     font-weight: bold;
@@ -60,9 +77,10 @@ body {
 .navbar ul li:hover a::after {
     width: 100%; /* Expand underline on hover */
 }
-.navbar:hover .logo {
-    transform: scale(1.1); /* Scale logo on hover */
-}
+.logo-text span {
+    font-size: 16px; /* Adjust the font size as needed */
+  }
+
 h1 {
     font-size: 2.2em;
     margin-bottom: 40px;
@@ -77,17 +95,18 @@ h1 {
     text-align: left;
     margin: 40px auto;
     padding: 20px;
-    background-color: #f5f5f5; /* Light background color */
+    /* background-color: #f5f5f5; Light background color */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Soft shadow */
 }
 
 .pastor-photo {
-    width: 180px;
-    height: 180px;
+    width: 330px;
+    height: 330px;
     border-radius: 50%;
     margin-right: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for image */
+    object-fit: cover;  
 }
 
 .pastor-bio {
@@ -101,89 +120,106 @@ h1 {
     padding: 20px 10px; /* Reduced padding */
     text-align: center;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
-}
-.footer-content {
+  }
+  
+  .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-}
-.footer h2 {
+  }
+  
+  .footer h2 {
     margin: 0 0 15px; /* Reduced margin */
     color: #5a5ca4;
     font-size: 1.4em; /* Slightly smaller font size */
-}
-.footer-links {
+  }
+  
+  .footer-links {
     display: flex;
     justify-content: space-around; /* Space evenly between sections */
     flex-wrap: wrap;
     margin: 10px 0; /* Reduced margin */
-}
-.footer-section {
+  }
+  
+  .footer-section {
     flex: 1;
     min-width: 120px; /* Reduced minimum width */
     margin: 5px; /* Reduced margin */
-}
-.footer-section h3 {
-    margin-bottom: 8px; /* Reduced space below headings */
-    font-size: 1.1em; /* Slightly smaller font size */
+  }
+  
+  .footer-section h3 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.1em;
     color: black;
-}
-.footer-section ul {
+    text-align: center; /* Center text within each section */
+  }
+  
+  .footer-section ul {
     list-style: none; /* Remove default list styling */
     padding: 0; /* Remove padding */
-}
-.footer-divider {
+  }
+  
+  .footer-divider {
     border: 0;
-    padding: 0;
     height: 1px; /* Thinner divider */
     background-color: black;
     margin: 15px 0; /* Reduced spacing around the divider */
-}
-.footer-social {
+  }
+  
+  .footer-social {
     display: flex;
     justify-content: space-between; /* Distribute space between address and social icons */
     align-items: center; /* Center alignment */
-    padding: 0; /* Spacing above and below */
-}
-.footer-address {
+  }
+  
+  .footer-address {
     text-align: left; /* Align address text to the left */
     flex: 1; /* Allow address to take available space */
-}
-.social-links {
+  }
+  
+  .social-links {
     display: flex; /* Flex for social icons */
     gap: 15px; /* Space between icons */
     justify-content: flex-end; /* Align social icons to the right */
-}
-.social-links a {
+  }
+  
+  .social-links a {
     color: inherit; /* Default to inherit color */
-}
-.social-links a.facebook {
-    color: #3b5998; 
-}
-.social-links a.twitter {
-    color: #1da1f2; 
-}
-.social-links a.instagram {
-    color: #c13584; 
-}
-.social-links a.youtube {
-    color: #ff0000; 
-.footer-links {
+  }
+  
+  .social-links a.facebook {
+    color: #3b5998; /* Facebook brand color */
+  }
+  
+  .social-links a.twitter {
+    color: #1da1f2; /* Twitter brand color */
+  }
+  
+  .social-links a.instagram {
+    color: #c13584; /* Instagram brand color */
+  }
+  
+  .social-links a.youtube {
+    color: #ff0000; /* YouTube brand color */
+  }
+  
+  .footer-links {
     margin: 20px 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-.footer-links a {
+  }
+  
+  .footer-links a {
     color: #343a40; /* Link color */
     text-decoration: none;
     margin: 0 15px;
     transition: color 0.3s;
-}
-
-.footer-links a:hover {
+  }
+  
+  .footer-links a:hover {
     color: #5a5ca4; /* Hover color */
-}
-
+  }
 /* Responsive styles for Leadership Page */
 @media (max-width: 960px) {
     .navbar {

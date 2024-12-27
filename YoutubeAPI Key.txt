@@ -4,6 +4,16 @@
 const apiKey = 'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70';
         const channelId = 'UCxq5Pft2tXvwK-_GVhPrutQ';
 
+          const API_KEYS = [
+            'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70',  // API keys
+            'AIzaSyDLFdsSN9_v-zRZCsNH0hfFxyMw3aOe6qM',
+            'AIzaSyDMTXBQ7sfGi4AE8PxdbwOQ-FSKbwwmxIc',
+            'AIzaSyCT-z6sflyUCNWuZ-hgWymtpZFqOioksYE',
+            'AIzaSyA-IxduYTFzO_ytnWBQEMm-KEPyH-szyfU',
+            'AIzaSyCrJ1LGrmqPwvapuZSHLaLagIYjRoJFZzA',
+            'AIzaSyBR-X3AgiTdc9l5rquxLc-Ttk_92IqEKNA'
+        ];
+
 		
 <!DOCTYPE html>
 <html lang="en">
