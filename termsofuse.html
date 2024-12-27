@@ -92,5 +92,25 @@
             <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
         </div>
     </footer>
+    <script>
+        // Get references to the hamburger icon and the navigation links
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
+    
+        // Toggle the active class on hamburger click
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation menu
+            hamburger.classList.toggle('active'); // Toggle the "X" animation for hamburger
+        });
+    
+        // Close the menu when a navigation link is clicked
+        Array.from(navItems).forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active'); // Hide the menu
+                hamburger.classList.remove('active'); // Reset hamburger icon
+            });
+        });
+        </script>
 </body>
 </html>

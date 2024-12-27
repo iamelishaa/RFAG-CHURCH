@@ -5,33 +5,30 @@ body {
     background-color: #f9f9f9;  
 }
 
-/* Navbar and logo */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: white; 
+    background-color: white; /* Navbar background */
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
 }
-
 .logo {
     font-size: 1.5em;
     font-weight: bold;
-    color: #343a40;
+    color: #343a40; /* Logo color */
     transition: transform 0.3s ease;
 }
 
 .logo img {
-    height: 50px; 
-    padding-left: 30px;
+    height: 50px; /* Adjust the logo size */
+    padding-left: 0; /* Adjust the padding to fit well on the left */
     border-radius: 5px;
-    transition: transform 0.3s ease;
 }
 
-/* Log name  */
-.logo {
+ /* Log name  */
+  .logo {
     display: flex;
     align-items: center;
 }
@@ -43,8 +40,10 @@ body {
 }
 
 .logo-text span {
-    font-size: 18px;
+    font-size: 14px;
 }
+
+
 .navbar ul {
     list-style: none;
     display: flex;
@@ -86,9 +85,6 @@ body {
 .navbar ul li:hover a::after {
     width: 100%;
 }
-.logo-text span {
-    font-size: 16px; /* Adjust the font size as needed */
-  }
 
 
 
@@ -267,31 +263,26 @@ h1 {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Media Queries */
-
-/* 1024px and below: Tablet Landscape */
-@media (max-width: 1024px) {
-    iframe {
-        height: 450px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-        width: 90%;
-    }
-}
-
 /* 768px and below: Tablet Portrait / Small Devices */
 @media (max-width: 768px) {
-    .navbar ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
+    .navbar {
+        position: relative; /* Ensure the navbar stays fixed at the top */
+        top: 0;
         left: 0;
-        width: 100%;
-        background-color: white;
-        z-index: 10;
+        width: 89%;
+        z-index: 1000;
+        overflow: hidden; /* Ensure it stays above other content */
+     }   
+
+    .navbar ul {
+        display: none; 
+        flex-direction: column; 
+        width: 100%; 
+        background: white; 
+        position: absolute;
+        top: 60px; 
+        left: 0; 
+        z-index: 10; 
     }
 
     .navbar ul.active {
@@ -310,8 +301,8 @@ h1 {
     }
 
     .pastor-photo {
-        width: 120px;
-        height: 120px;
+        width:  170px;
+        height: 170px;
         margin: 0 auto 15px;
     }
 
@@ -324,17 +315,6 @@ h1 {
         font-size: 1.8em;
         margin: 20px;
     }
-
-    .footer .footer-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-section {
-        margin: 10px 0;
-        min-width: 100px;
-    }
-
     .footer-social {
         flex-direction: column;
         align-items: center;
@@ -348,73 +328,8 @@ h1 {
     .social-links {
         justify-content: center;
     }
-}
-
-/* 670px and below: Very Small Devices */
-@media (max-width: 670px) {
-    .navbar {
-        position: relative;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        align-items: left;
-        gap: 10px;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .leadership-container {
-        max-width: 90%;
-    }
-
-    .footer .footer-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-section {
-        margin: 10px 0;
-        min-width: 100px;
-    }
-
-    .footer-social {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-address {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-}
-
-/* 480px and below: Mobile */
-@media (max-width: 480px) {
-    iframe {
-        height: 300px;
-    }
-
-    .video-container {
+    .footer {
+        overflow: hidden;
         width: 100%;
-    }
-
-    .large-card {
-        padding: 8px;
-        font-size: 0.9em;
-    }
-
-    .cards {
-        gap: 8px;
-    }
-
-    .card h3 {
-        font-size: 0.9em;
     }
 }

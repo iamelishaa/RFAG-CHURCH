@@ -18,6 +18,7 @@ body {
 .logo {
     display: flex;
     align-items: center;
+    margin-left: 0; /* Ensures no extra space on the left */
 }
 
 .logo-text {
@@ -27,7 +28,7 @@ body {
 }
 
 .logo-text span {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .logo {
@@ -37,10 +38,9 @@ body {
     transition: transform 0.3s ease;
 }
 .logo img {
-    height: 50px; /* Adjust the height of the logo */
-    padding-left: 30px;
+    height: 50px; /* Adjust the logo size */
+    padding-left: 0; /* Adjust the padding to fit well on the left */
     border-radius: 5px;
-    transition: transform 0.3s ease;
 }
 .navbar ul {
     list-style: none;
@@ -79,7 +79,7 @@ body {
     width: 100%; /* Expand underline on hover */
 }
 .logo-text span {
-    font-size: 16px; /* Adjust the font size as needed */
+    font-size: 14px; /* Adjust the font size as needed */
   }
 
 
@@ -312,24 +312,27 @@ body {
 @media (max-width: 600px) {
     /* Adjust navbar for small screens */
     .navbar {
-        flex-direction: column; 
-        align-items: flex-start; 
-        padding: 10px; 
+        position: relative; /* Make navbar relative for absolute positioning of hamburger */
     }
 
     .navbar ul {
+        display: none; 
         flex-direction: column; 
-        margin-top: 10px; 
         width: 100%; 
+        background: white; 
+        position: absolute;
+        top: 60px; 
+        left: 0; 
+        z-index: 10; 
     }
 
-    .navbar ul li {
-        margin: 5px 0; /* Space between navbar items */
-    }
 
+    .navbar ul.active {
+        display: flex; /* Show nav items when active */
+    }
     /* Adjust card styles */
     .card {
-        width: calc(90% - 20px); /* Full width minus margins */
+        width: calc(120% - 20px); /* Full width minus margins */
         margin: 10px 0; /* Reduce margin between cards */
     }
 
@@ -345,6 +348,20 @@ body {
     .full-width-image p {
         font-size: 0.9em; /* Smaller paragraph text */
     }
+    .footer-social {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-address {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+    
 }
 
 /* Small devices (landscape phones, 601px to 768px) */
@@ -367,6 +384,7 @@ body {
     .full-width-image p {
         font-size: 1em; /* Adjust paragraph text */
     }
+    
 }
 
 /* Medium devices (tablets, 769px to 1024px) */

@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-    color: #333; /* Default text color */
 }
 
 .container {
@@ -13,7 +12,6 @@ body {
     display: flex; /* Use flexbox for layout */
     align-items: flex-start; /* Align items to the start */
 }
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -23,11 +21,12 @@ body {
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
 }
-
+  
 /* Log name  */
 .logo {
     display: flex;
     align-items: center;
+    margin-left: 0; /* Ensures no extra space on the left */
 }
 
 .logo-text {
@@ -37,7 +36,7 @@ body {
 }
 
 .logo-text span {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .logo {
@@ -46,12 +45,10 @@ body {
     color: #343a40; /* Logo color */
     transition: transform 0.3s ease;
 }
-
 .logo img {
-    height: 50px; /* Adjust the height of the logo */
-    padding-left: 30px;
+    height: 50px; /* Adjust the logo size */
+    padding-left: 0; /* Adjust the padding to fit well on the left */
     border-radius: 5px;
-    transition: transform 0.3s ease;
 }
 
 .navbar ul {
@@ -96,58 +93,219 @@ body {
     width: 100%; /* Expand underline on hover */
 }
 .logo-text span {
-    font-size: 16px; /* Adjust the font size as needed */
+    font-size: 14px; /* Adjust the font size as needed */
   }
 
 
+/* Base styles */
 .live-stream {
     margin: 20px;
-    position: relative; 
-    text-align: left; 
-    flex: 1; 
+    position: relative;
+    text-align: left;
+    flex: 1;
 }
 
 .live-stream img {
-    width: 100%; 
-    max-width: 1600px; 
-    height: auto; 
-    border-radius: 10px; 
+    width: 100%;
+    max-width: 1600px;
+    height: auto;
+    border-radius: 10px;
 }
 
 .live-stream .content {
-    position: absolute; 
-    bottom: 10px; 
-    left: 0; 
-    color: white; 
-    text-align: left; 
-    padding: 10px; 
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: white;
+    text-align: left;
+    padding: 10px;
     border-radius: 5px;
 }
 
 .watch-button {
-    background-color: white; 
-    color: black; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 25px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    display: inline-block; 
-    text-align: center; 
-    margin-top: 0; 
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    margin-top: 0;
 }
 
 .cards {
-   grid-auto-columns: auto;
+    grid-auto-columns: auto;
     padding-top: 20px;
     padding-bottom: 20px;
-    flex-direction: row; 
-    justify-content: flex-start; 
-    margin-left: 20px; 
-    gap: 50px; 
-    flex-wrap: wrap; 
-    max-width: 100%; 
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 20px;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: hidden;
 }
+
+/* Media Queries */
+
+/* For small mobile screens */
+@media (max-width: 360px) {
+    .live-stream {
+        margin: 5pxpx;
+        text-align: center;
+    }
+
+    .live-stream img {
+        width: 100%;
+        max-width: 100%; /* Ensure the image doesn't overflow */
+        border-radius: 5px; /* Smaller rounded corners */
+    }
+
+    .live-stream .content {
+        bottom: 20px; /* More space from the bottom */
+        left: 10px; /* Add padding */
+        padding: 15px; /* Increase padding */
+    }
+    .live-stream .content h3{
+        font-size: 9px;
+    }
+
+    .watch-button {
+        padding: 7px 13px; /* Smaller button for small screens */
+        font-size: 14px;
+    }
+
+    .cards {
+        flex-direction: column;
+        gap: 20px; /* Smaller gap between cards */
+        margin-left: 0; /* Remove left margin */
+    }
+}
+
+/* For mobile screens up to 480px */
+@media (max-width: 480px) {
+    .live-stream {
+        margin: 5px;
+        text-align: center;
+    }
+
+    .live-stream img {
+        max-width: 100%; /* Ensure the image takes up the full width */
+        border-radius: 5px;
+    }
+
+    .live-stream .content {
+        bottom: 10px;
+        left: 10px;
+        padding: 10px;
+    }
+
+    .watch-button {
+        padding: 7px 13px;
+        font-size: 5px;
+    }
+
+    .cards {
+        flex-direction: column; /* Stack the cards vertically */
+        gap: 20px; /* Smaller gap between cards */
+        margin-left: 0;
+    }
+}
+
+/* For tablet screens (up to 768px) */
+@media (max-width: 768px) {
+    .live-stream {
+        margin: 15px;
+        text-align: center;
+    }
+
+    .live-stream img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .live-stream .content {
+        bottom: 10px;
+        left: 10px;
+        padding: 12px;
+    }
+
+    .watch-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .cards {
+        gap: 30px; /* Reduce gap slightly for tablets */
+        flex-wrap: wrap;
+        margin-left: 0;
+    }
+}
+
+/* For desktop screens (1024px and below) */
+@media (max-width: 1024px) {
+    .live-stream {
+        margin: 20px;
+        text-align: center;
+    }
+
+    .live-stream img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .live-stream .content {
+        bottom: 15px;
+        left: 10px;
+        padding: 12px;
+    }
+
+    .watch-button {
+        padding: 12px 25px;
+        font-size: 18px;
+    }
+
+    .cards {
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-left: 0;
+    }
+}
+
+/* For large desktop screens (1025px and above) */
+@media (min-width: 1025px) {
+    .live-stream {
+        margin: 20px;
+        text-align: left;
+    }
+
+    .live-stream img {
+        max-width: 1600px;
+        border-radius: 10px;
+    }
+
+    .live-stream .content {
+        bottom: 10px;
+        left: 10px;
+        padding: 10px;
+    }
+
+    .watch-button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    .cards {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 50px;
+        margin-left: 20px;
+        max-width: 100%;
+    }
+}
+
 .resource, .social-media {
     background-color: #fff; 
     border-radius: 8px; 
@@ -335,22 +493,22 @@ body {
     transform: rotate(-45deg) translate(6px, -6px); /* Last line */
 }
 
+
+
 @media (max-width: 768px) {
     .navbar {
         position: relative; /* Make navbar relative for absolute positioning of hamburger */
-        padding: 10px 15px; /* Reduce padding */
     }
  
     .navbar ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: white;
+        display: none; 
+        flex-direction: column; 
+        width: 100%; 
+        background: white; 
         position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+        top: 60px; 
+        left: 0; 
+        z-index: 10; 
     }
 
     .navbar ul.active {
@@ -359,11 +517,27 @@ body {
 
     .navbar ul li {
         margin: 10px 0; /* Space between links */
-        text-align: center; /* Center links horizontally */
     }
 
     .hamburger {
         display: block; /* Show hamburger icon on small screens */
+    }
+    .cards {
+        flex-direction: column; /* Stack cards vertically on small screens */
+        gap: 20px; /* Reduce space between cards */
+    }
+    .footer-social {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-address {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 }
 
@@ -376,7 +550,8 @@ body {
 
     .cards {
         flex-direction: column; /* Stack cards vertically */
-        margin-left: 0; /* Remove left margin for cards */
+        margin-left: 0;
+        margin-top: 20px; /* Remove left margin for cards */
         align-items: center; /* Center align cards */
         gap: 20px; /* Adjust gap between cards */
     }
@@ -390,12 +565,24 @@ body {
 /* For very small screens (e.g., mobile phones) */
 @media (max-width: 480px) {
     .navbar {
-        padding: 10px 15px; 
+        position: relative;
     }
 
     .logo {
         font-size: 1.2em; /* Adjust logo size */
-        padding-left: 10px; /* Reduce padding for the logo */
+    }
+
+    .container {
+        flex-direction: column; /* Stack sections vertically */
+        gap: 20px;
+        align-items: center;
+    }
+    .live-stream, .cards {
+        width: 100%; /* Full width for each section */
+    }
+
+    .cards {
+        grid-template-columns: repeat(1, 2fr); 
     }
 
     .live-stream img {
@@ -403,21 +590,13 @@ body {
         width: 100%; /* Ensure image takes full width */
         height: auto; /* Maintain aspect ratio */
     }
-
-    .footer h2 {
-        font-size: 1.2em; /* Reduce heading size in footer */
+    .content h3 {
+        font-size: 13px;
+        padding-top: 15px;
+    }
+    .content .watch-button {
+        padding: 10px 15px;
     }
 
-    .footer-section {
-        min-width: 100px; /* Smaller minimum width for footer sections */
-    }
-
-    .footer-links a {
-        margin: 0 5px; 
-        font-size: 0.9em; /* Smaller font size for links */
-    }
-
-    .social-links {
-        gap: 10px; /* Adjust gap between social links */
-    }
+   
 }
