@@ -263,12 +263,41 @@ h1 {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* 768px and below: Tablet Portrait / Small Devices */
-@media (max-width: 768px) {
+/* Base Styles (Mobile-first) */
+
+/* Small Devices (Mobile) */
+@media screen and (max-width: 480px) {
     .navbar {
-        position: relative; /* Make navbar relative for absolute positioning of hamburger */
+        padding: 10px 20px;
     }
+
+    .logo {
+        font-size: 1.2em;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
     
+
+    .leadership-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pastor-photo {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    .pastor-bio {
+        font-size: 1em;
+        max-width: 100%;
+    }
+
     .navbar ul {
         display: none; 
         flex-direction: column; 
@@ -278,57 +307,141 @@ h1 {
         top: 60px; 
         left: 0; 
         z-index: 10; 
-    }
-    
-    .navbar ul.active {
+      }
+      
+      .navbar ul.active {
         display: flex; /* Show the menu when active */
-    }
-    
-    .navbar ul li {
+      }
+      
+      .navbar ul li {
         margin: 10px 0; /* Space between links */
-    }
-    
-    .hamburger {
+      }
+      
+      .hamburger {
         display: block; /* Show hamburger icon on small screens */
+      }
+      
+}
+
+/* Medium Devices (Tablets) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .navbar {
+        padding: 10px 25px;
     }
 
-    .leadership-container {
-        flex-direction: column;
-        max-width: 90%;
-        padding: 10px;
-        text-align: center;
+    .logo {
+        font-size: 1.3em;
     }
 
-    .pastor-photo {
-        width:  170px;
-        height: 170px;
-        margin: 0 auto 15px;
+    .logo img {
+        height: 45px;
     }
 
-    .pastor-bio {
-        font-size: 1em;
-        margin-top: 10px;
-    }
-
-    h1 {
-        font-size: 1.8em;
-        margin: 20px;
-    }
-    .footer-social {
-        flex-direction: column;
+    .navbar ul {
+        flex-direction: row;
         align-items: center;
     }
 
-    .footer-address {
-        text-align: center;
-        margin-bottom: 10px;
+    .navbar ul li {
+        margin: 0 15px;
     }
 
-    .social-links {
-        justify-content: center;
+    .leadership-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
-    .footer {
-        overflow: hidden;
-        width: 100%;
+
+    .pastor-photo {
+        width: 280px;
+        height: 280px;
+        margin-right: 15px;
+    }
+
+    .pastor-bio {
+        font-size: 1.1em;
+        max-width: 450px;
+    }
+
+    .footer-links {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-section {
+        min-width: 200px;
+    }
+
+    .footer-social {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active span:nth-child(1),
+    .hamburger.active span:nth-child(3) {
+        width: 35px;
+    }
+}
+
+/* Large Devices (Desktop and above) */
+@media screen and (min-width: 769px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .navbar ul {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 0 20px;
+    }
+
+    .leadership-container {
+        max-width: 1000px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .pastor-photo {
+        width: 330px;
+        height: 330px;
+        margin-right: 20px;
+    }
+
+    .pastor-bio {
+        font-size: 1.2em;
+        line-height: 1.5;
+        max-width: 500px;
+    }
+
+    .footer-links {
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .footer-section {
+        min-width: 150px;
+    }
+
+    .footer-social {
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: none;
     }
 }
