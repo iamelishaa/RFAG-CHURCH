@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #000000, #6A0DAD); /* Black and lavender */
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  animation: fadeInDown 1s ease-in-out;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #D8BFD8; /* Lavender */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+main {
+  padding: 2rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+  color: #D8BFD8; /* Lavender */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.event {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.event h3 {
+  color: #D8BFD8; /* Lavender */
+  margin-bottom: 0.5rem;
+}
+
+.event p {
+  margin: 0.5rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+form label {
+  font-size: 1.2rem;
+}
+
+form input, form textarea, form button {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+form input, form textarea {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+form input:focus, form textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 8px #D8BFD8; /* Lavender */
+}
+
+form button {
+  background: linear-gradient(135deg, #6A0DAD, #8A2BE2); /* Lavender gradients */
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: linear-gradient(135deg, #8A2BE2, #4B0082); /* Dark lavender gradients */
+  transform: scale(1.05);
+}
+
+iframe {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #D8BFD8; /* Lavender */
+  font-size: 0.9rem;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

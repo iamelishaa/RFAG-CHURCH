@@ -1,0 +1,140 @@
+/* General Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lavender;
+    color: black;
+  }
+  
+  .gallery {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .gallery h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #4B0082;
+  }
+  
+  .collage-group {
+    margin-bottom: 40px;
+  }
+  
+  .collage-group h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #4B0082;
+    text-align: left;
+    margin-left: 20px;
+  }
+  
+  /* Scrollable Collage */
+  .collage-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: white;
+    scroll-behavior: smooth;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .collage-scroll img {
+    height: 150px;
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  }
+  
+  .collage-scroll img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.9); /* Slight darkening effect */
+  }
+  
+  /* Scroll Indicators */
+  .collage-scroll::before,
+  .collage-scroll::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .collage-scroll::before {
+    left: 0;
+  }
+  
+  .collage-scroll::after {
+    right: 0;
+  }
+  
+  /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker background for focus */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal.open {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in effect */
+  }
+  
+  .modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .modal-content img {
+    display: block;
+    max-width: 100%; /* Fit image within modal width */
+    max-height: 100%; /* Fit image within modal height */
+    object-fit: contain; /* Ensure no cropping */
+  }
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+  }
+  
+  .close:hover {
+    color: red; /* Highlight the close icon on hover */
+  }
+  
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

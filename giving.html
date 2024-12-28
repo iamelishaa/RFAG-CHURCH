@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Giving</title>
+    <link rel="stylesheet" href="css/giving.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./images/120.png" alt="Logo"> 
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> 
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="online.html">Online</a></li>
+            <li><a href="giving.html">Giving</a></li>
+        </ul>
+    </nav>
+    <!-- Header Section with Logo -->
+    <header>
+        <div class="logo-container">
+            <img src="images/IMG_0619.JPG" alt="Church Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Giving Section -->
+    <section class="giving-section">
+        <div class="giving-intro">
+            <h1>Give</h1>
+            <p>God is moving in powerful ways in our midst. Thank you for being a part of all that He is doing in and through our House in these days.</p>
+        </div>
+
+        <!-- QR Code for UPI -->
+        <div class="payment-options">
+            <div class="qr-code">
+                <h2>Scan to Pay via UPI</h2>
+                <img src="images/WhatsApp Image 2024-11-09 at 16.42.23.jpeg" alt="UPI QR Code" class="qr-code-image">
+            </div>
+            
+            <!-- UPI Options -->
+            <div class="upi-options">
+                <h3>Or use your preferred UPI app:</h3>
+                <div class="upi-buttons">
+                    <!-- UPI Buttons with corrected links -->
+                    <button class="upi-btn" onclick="redirectToUPI('intent://pay?pa=catherinelawrence498@okicici&pn=RhemaFaithAG&cu=INR#Intent;scheme=upi;package=com.phonepe.app;end', 'PhonePe')">PhonePe</button>
+                    <button class="upi-btn" onclick="redirectToUPI('intent://pay?pa=catherinelawrence498@okicici&pn=RhemaFaithAG&cu=INR#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end', 'Google Pay')">Google Pay</button>
+                    <button class="upi-btn" onclick="redirectToUPI('intent://pay?pa=catherinelawrence498@okicici&pn=RhemaFaithAG&cu=INR#Intent;scheme=upi;package=net.one97.paytm;end', 'Paytm')">Paytm</button>
+                </div>
+            </div>
+
+            <!-- UPI Forms -->
+            <div id="phonepeForm" class="upi-form">
+                <h3>PhonePe Details</h3>
+                <p>UPI ID: 1400101924004048@kotak</p>
+                <p>Bank Account Number: 14710100177185</p>
+                <p>IFSC Code: FDRL0001471</p>
+                <P>Bank Name : FEDERAL BANK ( DODDA BANASAVADI )</P>
+            </div>
+
+            <div id="googlePayForm" class="upi-form">
+                <h3>Google Pay Details</h3>
+                <p>UPI ID: 1400101924004048@kotak</p>
+                <p>Bank Account Number: 14710100177185</p>
+                <p>IFSC Code: FDRL0001471</p>
+            </div>
+
+            <div id="paytmForm" class="upi-form">
+                <h3>Paytm Details</h3>
+                <p>UPI ID: 1400101924004048@kotak</p>
+                <p>Bank Account Number:14710100177185</p>
+                <p>IFSC Code: FDRL0001471</p>
+            </div>
+        </div>
+
+        <!-- Why Your Giving Matters Section with Inline Background Image -->
+        <div class="giving-info" style="background-image: url('images/\ -11.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 40px; color: #fff; border-radius: 8px;">
+            <h2>Why Your Giving Matters</h2>
+            <h3>Construction Work for our New Church Building</h3>
+            <p>I request your kind self to extend your cheerful / sacrifiicial financial contribution for the same using any of the below ways, thank you!</p>
+        </div>
+        <!-- Ways to Give Section -->
+    <section class="ways-to-give">
+        <h2>Ways to Give</h2>
+        <p>Explore the different ways you can make a difference in our community:</p>
+        <div class="giving-methods">
+            <!-- Give Now Method -->
+            <div class="method" id="method1">
+                <div class="smog-overlay"></div>
+                <div class="content">
+                    <h3>GIVE NOW</h3>
+                    <p>Donate securely through our online platform using various payment options.</p>
+                    <a href="javascript:void(0)" class="more-link" onclick="showDetails('method1')">More <span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <!-- UPI Transfer Method -->
+            <div class="method" id="method2">
+                <div class="smog-overlay"></div>
+                <div class="content">
+                    <h3>UPI TRANSFER</h3>
+                    <p>Use UPI apps like PhonePe, Google Pay, or Paytm to transfer donations.</p>
+                    <a href="javascript:void(0)" class="more-link" onclick="showDetails('method2')">More <span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <!-- Bank Transfer Method -->
+            <div class="method" id="method3">
+                <div class="smog-overlay"></div>
+                <div class="content">
+                    <h3>BANK TRANSFER</h3>
+                    <p>Directly send contributions to our church's bank account for safe transactions.</p>
+                    <a href="javascript:void(0)" class="more-link" onclick="showDetails('method3')">More <span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <!-- In-Person Method -->
+            <div class="method" id="method4">
+                <div class="smog-overlay"></div>
+                <div class="content">
+                    <h3>IN-PERSON</h3>
+                    <p>Join us at the church to give your contributions in person during our services.</p>
+                    <a href="javascript:void(0)" class="more-link" onclick="showDetails('method4')">More <span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Details Section -->
+        <div id="details-section" class="details-section">
+            <a href="javascript:void(0)" class="back-link" onclick="goBack()">← Back</a>
+            <div id="details-content"></div>
+        </div>
+    </section>
+            
+        
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-btn">How do I make a contribution?</button>
+                <p class="faq-answer">You can donate using UPI or by scanning the QR code above. Choose your preferred method and follow the instructions.</p>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">Is my donation secure?</button>
+                <p class="faq-answer">Yes, all payments are processed securely through UPI payment gateways.</p>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">Can I donate monthly?</button>
+                <p class="faq-answer">We welcome recurring donations. Feel free to set up monthly contributions using your preferred UPI app.</p>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">How do I know my offering is being used effectively?</button>
+                <p class="faq-answer">We are committed to transparency and provide regular updates on how offerings are used to support our various missions and community programs. You can contact the church office for more information.</p>
+            </div>
+            <div class="faq-item">
+                <button class="faq-btn">Can I make an offering on behalf of someone else?</button>
+                <p class="faq-answer" >you can make an offering on behalf of someone else. Please inform our church staff if you would like the offering to be dedicated in someone else's name.</p>
+            </div>
+            
+        
+        </div>
+    </section>
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="mission.html">Our Mission</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Media</h3>
+                    <ul>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="online.html">Watch Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ministries</h3>
+                    <ul>
+                        <li><a href="#children">Children's Ministry</a></li>
+                        <li><a href="#youth">Youth Group</a></li>
+                        <li><a href="#outreach">Outreach Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Personal</h3>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider"> <!-- Divider for separation -->
+            <div class="footer-social">
+                <div class="footer-address">
+                    <p>123 Rhema St, Cityville, ST 12345 | 12345-12345</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
+        </div>
+    </footer>
+   
+
+    <!-- UPI Redirection Script -->
+    <script>
+        function redirectToUPI(upiLink, appName) {
+            // Try to open UPI app using intent scheme
+            var fallbackMessage = "Please install " + appName + " to proceed with the payment.";
+            
+            // Try redirecting and wait for 3 seconds to detect failure
+            var timeout = setTimeout(function() {
+                alert(fallbackMessage); // Show fallback message
+            }, 3000);
+            
+            // Try to redirect to the UPI link
+            window.location.href = upiLink;
+
+            // Clear the timeout if the app redirects successfully
+            window.onload = function() {
+                clearTimeout(timeout);
+            };
+        }
+    </script>
+     <script src="js/giving.js"></script>

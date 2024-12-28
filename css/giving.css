@@ -1,0 +1,592 @@
+/* Navbar and logo */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white; 
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+}
+
+.navbar ul li a:hover {
+    color: #5a5ca4;
+    text-shadow: 0 0 5px #5a5ca4;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #343a40;
+    transition: transform 0.3s ease;
+}
+
+.logo img {
+    height: 50px; 
+    padding-left: 30px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black; 
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #5a5ca4; 
+    width: 0;
+    transition: width 0.3s ease;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+}
+
+.navbar ul li a:hover {
+    color: #5a5ca4;
+}
+
+.navbar ul li:hover a::after {
+    width: 100%;
+}
+
+.navbar:hover .logo {
+    transform: scale(1.1);
+}/* Import fonts */
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333333;
+    padding: 20px;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-container img {
+    width: 200px;
+    height: auto;
+    filter: grayscale(100%); /* Black & White logo */
+}
+
+.giving-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.giving-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #101010;
+}
+
+.giving-intro p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #161616; /* Lighter grey for paragraph text */
+}
+
+/* Payment Options */
+.payment-options {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.qr-code {
+    flex: 1;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+.qr-code-image {
+    width: 250px;
+    height: auto;
+    border: 2px solid #333333; /* Dark border for the QR code */
+}
+
+/* Button Styles for UPI Options */
+.upi-options h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.upi-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.upi-btn {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #000000;
+    border-radius: 50px; /* Oval Shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upi-btn:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.upi-form {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.upi-btn:hover {
+    /* Keep the existing hover effect */
+    background-color: #444; /* Modify this to your hover color */
+    color: #fff;
+}
+
+.giving-info {
+    background-image: url('images/\ -11.jpg'); /* Replace with your image path */
+    background-size: contain; /* Ensures the full image is visible */
+    background-position: center; /* Centers the image within the section */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding: 200px;
+    margin-bottom: 100px;
+    color: #fff; /* Adjust text color if necessary */
+    border-radius: 10px;
+    height: 100vh; /* Adjusts the height to ensure the full image is visible */
+}
+
+.giving-info h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.giving-info p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.ways-to-give {
+    padding: 60px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #2b2b2b, #1c1c1c); /* Gradient background */
+    border-radius: 15px;
+    position: relative;
+}
+
+.ways-to-give h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #e6e6e6;
+}
+
+.ways-to-give p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #cfcfcf;
+}
+
+.giving-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.method {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    width: 250px;
+    padding: 30px 20px;
+    color: #81d1eb;
+    backdrop-filter: blur(5px); /* Smog effect */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.method:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.smog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px); /* Additional smog-like effect */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.method .content {
+    position: relative;
+    z-index: 2;
+}
+
+.method h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.method p {
+    font-size: 1em;
+}
+
+.ways-to-give .more-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: lightblue;
+    font-size: 1em;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.ways-to-give .more-link:hover {
+    color: #00bfff; /* Slightly brighter blue on hover */
+}
+
+.arrow {
+    margin-left: 5px;
+    font-size: 1.2em;
+}
+.details-content {
+    background-color: lightblue; /* Set background color */
+    font-weight: 200;
+    color: #000;
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 10px; /* Add rounded corners */
+    margin: 20px 0; /* Add margin for spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+#details-section {
+    color: black; /* Default text color */
+    background-color: lightblue; /* Background color for the section */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Back arrow button */
+.back-button {
+    background-color: transparent;
+    border: none;
+    color: lightblue; /* Light blue color for the arrow */
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+/* Ensure any other elements inside #details-content match the color scheme */
+#details-content h3, #details-content p {
+    color: black; /* Content in black */
+}
+
+
+/* FAQ Section */
+.faq-section {
+    background-color: #f0f0f0;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px; /* Add spacing below */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333333;
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-btn {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #000000;
+    border-radius: 50px; /* Oval Shape */
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.faq-btn:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.faq-answer {
+    display: none;
+    font-size: 1rem;
+    color: #555555;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.faq-btn:focus + .faq-answer,
+.faq-btn:active + .faq-answer {
+    display: block;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #777777;
+    padding: 10px;
+}
+/* Footer */
+.footer {
+    background-color: #ffffff;
+    color: #343a40;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer h2 {
+    margin: 0 0 15px;
+    color: #5a5ca4;
+    font-size: 1.4em;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap;
+    margin: 10px 0; 
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 120px; 
+    margin: 5px; 
+}
+
+.footer-section h3 {
+    margin-bottom: 8px; 
+    font-size: 1.1em; 
+    color: black;
+}
+
+.footer-section ul {
+    list-style: none; 
+    padding: 0; 
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none; 
+    color: #343a40; 
+}
+
+.footer-section ul li a:hover {
+    color: #5a5ca4; 
+}
+
+.hamburger {
+    display: none; /* Hide by default */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1.8em; /* Size of the icon */
+    position: absolute; /* Position it absolutely */
+    top: 15px; /* Space from the top */
+    right: 30px; /* Space from the right */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+/* Hamburger lines */
+.hamburger span {
+    display: block; /* Each line is a block */
+    width: 30px; /* Width of each line */
+    height: 3px; /* Height of each line */
+    background-color: black; /* Color of the lines */
+    margin: 9px auto; /* Margin for spacing */
+    transition: all 0.3s; /* Smooth transition for the transformation */
+}
+
+/* Change to X when active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px); /* First line */
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0; /* Middle line becomes invisible */
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px); /* Last line */
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+
+    .navbar ul li {
+        margin: 0 10px; 
+    }
+
+    .main-heading {
+        font-size: 2rem; 
+    }
+}
+
+@media (max-width: 800px) {
+    .navbar ul {
+        flex-direction: column; 
+        position: absolute;
+        background-color: white; 
+        width: 100%; 
+        top: 60px; 
+        left: 0; 
+        display: none; /* Initially hidden */
+    }
+
+    .navbar ul.active {
+        display: flex; 
+    }
+
+    .navbar ul li {
+        margin: 10px 0; 
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+
+    .main-heading {
+        font-size: 1.8rem; 
+    }
+}
+
+/* Add this to toggle mobile menu */
+@media (max-width: 800px) {
+    .navbar .menu-toggle {
+        display: block; 
+        cursor: pointer; 
+        font-size: 1.5em; 
+    }
+
+    .navbar .menu-toggle:hover {
+        color: #5a5ca4; 
+    }
+}
+
+/* Navbar styles for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        position: relative; /* Make navbar relative for absolute positioning of hamburger */
+    }
+
+    .navbar ul {
+        display: none; /* Hide menu links by default on small screens */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Full width */
+        background: white; /* Background for dropdown */
+        position: absolute; /* Position it absolutely */
+        top: 60px; /* Below the navbar */
+        left: 0; /* Align left */
+        z-index: 10; /* Ensure it's above other content */
+    }
+
+    .navbar ul.active {
+        display: flex; /* Show the menu when active */
+    }
+
+    .navbar ul li {
+        margin: 10px 0; /* Space between links */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on small screens */
+    }
+}
