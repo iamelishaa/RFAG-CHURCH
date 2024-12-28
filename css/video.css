@@ -1,0 +1,408 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#edeef0;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white; /* Navbar background */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
+}
+  
+/* Log name  */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 0; /* Ensures no extra space on the left */
+}
+
+.logo-text {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text span {
+    font-size: 14px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #343a40; /* Logo color */
+    transition: transform 0.3s ease;
+}
+.logo img {
+    height: 50px; /* Adjust the logo size */
+    padding-left: 0; /* Adjust the padding to fit well on the left */
+    border-radius: 5px;
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Center items vertically */
+}
+.navbar ul li {
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a {
+    text-decoration: none;
+    color: black; /* Link color */
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+.navbar ul li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #5a5ca4; /* Color for the underline */
+    width: 0;
+    transition: width 0.3s ease;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+}
+.navbar ul li a:hover {
+    color: #5a5ca4; /* Change link color on hover */
+}
+.navbar ul li:hover a::after {
+    width: 100%; /* Expand underline on hover */
+}
+.logo-text span {
+    font-size: 14px; /* Adjust the font size as needed */
+ 
+}
+  .container {
+    max-width: 1050px;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #000;
+  }
+
+  .sermons-title {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 30px;
+    color: #000000; /* Adjust to fit your design */
+    font-family: 'Arial', sans-serif; /* Consistent font styling */
+  }
+
+  .recent-sermons-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    margin: 30px 0;
+    color: #000000; /* Adjust color as needed */
+    font-family: 'Arial', sans-serif; /* Consistent font styling */
+  }
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .video-frame:hover iframe {
+    opacity: 1;
+  }
+
+  .video-frame img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .play-button::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 20px solid #000;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+
+  .carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .carousel-item {
+    flex: 0 0 calc(33.333% - 20px); /* Three items per view, accounting for margin */
+    margin: 0 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .carousel-item img:hover {
+    transform: scale(1.1);
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white; /* White background */
+    border: 1px solid #ddd; /* Subtle border for better visibility */
+    border-radius: 50%; /* Rounded corners */
+    color: black; /* Black arrow color */
+    font-size: 20px; /* Adjust size for better fit */
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    display: flex; /* Center the arrow */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for pop effect */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .carousel-button.left {
+    left: 10px;
+  }
+  
+  .carousel-button.right {
+    right: 10px;
+  }
+
+  /* Footer */
+.footer {
+    background-color: #ffffff;
+    color: #343a40;
+    padding: 20px 10px; /* Reduced padding */
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer h2 {
+    margin: 0 0 15px; /* Reduced margin */
+    color: #5a5ca4;
+    font-size: 1.4em; /* Slightly smaller font size */
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: space-around; /* Space evenly between sections */
+    flex-wrap: wrap;
+    margin: 10px 0; /* Reduced margin */
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 120px; /* Reduced minimum width */
+    margin: 5px; /* Reduced margin */
+  }
+  
+  .footer-section h3 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.1em;
+    color: black;
+    text-align: center; /* Center text within each section */
+  }
+  
+  .footer-section ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+  }
+  
+  .footer-divider {
+    border: 0;
+    height: 1px; /* Thinner divider */
+    background-color: black;
+    margin: 15px 0; /* Reduced spacing around the divider */
+  }
+  
+  .footer-social {
+    display: flex;
+    justify-content: space-between; /* Distribute space between address and social icons */
+    align-items: center; /* Center alignment */
+  }
+  
+  .footer-address {
+    text-align: left; /* Align address text to the left */
+    flex: 1; /* Allow address to take available space */
+  }
+  
+  .social-links {
+    display: flex; /* Flex for social icons */
+    gap: 15px; /* Space between icons */
+    justify-content: flex-end; /* Align social icons to the right */
+  }
+  
+  .social-links a {
+    color: inherit; /* Default to inherit color */
+  }
+  
+  .social-links a.facebook {
+    color: #3b5998; /* Facebook brand color */
+  }
+  
+  .social-links a.twitter {
+    color: #1da1f2; /* Twitter brand color */
+  }
+  
+  .social-links a.instagram {
+    color: #c13584; /* Instagram brand color */
+  }
+  
+  .social-links a.youtube {
+    color: #ff0000; /* YouTube brand color */
+  }
+  
+  .footer-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links a {
+    color: #343a40; /* Link color */
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #5a5ca4; /* Hover color */
+  }
+  .hamburger {
+    display: none; 
+    cursor: pointer; 
+    font-size: 1.8em; 
+    position: absolute; 
+    top: 15px; 
+    right: 30px;
+    z-index: 100; 
+}
+
+/* Hamburger lines */
+.hamburger span {
+    display: block; 
+    width: 30px; 
+    height: 3px; 
+    background-color: black; 
+    margin: 9px auto; 
+    transition: all 0.3s; 
+}
+
+
+/* Change to X when active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px); /* First line */
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0; /* Middle line becomes invisible */
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px); /* Last line */
+}
+
+
+/* Navbar styles for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+      position: relative; /* Make navbar relative for absolute positioning of hamburger */
+  }
+
+  .navbar ul {
+      display: none; 
+      flex-direction: column; 
+      width: 100%; 
+      background: white; 
+      position: absolute;
+      top: 60px; 
+      left: 0; 
+      z-index: 10; 
+  }
+
+  .navbar ul.active {
+      display: flex; /* Show the menu when active */
+  }
+
+  .navbar ul li {
+      margin: 10px 0; /* Space between links */
+  }
+
+  .hamburger {
+      display: block; /* Show hamburger icon on small screens */
+  }
+
+  .logo {
+      margin-left: 15px; /* Adjust margin for logo */
+  }
+  .video-frame {
+    height: 360px; /* Adjust height for smaller screens */{
+    
+  }
+}
