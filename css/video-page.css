@@ -2,14 +2,15 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color:#edeef0;
+    background-color:black;
+    color: white;
   }
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: white; /* Navbar background */
+    background-color: #2e2e2e; /* Navbar background */
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for navbar */
 }
@@ -29,6 +30,7 @@ body {
 
 .logo-text span {
     font-size: 14px;
+    color: white;
 }
 
 .logo {
@@ -46,16 +48,18 @@ body {
     list-style: none;
     display: flex;
     margin: 0;
+    color: white;
     padding: 0;
     align-items: center; /* Center items vertically */
 }
 .navbar ul li {
     margin: 0 20px;
     position: relative;
+    color: white;
 }
 .navbar ul li a {
     text-decoration: none;
-    color: black; /* Link color */
+    color: white; /* Link color */
     font-weight: 600;
     padding: 5px 0;
     transition: color 0.3s ease;
@@ -82,155 +86,9 @@ body {
     font-size: 14px; /* Adjust the font size as needed */
  
 }
-  .container {
-    max-width: 1050px;
-    margin: 20px auto;
-    text-align: center;
-  }
-
-  .video-frame {
-    position: relative;
-    width: 100%;
-    max-width: 1050px;
-    margin: 0 auto;
-    height: 600px;
-    overflow: hidden;
-    border-radius: 15px;
-    background-color: #000;
-  }
-
-  .sermons-title {
-    font-size: 35px;
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 30px;
-    color: #000000; /* Adjust to fit your design */
-    font-family: 'Arial', sans-serif; /* Consistent font styling */
-  }
-
-  .recent-sermons-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: left;
-    margin: 30px 0;
-    color: #000000; /* Adjust color as needed */
-    font-family: 'Arial', sans-serif; /* Consistent font styling */
-  }
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .video-frame:hover iframe {
-    opacity: 1;
-  }
-
-  .video-frame img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    z-index: 2;
-  }
-
-  .play-button::before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 20px solid #000;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-  }
-
-  .carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    overflow: hidden;
-    position: relative;
-    max-width: 100%;
-  }
-
-  .carousel-track {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .carousel-item {
-    flex: 0 0 calc(33.333% - 20px); /* Three items per view, accounting for margin */
-    margin: 0 10px;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  .carousel-item img {
-    width: 100%;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-  }
-
-  .carousel-item img:hover {
-    transform: scale(1.1);
-  }
-
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: white; /* White background */
-    border: 1px solid #ddd; /* Subtle border for better visibility */
-    border-radius: 50%; /* Rounded corners */
-    color: black; /* Black arrow color */
-    font-size: 20px; /* Adjust size for better fit */
-    width: 40px; /* Fixed width */
-    height: 40px; /* Fixed height */
-    display: flex; /* Center the arrow */
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 2;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for pop effect */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .carousel-button.left {
-    left: 10px;
-  }
-  
-  .carousel-button.right {
-    right: 10px;
-  }
-
-  /* Footer */
 .footer {
-    background-color: #ffffff;
-    color: #343a40;
+    background-color: #1a1a1a; /* Footer background color */
+    color: white;
     padding: 20px 10px; /* Reduced padding */
     text-align: center;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a subtle effect */
@@ -249,6 +107,7 @@ body {
   
   .footer-links {
     display: flex;
+    
     justify-content: space-around; /* Space evenly between sections */
     flex-wrap: wrap;
     margin: 10px 0; /* Reduced margin */
@@ -264,19 +123,20 @@ body {
     margin: 0;
     padding: 10px 0;
     font-size: 1.1em;
-    color: black;
+    color: white;
     text-align: center; /* Center text within each section */
   }
   
   .footer-section ul {
     list-style: none; /* Remove default list styling */
     padding: 0; /* Remove padding */
+    
   }
   
   .footer-divider {
     border: 0;
     height: 1px; /* Thinner divider */
-    background-color: black;
+    background-color: white;
     margin: 15px 0; /* Reduced spacing around the divider */
   }
   
@@ -299,6 +159,7 @@ body {
   
   .social-links a {
     color: inherit; /* Default to inherit color */
+    
   }
   
   .social-links a.facebook {
@@ -321,11 +182,12 @@ body {
     margin: 20px 0;
     display: flex;
     justify-content: center;
+    
     flex-wrap: wrap;
   }
   
   .footer-links a {
-    color: #343a40; /* Link color */
+    color:  white;/* Link color */
     text-decoration: none;
     margin: 0 15px;
     transition: color 0.3s;
@@ -369,18 +231,188 @@ body {
 }
 
 
-/* Navbar styles for smaller screens */
-@media (max-width: 768px) {
-  .navbar {
-    position: relative; /* Make navbar relative for absolute positioning of hamburger */
+.main-container {
+width: 70%;
+margin: 20px auto;
+text-align: center;
+padding: 20px;
+border-radius: 10px;
 }
 
+iframe {
+width: 100%;
+height: 630px;
+border: none;
+border-radius: 10px;
+}
+
+.video-details-container {
+margin-top: 20px;
+}
+
+.video-title {
+font-size: 24px;
+font-weight: bold;
+text-align: left;
+margin-bottom: 10px;
+}
+
+.video-date {
+font-size: 16px;
+color: #888;
+text-align: left;
+margin-bottom: 20px;
+}
+
+.buttons-container {
+display: flex;
+justify-content: center;
+gap: 30px;
+}
+
+.button {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+color: white;
+background: none;
+border: none;
+cursor: pointer;
+}
+
+.button i {
+font-size: 24px;
+margin-bottom: 8px;
+}
+
+.button span {
+font-size: 14px;
+font-weight: 600;
+}
+
+.suggested-container {
+width: 100%;
+margin: 20px auto;
+text-align: left;
+background-color: #1a1a1a;
+padding: 20px;
+border-radius: 10px;
+}
+
+.suggested-heading {
+font-size: 22px;
+margin-bottom: 20px;
+margin-left: 14.333%;
+}
+
+.suggested-videos {
+display: flex;
+gap: 50px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.video-card {
+display: flex;
+flex-direction: column;
+text-decoration: none;
+color: white;
+width: 20%;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card img {
+width: 100%;
+border-radius: 10px;
+transition: transform 0.3s ease;
+}
+
+.video-card .video-title {
+font-size: 16px;
+margin-top: 10px;
+text-align: center;
+}
+
+.video-card:hover {
+transform: scale(1.05);
+}
+
+.video-card:hover img {
+transform: scale(1.05);
+}
+
+/* Media Query for Tablets (up to 1024px) */
+@media (max-width: 1024px) {
+.main-container {
+  width: 80%;  /* Make the container wider on smaller screens */
+}
+
+iframe {
+  height: 500px;  /* Adjust iframe height for tablet-sized screens */
+}
+
+.buttons-container {
+  gap: 20px;  /* Reduce the gap between buttons */
+}
+
+.video-card {
+  width: 30%;  /* Adjust video card width */
+}
+}
+
+/* Media Query for Mobile (up to 768px) */
+@media (max-width: 768px) {
+.main-container {
+  width: auto;  /* Full width on mobile */  /* Reduce padding for smaller screens */
+}
+
+iframe {
+  height: 395px;  /* Adjust iframe height for mobile screens */
+}
+
+.video-title {
+  font-size: 20px;  /* Reduce title font size */
+}
+
+.video-date {
+  font-size: 14px;  /* Reduce date font size */
+}
+
+.buttons-container {
+  flex-direction: column;  /* Stack buttons vertically */
+  gap: 10px;  /* Reduce gap between buttons */
+}
+
+.suggested-heading {
+  font-size: 20px;  /* Reduce suggested heading font size */
+  margin-left: 5%;  /* Adjust margin for mobile */
+}
+
+.video-card {
+  width: 45%;  /* Adjust video card width for mobile */
+  margin-bottom: 20px;  /* Add margin to separate cards */
+}
+
+.suggested-videos {
+  gap: 20px;  /* Reduce gap between suggested videos */
+  
+}
+
+.button i {
+  font-size: 20px;  /* Smaller icon size for mobile */
+}
+
+.button span {
+  font-size: 12px;  /* Smaller text for button labels */
+}
 .navbar ul {
     display: none; 
     flex-direction: column; 
     width: 100%; 
-    background: white; 
-    position: absolute;
+    background: #2e2e2e; 
+    position: relative;
     top: 60px; 
     left: 0; 
     z-index: 10; 
@@ -410,64 +442,37 @@ body {
 .social-links {
     justify-content: center;
 }
-
-  .logo {
-      margin-left: 15px; /* Adjust margin for logo */
-  }
-  .video-frame {
-    height: 320px;
-    width: 370px;
-    border-radius: none; /* Adjust height for smaller screens */
-    }
-    
-  }
-
-  /* For small screens (max-width: 767px) */
-@media (max-width: 767px) {
-  .carousel-item {
-      width: 100px;  /* Reduce item width for smaller screens */
-      margin-right: 10px;  /* Adjust spacing between items */
-  }
-
-  /* Adjust the carousel buttons for better visibility on smaller screens */
-  .carousel-button {
-      padding: 8px;
-  }
-
-  /* Optional: Hide buttons when there's only one item in the carousel */
-  .carousel-button {
-      display: block;
-  }
-  
-
+.suggested-container {
+    width: 90%;
+    overflow: hidden;
+}
 }
 
-/* For very small screens (max-width: 480px) */
+/* Media Query for Small Mobile (up to 480px) */
 @media (max-width: 480px) {
-  .carousel-item {
-      width: 70px;  /* Further reduce item width for very small screens */
-      margin-right: 8px;  /* Further reduce spacing between items */
-  }
-
-  .carousel-button {
-      padding: 10px;  /* Reduce button padding */
-      font-size: 14px;  /* Adjust button size */
-  }
-  .social-links {
-    justify-content: center;
-}
+.video-title {
+  font-size: 18px;  /* Further reduce title size */
 }
 
-/* For extra small screens (max-width: 320px) */
-@media (max-width: 320px) {
-  .carousel-item {
-      width: 120px;  /* Very small screen, reduce width even more */
-      margin-right: 5px;
-  }
+.video-date {
+  font-size: 12px;  /* Further reduce date font size */
+}
 
-  .carousel-button {
-      padding: 4px;
-      font-size: 12px; /* Make buttons smaller */
-  }
+.video-card {
+  width: 90%;  /* Make video cards take up more width */
+  margin-bottom: 15px;  /* Adjust bottom margin */
+}
+
+iframe {
+  height: 300px;  /* Further reduce iframe height */
+}
+
+.suggested-heading {
+  font-size: 18px;  /* Smaller suggested heading font size */
+}
+
+.suggested-videos {
+  gap: 15px;  /* Further reduce the gap */
+}
 }
 

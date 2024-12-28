@@ -8,134 +8,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
   <title>Watch Video</title>
-  <style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    color: white;
-    margin: 0;
-    padding: 0;
-  }
-
-  .main-container {
-    width: 70%;
-    margin: 20px auto;
-    text-align: center;
-  
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  iframe {
-    width: 100%;
-    height:630px;
-    border: none;
-    border-radius: 10px;
-  }
-
-  .video-details-container {
-    margin-top: 20px;
-  }
-
-  .video-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 10px;
-  }
-
-  .video-date {
-    font-size: 16px;
-    color: #888;
-    text-align: left;
-    margin-bottom: 20px;
-  }
-
-  .buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-
-  .button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .button i {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-
-  .button span {
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .suggested-container {
-    width: 100%;
-    margin: 20px auto;
-    text-align: left;
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  .suggested-heading {
-    font-size: 22px;
-    margin-bottom: 20px;
-    margin-left: 14.333%;
-  }
-
-  .suggested-videos {
-    display: flex;
-    gap: 50px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .video-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: white;
-    width: 20%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .video-card img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
-
-  .video-card .video-title {
-    font-size: 16px;
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .video-card:hover {
-    transform: scale(1.05);
-   
-  }
-
-  .video-card:hover img {
-    transform: scale(1.05);
-  }
-</style>
-
-
-  </style>
+ <link rel="stylesheet" href="css/video-page.css">
 </head>
 <body>
+  <nav class="navbar">
+    <div class="logo">
+        <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
+        <div class="logo-text">
+            <span style="font-weight: bold;">Rhema Faith</span>
+            <span style="font-weight: normal;">AG Church</span>
+        </div>
+    </div>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="video.html">Sermons</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="online.html">Online</a></li>
+        <li><a href="giving.html">Giving</a></li>
+    </ul>
+</nav>
+
     <div class="main-container">
         <iframe id="video-player" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="video-details-container">
@@ -284,6 +181,72 @@
       document.body.innerHTML = '<p style="color: white;">Video not found.</p>';
       document.title = 'Video not found';
     }
+
+     // Get references to the hamburger icon and the navigation links
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
+
+// Toggle the active class on hamburger click
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // Toggle the active class for the hamburger
+});
+
+// Close the menu when a link is clicked
+Array.from(navItems).forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active'); // Remove active class to close the menu
+        hamburger.classList.remove('active'); // Remove active class from hamburger
+    });
+});
   </script>
+    <footer class="footer">
+      <div class="footer-content">
+          <div class="footer-links">
+              <div class="footer-section">
+                  <h3>About</h3>
+                  <ul>
+                      <li><a href="mission.html">Our Mission</a></li>
+                      <li><a href="leadership.html">Leadership</a></li>
+                  </ul>
+              </div>
+              <div class="footer-section">
+                  <h3>Media</h3>
+                  <ul>
+                      <li><a href="video.html">Sermons</a></li>
+                      <li><a href="online.html">Watch Online</a></li>
+                  </ul>
+              </div>
+              <div class="footer-section">
+                  <h3>Ministries</h3>
+                  <ul>
+                      <li><a href="#children">Children's Ministry</a></li>
+                      <li><a href="#youth">Youth Group</a></li>
+                      <li><a href="#outreach">Outreach Program</a></li>
+                  </ul>
+              </div>
+              <div class="footer-section">
+                  <h3>Personal</h3>
+                  <ul>
+                      <li><a href="termsofuse.html">Terms of Service</a></li>
+                      <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                  </ul>
+              </div>
+          </div>
+          <hr class="footer-divider">
+          <div class="footer-social">
+              <div class="footer-address">
+                  <p>145/12, N.R.Square, 2nd floor, 1st main road, Chamrajpet, B'lore 18</p>
+              </div>
+              <div class="social-links">
+                  <a href="https://www.facebook.com/rhema.faithag/" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/rfag_church_/" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.youtube.com/@RhemaFaithAGChurch" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+              </div>
+          </div>
+          <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
+      </div>
+  </footer>
 </body>
 </html>
