@@ -266,14 +266,9 @@ h1 {
 /* 768px and below: Tablet Portrait / Small Devices */
 @media (max-width: 768px) {
     .navbar {
-        position: relative; /* Ensure the navbar stays fixed at the top */
-        top: 0;
-        left: 0;
-        width: 89%;
-        z-index: 1000;
-        overflow: hidden; /* Ensure it stays above other content */
-     }   
-
+        position: relative; /* Make navbar relative for absolute positioning of hamburger */
+    }
+    
     .navbar ul {
         display: none; 
         flex-direction: column; 
@@ -284,13 +279,17 @@ h1 {
         left: 0; 
         z-index: 10; 
     }
-
+    
     .navbar ul.active {
-        display: flex;
+        display: flex; /* Show the menu when active */
     }
-
+    
+    .navbar ul li {
+        margin: 10px 0; /* Space between links */
+    }
+    
     .hamburger {
-        display: block;
+        display: block; /* Show hamburger icon on small screens */
     }
 
     .leadership-container {
