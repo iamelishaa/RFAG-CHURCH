@@ -1,13 +1,13 @@
 {
     "name": "RFAG Church",
-    "short_name": "Church",
+    "short_name": "RFAG Church",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#5a5ca4",
     "icons": [
       {
-        "src": "/images/icon-192x192.png",
+        "src": "./images/120.png",
         "sizes": "192x192",
         "type": "image/png"
       },
