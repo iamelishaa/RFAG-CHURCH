@@ -14,6 +14,49 @@
     <link rel="shortcut icon" href="./images/16.png" type="image/x-icon">
     
 </head>
+<style>
+   .floating-live-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Initially hidden */
+    align-items: center;
+    z-index: 1000;
+}
+
+.floating-live-button .live-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.live-image {
+    width: 45px; /* Adjust size as needed */
+    height: 45px;
+    margin-right: 8px;
+    animation: pulse 1s infinite;
+}
+
+.live-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: black; /* Red for "Live" vibe */
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+</style>
 <body>
     <nav class="navbar">
         <div class="logo">
@@ -36,17 +79,21 @@
             <li><a href="giving.html">Giving</a></li>
         </ul>
     </nav>
+    <div id="floatingLiveButton" class="floating-live-button">
+        <a id="floatingLiveLink" href="#" target="_blank" class="live-link">
+            <img src="./images/live.png" alt="Live Indicator" class="live-image">
+            <span class="live-text">Watch Now</span>
+        </a>
+    </div>
     
-
     <!-- Pastor image with typewriting effect  -->
     <div class="content-container">
         <img src="./images/pastor.png" alt="pastor image" class="content-image"> <!-- Replace with your image path -->
         <div class="overlay">
             <h2 id="typewriter-text"></h2> <!-- Text to display with typewriter effect -->
         </div>
+       
     </div>
-
-    <!-- Cards Container -->
 
     <div class="text-container">
         <h1 class="main-heading">Find your place at Rhema Faith AG Church</h1>
@@ -100,7 +147,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Footer -->
 
     <footer class="footer">
@@ -152,6 +199,37 @@
     </footer>
     
     <script>
+
+const API_KEY = 'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70'; //  YouTube API Key
+const CHANNEL_ID = 'UCfGHCtW5XlkY78l97_Rwu4Q'; // Replace with your channel ID
+
+
+function checkIfLive() {
+    // YouTube API URL to check live status
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&eventType=live&type=video`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const floatingLiveButton = document.getElementById("floatingLiveButton");
+            const floatingLiveLink = document.getElementById("floatingLiveLink");
+
+            if (data.items && data.items.length > 0) {
+                const liveVideoId = data.items[0].id.videoId;
+                floatingLiveButton.style.display = "block"; // Show the button
+                floatingLiveLink.href ="live.html"; // Link to the live video
+            } else {
+                floatingLiveButton.style.display = "none"; // Hide the button if no live video
+            }
+        })
+        .catch(error => console.error("Error checking live status:", error));
+}
+
+// Check live status when the page loads
+window.onload = checkIfLive;
+
+// Optional: Recheck live status periodically (e.g., every 1 minute)
+setInterval(checkIfLive, 60000); // Check every 60 seconds
     // Get references to the hamburger icon and the navigation links
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');

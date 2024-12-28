@@ -149,8 +149,6 @@ body {
 }
 
 
-/* Typewriter overlay */
-/* Default - For large screens */
 .overlay {
     position: absolute;
     font-family: 'DM-Sans', sans-serif;
