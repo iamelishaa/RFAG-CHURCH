@@ -1,145 +1,428 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+   /* Global Styles */
+   * {
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #5a5ca4;
+    color: white;
+}
+
+header h1 {
+    font-size: 36px;
 }
 
 .container {
-    background-color: white;
-    width: 100%;
-    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-section, .right-section {
+    width: 48%;
+    border-radius: 8px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    color:  #343a40;
+}
+
+.qr-code {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.qr-code img {
+    width: 250px;  /* Increased the size of the QR code */
+    height: 250px; /* Increased the size of the QR code */
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.qr-code p {
+    font-size: 16px;
+    color: #6c757d;
+}
+
+/* Right Section (Payment Options) */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centers everything inside the right section */
     text-align: center;
 }
 
-/* Title and Description */
-h1 {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #333;
-}
-
-.description {
-    font-size: 14px;
-    margin: 10px 0 20px;
-    color: #666;
-}
-
-/* Search Box */
-.search-box {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    outline: none;
-}
-
-.search-box input:focus {
-    border-color: #666;
-}
-
-/* Payment Options */
-.payment-options {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
 .payment-option {
-    flex: 1;
-    margin: 0 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: none;
-    font-size: 14px;
-    cursor: pointer;
-    text-transform: capitalize;
-    transition: all 0.3s ease;
-}
-
-.payment-option.active {
-    background-color: black;
+    background-color: #28a745;
     color: white;
-    border-color: black;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .payment-option:hover {
-    background-color: #f0f0f0;
+    background-color: #218838;
 }
 
-/* Bank Details Section */
-.bank-details {
-    background-color: #f8f8f8;
-    padding: 15px;
-    border-radius: 5px;
-    margin: 20px 0;
-    text-align: left;
-    border: 1px solid #ddd;
+.payment-option:active {
+    background-color: #1e7e34;
 }
 
-.bank-details h3 {
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+/* New Section for Other Ways to Give */
+#other-ways {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.bank-details p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
-}
-
-/* Call-to-Action Button */
-.cta-button {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+#other-ways h2 {
+    font-size: 24px;
+    color: #5a5ca4;
     margin-bottom: 20px;
-    transition: all 0.3s ease;
 }
 
-.cta-button:hover {
-    background-color: #333;
+#other-ways p {
+    font-size: 18px;
+    color: #343a40;
 }
 
-/* Links */
-.links {
-    margin-top: 10px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
-.links a {
-    display: block;
-    font-size: 12px;
-    color: black;
-    margin-bottom: 10px;
+/* Section for Building Project */
+#building-project {
+    background-color: #f4f4f4; /* Light grey background */
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#building-project .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-section {
+  
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.project-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.project-section p {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.project-section .payment-option {
+    background-color:#5a5ca4; /* Blue background for the button */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-section .payment-option:hover {
+    background-color: #5a5ca4;
+}
+
+.project-section .payment-option:active {
+    background-color: #5a5ca4;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #building-project {
+        padding: 30px 10px;
+    }
+
+    .project-section {
+        padding: 30px;
+    }
+
+    .project-section h2 {
+        font-size: 20px;
+    }
+
+    .project-section p {
+        font-size: 14px;
+    }
+}
+
+/* New Section: Other Ways to Give */
+#other-ways {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+#other-ways h2 {
+    font-size: 24px;
+    color:#5a5ca4;
+    margin-bottom: 20px;
+}
+
+#other-ways p {
+    font-size: 18px;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.learn-more-link {
+    font-size: 16px;
+    color: #5a5ca4;
     text-decoration: none;
-    transition: color 0.2s ease;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.links a:hover {
-    text-decoration: underline;
-    color: #555;
+.learn-more-link:hover {
+    background-color: #5a5ca4;
+    color: white;
+}
+
+.learn-more-link:focus {
+    outline: none;
+}
+
+/* Two Cards Section */
+#giving-methods {
+    background-color: #f4f4f4; /* Light grey background */
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.giving-methods .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.giving-card {
+    background-color: white; /* White background for the cards */
+    padding: 30px;
+    width: 48%;
+    border-radius: 8px;
+    
+}
+
+.giving-card h3 {
+    font-size: 22px;
+    color: #5a5ca4;
+    margin-bottom: 15px;
+}
+
+.giving-card p {
+    font-size: 16px;
+    color: #343a40;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .giving-methods .container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .giving-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* FAQ Section Styles */
+#faq {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+#faq h2 {
+    font-size: 24px;
+    color: #5a5ca4;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    background-color: white;
+    color: #5a5ca4;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.faq-question .toggle-icon {
+    font-size: 24px;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #6c757d;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+
+.faq-question:focus {
+    outline: none; /* Removes outline when focused */
+}
+
+
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #faq {
+        padding: 20px 10px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+    }
+
+    .faq-answer p {
+        font-size: 14px;
+    }
+}
+
+/* Dialog Panel Styles */
+.dialog {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    padding-top: 60px;
+}
+
+.dialog-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-content h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dialog-content p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.dialog .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.dialog .close:hover,
+.dialog .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dialog-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .dialog-content h3 {
+        font-size: 20px;
+    }
+
+    .dialog-content p {
+        font-size: 16px;
+    }
 }

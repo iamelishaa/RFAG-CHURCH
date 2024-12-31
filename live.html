@@ -14,7 +14,7 @@
 <body>
 
     <!-- Live Indicator -->
-    <div id="liveIndicator" class="live-indicator">
+    <div id="liveIndicator" class="live-indicator" style="display: none;">
         LIVE
     </div>
 
@@ -24,9 +24,6 @@
             <img src="images/16.png" alt="RFAG Logo">
             <span>RFAG</span>
         </div>
-        <!-- <a href="#" class="sign-in-link" onclick="alert('Sign In functionality goes here')">
-            <i class="fa fa-user"></i> Sign In
-        </a> -->
     </nav>
 
     <!-- Video Section -->
@@ -34,6 +31,7 @@
         <!-- Video Container -->
         <div class="video-container">
             <iframe 
+                id="videoIframe"
                 src="" 
                 title="YouTube Video Player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -52,45 +50,45 @@
     </div>
 
     <script>
-         const API_KEY = 'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70'; //  YouTube API Key
-const CHANNEL_ID = 'UCfGHCtW5XlkY78l97_Rwu4Q'; // YouTube Channel ID
+         const API_KEY = 'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70'; // YouTube API Key
+         const CHANNEL_ID = 'UCfGHCtW5XlkY78l97_Rwu4Q'; // YouTube Channel ID
 
-// Function to check if the channel is live
-function checkIfLive() {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&eventType=live&type=video`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const liveIndicator = document.getElementById('liveIndicator');
-            const videoIframe = document.querySelector('.video-container iframe');
+         // Function to check if the channel is live
+         function checkIfLive() {
+            fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&eventType=live&type=video`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const liveIndicator = document.getElementById('liveIndicator');
+                    const videoIframe = document.getElementById('videoIframe');
 
-            if (data.items && data.items.length > 0) {
-                // Live stream logic
-                liveIndicator.style.display = 'block'; // Show the live indicator
-                const liveVideoId = data.items[0].id.videoId;
-                videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`; // Load the live stream
-            } else {
-                // No live stream logic
-                liveIndicator.style.display = 'none'; // Hide the live indicator
-                videoIframe.src = "https://www.youtube.com/embed/GYIhVxt7Ro8"; // Replace with your fallback video ID
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching live status:', error);
-            // Display a fallback video in case of an error
-            document.querySelector('.video-container iframe').src = "https://www.youtube.com/embed/GYIhVxt7Ro8"; // Fallback video
-            const liveIndicator = document.getElementById('liveIndicator');
-            liveIndicator.style.display = 'none'; // Hide live indicator on error
-        });
-}
+                    if (data.items && data.items.length > 0) {
+                        // Live stream logic
+                        liveIndicator.style.display = 'block'; // Show the live indicator
+                        const liveVideoId = data.items[0].id.videoId;
+                        videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`; // Load the live stream
+                    } else {
+                        // No live stream logic
+                        liveIndicator.style.display = 'none'; // Hide the live indicator
+                        videoIframe.src = "https://www.youtube.com/embed/GYIhVxt7Ro8"; // Fallback video
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching live status:', error);
+                    // Display a fallback video in case of an error
+                    document.getElementById('videoIframe').src = "https://www.youtube.com/embed/GYIhVxt7Ro8"; // Fallback video
+                    const liveIndicator = document.getElementById('liveIndicator');
+                    liveIndicator.style.display = 'none'; // Hide live indicator on error
+                });
+         }
 
-// Check live status when the page loads
-window.onload = checkIfLive;
-</script>
+         // Check live status when the page loads
+         window.onload = checkIfLive;
+    </script>
 
 </body>
 </html>
