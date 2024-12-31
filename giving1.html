@@ -4,11 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Church Giving Page</title>
-    <link rel="stylesheet" href="css/giving1.css">
+    <style>
+        /* Simple styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        p.description {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .payment-options {
+            margin-top: 30px;
+        }
+
+        .payment-option {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .payment-option:hover {
+            background-color: #45a049;
+        }
+
+        .bank-details {
+            margin-top: 20px;
+            display: none;
+            background-color: #e7e7e7;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            margin-top: 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
+    </style>
 </head>
 <body>
+
     <div class="container">
-        <!-- Giving Title -->
+        <!-- Page Title -->
         <h1>Tithes & Offerings</h1>
         <p class="description">
             Simple and secure. Give a single gift or schedule recurring giving.
@@ -16,14 +93,14 @@
 
         <!-- Payment Options -->
         <div class="payment-options">
-            <button class="payment-option active" id="gpayOption">GPay</button>
+            <button class="payment-option" id="gpayOption">GPay</button>
             <button class="payment-option" id="phonepeOption">PhonePe</button>
             <button class="payment-option" id="paytmOption">Paytm</button>
             <button class="payment-option" id="onlineOption">Online</button>
         </div>
 
         <!-- Bank Details Section (Initially Hidden) -->
-        <div class="bank-details" id="bankDetails" style="display: none;">
+        <div class="bank-details" id="bankDetails">
             <h3>Church Bank Details</h3>
             <p><strong>Bank Name:</strong> XYZ Bank</p>
             <p><strong>Account Name:</strong> Church of XYZ</p>
@@ -31,42 +108,35 @@
             <p><strong>IFSC Code:</strong> XYZB0001234</p>
         </div>
 
-        <!-- Call-to-Action Button -->
+        <!-- CTA Button for donation -->
         <button class="cta-button" id="giveButton">Give Now</button>
-    </div>
-
-    <!-- Notification Modal -->
-    <div id="notificationModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <p id="notificationMessage"></p>
-            <button id="closeModal">Close</button>
-        </div>
     </div>
 
     <script>
         // Select elements
         const paymentOptions = document.querySelectorAll('.payment-option');
-        const giveButton = document.getElementById('giveButton');
         const bankDetails = document.getElementById('bankDetails');
-        const notificationModal = document.getElementById('notificationModal');
-        const notificationMessage = document.getElementById('notificationMessage');
-        const closeModal = document.getElementById('closeModal');
-      
+        const giveButton = document.getElementById('giveButton');
+
         // Active payment method tracking
-        let selectedPaymentMethod = 'GPay'; // Default to GPay
-      
+        let selectedPaymentMethod = ''; // To track selected payment method
+
         // Add click event to payment options
         paymentOptions.forEach(option => {
             option.addEventListener('click', () => {
                 paymentOptions.forEach(opt => opt.classList.remove('active'));
                 option.classList.add('active');
                 selectedPaymentMethod = option.innerText;
-                if (selectedPaymentMethod !== 'Online') {
+
+                // Show bank details for 'Online' payment method
+                if (selectedPaymentMethod === 'Online') {
+                    bankDetails.style.display = 'block';
+                } else {
                     bankDetails.style.display = 'none';
                 }
             });
         });
-      
+
         // Check if the device is Android
         function isAndroid() {
             return /android/i.test(navigator.userAgent);
@@ -76,40 +146,32 @@
         function isIOS() {
             return /iPhone|iPad|iPod/i.test(navigator.userAgent);
         }
-      
+
         // Handle "Give Now" button click
         giveButton.addEventListener('click', () => {
-            const upiId = 'xelishaprashanthx-2@okaxis'; // Replace with your actual UPI ID
             const amount = '100'; // Replace with the amount you want to donate
-            const upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
+            const upiId = 'xelishaprashanthx-2@okaxis'; // Replace with your actual UPI ID
 
             // For GPay (Android and iOS)
             if (selectedPaymentMethod === 'GPay') {
                 if (isAndroid()) {
-                    // Android-specific intent for GPay
                     window.location.href = `intent://pay?pa=${upiId}&am=${amount}&cu=INR#Intent;package=com.google.android.apps.nbu.paisa.user;scheme=upi;end`;
                 } else if (isIOS()) {
-                    // iOS-specific deep link for GPay
-                    window.location.href = `googlepay://pay?pa=${upiId}&am=${amount}&cu=INR`; // GPay scheme for iOS
+                    window.location.href = `googlepay://pay?pa=${upiId}&am=${amount}&cu=INR`;
                     setTimeout(() => {
-                        // If GPay doesn't open, fallback to App Store
                         window.location.href = 'https://apps.apple.com/in/app/google-pay/id1601202768'; // App Store link
                     }, 1500); // Fallback after 1.5 seconds
-                } else {
-                    window.location.assign(upiLink);
                 }
             } 
             // For PhonePe (Android and iOS)
             else if (selectedPaymentMethod === 'PhonePe') {
                 if (isAndroid()) {
-                    window.location.href = `intent://pay?pa=xelishaprashanthx@axl@ybl&cu=INR#Intent;package=com.phonepe.app;scheme=upi;end`;
+                    window.location.href = `intent://pay?pa=your_upi_id@ybl&cu=INR#Intent;package=com.phonepe.app;scheme=upi;end`;
                 } else if (isIOS()) {
-                    window.location.href = `phonepe://pay?pa=xelishaprashanthx@axl@ybl&cu=INR`; // PhonePe URL scheme for iOS
+                    window.location.href = `phonepe://pay?pa=your_upi_id@ybl&cu=INR`;
                     setTimeout(() => {
                         window.location.href = 'https://apps.apple.com/in/app/phonepe/id944575396'; // App Store link for PhonePe
-                    }, 1500); // Fallback to App Store
-                } else {
-                    window.location.assign(upiLink);
+                    }, 1500);
                 }
             } 
             // For Paytm (Android and iOS)
@@ -117,30 +179,18 @@
                 if (isAndroid()) {
                     window.location.href = `intent://pay?pa=your_upi_id@paytm&cu=INR#Intent;package=com.paytm.android;scheme=upi;end`;
                 } else if (isIOS()) {
-                    window.location.href = `paytm://pay?pa=your_upi_id@paytm&cu=INR`; // Paytm URL scheme for iOS
+                    window.location.href = `paytm://pay?pa=your_upi_id@paytm&cu=INR`;
                     setTimeout(() => {
                         window.location.href = 'https://apps.apple.com/in/app/paytm/id409791207'; // App Store link for Paytm
-                    }, 1500); // Fallback to App Store
-                } else {
-                    window.location.assign(upiLink);
+                    }, 1500);
                 }
-            } 
-            // For Online
+            }
+            // For Online (Bank Details)
             else if (selectedPaymentMethod === 'Online') {
-                bankDetails.style.display = 'block';
+                alert('Please use the provided bank details to make the transfer.');
+            } else {
+                alert('Please select a payment method.');
             }
-
-            // Simulate text notification (No name, amount, phone)
-            if (selectedPaymentMethod !== 'Online') {
-                const simulatedMessage = `Thank you for your generous contribution!`;
-                notificationMessage.textContent = simulatedMessage;
-                notificationModal.style.display = 'flex';
-            }
-        });
-
-        // Close modal
-        closeModal.addEventListener('click', () => {
-            notificationModal.style.display = 'none';
         });
     </script>
 
