@@ -15,79 +15,370 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #5a5ca4;
+    color: white;
+}
+
+header h1 {
+    font-size: 36px;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .left-section, .right-section {
     width: 48%;
+    border-radius: 8px;
+    padding: 20px;
 }
 
 h2 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    color:  #343a40;
+}
+
+.qr-code {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Left Section (QR Code) */
-.qr-code {
-    text-align: center;
-}
-
 .qr-code img {
-    width: 200px;
-    height: 200px;
+    width: 250px;  /* Increased the size of the QR code */
+    height: 250px; /* Increased the size of the QR code */
     margin-bottom: 15px;
+    border-radius: 8px;
 }
 
 .qr-code p {
     font-size: 16px;
+    color: #6c757d;
 }
 
 /* Right Section (Payment Options) */
-.payment-options {
+.right-section {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centers everything inside the right section */
+    text-align: center;
 }
 
 .payment-option {
     background-color: #28a745;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    margin-top: 20px;
     transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .payment-option:hover {
     background-color: #218838;
 }
 
-/* Toggle Button */
-.toggle-buttons {
+.payment-option:active {
+    background-color: #1e7e34;
+}
+
+/* New Section for Other Ways to Give */
+#other-ways {
+    background-color: #ffffff;
+    padding: 40px 20px;
     text-align: center;
+}
+
+#other-ways h2 {
+    font-size: 24px;
+    color: #5a5ca4;
+    margin-bottom: 20px;
+}
+
+#other-ways p {
+    font-size: 18px;
+    color: #343a40;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Section for Building Project */
+#building-project {
+    background-color: #f4f4f4; /* Light grey background */
+    padding: 5px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#building-project .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-section {
+  
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.project-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.project-section p {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.project-section .payment-option {
+    background-color:#5a5ca4; /* Blue background for the button */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.toggle-buttons input {
-    margin-left: 10px;
+.project-section .payment-option:hover {
+    background-color: #5a5ca4;
 }
 
-.hidden {
+.project-section .payment-option:active {
+    background-color: #5a5ca4;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #building-project {
+        padding: 30px 10px;
+    }
+
+    .project-section {
+        padding: 30px;
+    }
+
+    .project-section h2 {
+        font-size: 20px;
+    }
+
+    .project-section p {
+        font-size: 14px;
+    }
+}
+
+/* New Section: Other Ways to Give */
+#other-ways {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+#other-ways h2 {
+    font-size: 24px;
+    color:#5a5ca4;
+    margin-bottom: 20px;
+}
+
+#other-ways p {
+    font-size: 18px;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.learn-more-link {
+    font-size: 16px;
+    color: #5a5ca4;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.learn-more-link:hover {
+    background-color: #5a5ca4;
+    color: white;
+}
+
+.learn-more-link:focus {
+    outline: none;
+}
+
+/* Two Cards Section */
+#giving-methods {
+    background-color: #f4f4f4; /* Light grey background */
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.giving-methods .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.giving-card {
+    background-color: white; /* White background for the cards */
+    padding: 30px;
+    width: 48%;
+    border-radius: 8px;
+    
+}
+
+.giving-card h3 {
+    font-size: 22px;
+    color: #5a5ca4;
+    margin-bottom: 15px;
+}
+
+.giving-card p {
+    font-size: 16px;
+    color: #343a40;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .giving-methods .container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .giving-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* FAQ Section Styles */
+#faq {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+#faq h2 {
+    font-size: 24px;
+    color: #5a5ca4;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    background-color: white;
+    color: #5a5ca4;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.faq-question .toggle-icon {
+    font-size: 24px;
+}
+
+.faq-answer {
     display: none;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #6c757d;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+/* 
+.faq-question:hover {
+    background-color: #000; 
+    color: white; 
+} */
+
+.faq-question:focus {
+    outline: none; /* Removes outline when focused */
+}
+
+/* .faq-item:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+} */
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #faq {
+        padding: 20px 10px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+    }
+
+    .faq-answer p {
+        font-size: 14px;
+    }
 }
 
 </style>
+
 <body>
     <header>
         <h1>Donate to Rhema Faith AG Church</h1>
@@ -95,47 +386,161 @@ h2 {
 
     <main>
         <section id="donate">
-            <h2>Choose a Payment Method</h2>
-            <button onclick="redirectToPayment('gpay')">Google Pay</button>
-            <button onclick="redirectToPayment('phonepe')">PhonePe</button>
-            <button onclick="redirectToPayment('paytm')">Paytm</button>
+            <div class="container">
+                <!-- Left Section: QR Code Scanner -->
+                <div class="left-section">
+                    <h2>Scan to Give</h2>
+                    <div class="qr-code">
+                        <img src="images/QRCODE.jpeg" alt="QR Code to scan">
+                        <p>Scan the QR Code to donate directly using your mobile payment app.</p>
+                    </div>
+                </div>
+
+                <!-- Right Section: PhonePe Payment Option -->
+                <div class="right-section">
+                    <h2>In everything I did, I showed you that by this kind of hard work we must help the weak, remembering the words the Lord Jesus himself said: 'It is more blessed to give than to receive.'</h2>
+                    <h2>Give via PhonePe</h2>
+                    <button class="payment-option" onclick="redirectToPayment('phonepe')">Donate with PhonePe</button>
+                </div>
+            </div>
         </section>
+
+        <section id="building-project">
+            <div class="container">
+                <div class="project-section">
+                    <h2>Help Build God's House</h2>
+                    <p>We are excited to announce the ongoing building project for our new church home! This is a significant step for our church community, and we need your support to complete it.</p>
+                    <p>Your generous donation will help us provide a place of worship, fellowship, and service for the community. Every contribution, no matter the size, brings us closer to our goal.</p>
+                    <!-- <button class="payment-option" onclick="redirectToPayment('building-project')">Donate to Building Project</button> -->
+                </div>
+            </div>
+        </section>
+        
+
+                <!-- New Section: Other Ways to Give -->
+            <section id="other-ways">
+                <h2>Other Ways to Give</h2>
+                <p>We are grateful for your support. There are many ways you can contribute to our mission. If you'd like more details, click the link below to visit our FAQ page.</p>
+                <a href="#faq" class="learn-more-link">Learn More</a> <!-- Link to the FAQ section -->
+            </section>
+
+            <!-- Two Cards Section -->
+            <section id="giving-methods">
+                <div class="container">
+                    <!-- First Card: Give in Person -->
+                    <div class="giving-card">
+                        <h3>Give in Person</h3>
+                        <p>You can give in person by visiting our church.</p>
+                    </div>
+
+                    <!-- Second Card: Mail a Gift -->
+                    <div class="giving-card">
+                        <h3>Mail a Gift</h3>
+                        <p>145/12, N.R.Square, 2nd floor, 1st main road, Chamrajpet, B'lore 18</p>
+                    </div>
+                </div>
+            </section>
+
+
+      <!-- FAQ Section -->
+<section id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <!-- FAQ 1 -->
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleAnswer(this)">
+            How can I donate? <span class="toggle-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <p>You can donate through various methods such as online payment via PhonePe, QR code scan, or by visiting our church in person. You can also mail your donation to our church address.</p>
+        </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleAnswer(this)">
+            Is my donation tax-deductible? <span class="toggle-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <p>Yes, your donation is tax-deductible if you live in India. We are a registered charitable organization, and you can receive a receipt for tax purposes.</p>
+        </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleAnswer(this)">
+            Can I donate in-kind? <span class="toggle-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <p>Yes, we accept in-kind donations such as food, clothing, and other items that can be used for the church's community outreach programs.</p>
+        </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleAnswer(this)">
+            Can I donate monthly? <span class="toggle-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <p>Yes, we offer monthly donation options. You can set up recurring donations via PhonePe or through our other donation channels.</p>
+        </div>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleAnswer(this)">
+            How do I know my offering is being used effectively? <span class="toggle-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <p>We provide regular updates on how donations are being used in our church services and community outreach programs. You can also request detailed financial reports at any time.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleAnswer(this)">
+            Can I make an offering on behalf of someone else <span class="toggle-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <p>You can make an offering on behalf of someone else. Please inform our church staff if you would like the offering to be dedicated in someone else's name.</p>
+        </div>
+    </div>
+</section>
+
+
     </main>
 
     <script>
         function redirectToPayment(paymentMethod) {
             let appUrl = '';
             
-            switch(paymentMethod) {
-                case 'gpay':
-                    appUrl = 'upi://pay?pa=xelishaprashanthx-2@okaxis&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
-                    break;
-                case 'phonepe':
-                    appUrl = 'phonepe://pay?pa=xelishaprashanthx@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
-                    break;
-                case 'paytm':
-                    appUrl = 'paytm://pay?pa=xelishaprashanthx@upi&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
-                    break;
-                default:
-                    alert('Please choose a valid payment method.');
-                    return;
+            if (paymentMethod === 'phonepe') {
+                appUrl = 'phonepe://pay?pa=xelishaprashanthx@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
+            } else {
+                alert('Please choose a valid payment method.');
+                return;
             }
 
             // Try to open the app using the deep link
             window.location.href = appUrl;
 
-            // If the app is not installed, the user will be prompted to install it or redirected
+            // If the app is not installed, the user will be redirected to the PhonePe website
             setTimeout(function() {
-                if (paymentMethod === 'phonepe') {
-                    window.location.href = 'https://www.phonepe.com/';
-                } else if (paymentMethod === 'paytm') {
-                    window.location.href = 'https://paytm.com/';
-                } else {
-                    window.location.href = 'https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user'; // Google Pay fallback (for Android)
-                }
-            }, 2000); // Increased timeout to 2000ms for better reliability
+                window.location.href = 'https://www.phonepe.com/';
+            }, 2000); // Timeout to redirect after 2 seconds
         }
+
+        function toggleAnswer(button) {
+    const answer = button.nextElementSibling;
+    const icon = button.querySelector('.toggle-icon');
+
+    if (answer.style.display === "block") {
+        answer.style.display = "none";
+        icon.textContent = "+"; // Change to "+" when closing the answer
+    } else {
+        answer.style.display = "block";
+        icon.textContent = "-"; // Change to "-" when opening the answer
+    }
+}
+
     </script>
 </body>
 </html>
-..
