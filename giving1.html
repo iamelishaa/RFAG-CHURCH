@@ -44,62 +44,83 @@
     </div>
 
     <script>
-  // Select elements
-  const paymentOptions = document.querySelectorAll('.payment-option');
-  const giveButton = document.getElementById('giveButton');
-  const bankDetails = document.getElementById('bankDetails');
-  const notificationModal = document.getElementById('notificationModal');
-  const notificationMessage = document.getElementById('notificationMessage');
-  const closeModal = document.getElementById('closeModal');
-
-  // Active payment method tracking
-  let selectedPaymentMethod = 'GPay'; // Default to GPay
-
-  // Add click event to payment options
-  paymentOptions.forEach(option => {
-      option.addEventListener('click', () => {
-          paymentOptions.forEach(opt => opt.classList.remove('active'));
-          option.classList.add('active');
-          selectedPaymentMethod = option.innerText;
-          if (selectedPaymentMethod !== 'Online') {
-              bankDetails.style.display = 'none';
-          }
-      });
-  });
-
-  // Handle "Give Now" button click
-  giveButton.addEventListener('click', () => {
-      // For GPay, generate the UPI payment link
-      if (selectedPaymentMethod === 'GPay') {
-          const upiId = 'xelishaprashanthx-2@okaxis'; // Replace with your actual UPI ID
-          const amount = '100'; // Replace with the amount you want to donate
-          const upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
-
-          // Redirect to the GPay app for payment using location.assign
-          window.location.assign(upiLink);
-      } else if (selectedPaymentMethod === 'PhonePe') {
-          const upiLink = `upi://pay?pa=your_upi_id@ybl&cu=INR`;
-          window.location.assign(upiLink);
-      } else if (selectedPaymentMethod === 'Paytm') {
-          const upiLink = `upi://pay?pa=your_upi_id@paytm&cu=INR`;
-          window.location.assign(upiLink);
-      } else if (selectedPaymentMethod === 'Online') {
-          bankDetails.style.display = 'block';
-      }
-
-      // Simulate text notification (No name, amount, phone)
-      if (selectedPaymentMethod !== 'Online') {
-          const simulatedMessage = `Thank you for your generous contribution!`;
-          notificationMessage.textContent = simulatedMessage;
-          notificationModal.style.display = 'flex';
-      }
-  });
-
-  // Close modal
-  closeModal.addEventListener('click', () => {
-      notificationModal.style.display = 'none';
-  });
-</script>
+        // Select elements
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        const giveButton = document.getElementById('giveButton');
+        const bankDetails = document.getElementById('bankDetails');
+        const notificationModal = document.getElementById('notificationModal');
+        const notificationMessage = document.getElementById('notificationMessage');
+        const closeModal = document.getElementById('closeModal');
+      
+        // Active payment method tracking
+        let selectedPaymentMethod = 'GPay'; // Default to GPay
+      
+        // Add click event to payment options
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                paymentOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                selectedPaymentMethod = option.innerText;
+                if (selectedPaymentMethod !== 'Online') {
+                    bankDetails.style.display = 'none';
+                }
+            });
+        });
+      
+        // Check if the device is Android
+        function isAndroid() {
+            return /android/i.test(navigator.userAgent);
+        }
+      
+        // Handle "Give Now" button click
+        giveButton.addEventListener('click', () => {
+            // For GPay, generate the UPI payment link
+            if (selectedPaymentMethod === 'GPay') {
+                const upiId = 'xelishaprashanthx-2@okaxis'; // Replace with your actual UPI ID
+                const amount = '100'; // Replace with the amount you want to donate
+                const upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
+      
+                if (isAndroid()) {
+                    // Android-specific intent link for GPay
+                    window.location.href = `intent://pay?pa=${upiId}&am=${amount}&cu=INR#Intent;package=com.google.android.apps.nbu.paisa.user;scheme=upi;end`;
+                } else {
+                    // Regular UPI link for other devices
+                    window.location.assign(upiLink);
+                }
+            } else if (selectedPaymentMethod === 'PhonePe') {
+                const upiLink = `upi://pay?pa=your_upi_id@ybl&cu=INR`;
+                if (isAndroid()) {
+                    // Android-specific intent link for PhonePe
+                    window.location.href = `intent://pay?pa=your_upi_id@ybl&cu=INR#Intent;package=com.phonepe.app;scheme=upi;end`;
+                } else {
+                    window.location.assign(upiLink);
+                }
+            } else if (selectedPaymentMethod === 'Paytm') {
+                const upiLink = `upi://pay?pa=your_upi_id@paytm&cu=INR`;
+                if (isAndroid()) {
+                    // Android-specific intent link for Paytm
+                    window.location.href = `intent://pay?pa=your_upi_id@paytm&cu=INR#Intent;package=com.paytm.android;scheme=upi;end`;
+                } else {
+                    window.location.assign(upiLink);
+                }
+            } else if (selectedPaymentMethod === 'Online') {
+                bankDetails.style.display = 'block';
+            }
+      
+            // Simulate text notification (No name, amount, phone)
+            if (selectedPaymentMethod !== 'Online') {
+                const simulatedMessage = `Thank you for your generous contribution!`;
+                notificationMessage.textContent = simulatedMessage;
+                notificationModal.style.display = 'flex';
+            }
+        });
+      
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            notificationModal.style.display = 'none';
+        });
+      </script>
+      
 
 </body>
 </html>
