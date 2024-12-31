@@ -39,51 +39,63 @@
         <!-- Call-to-Action Button -->
         <button class="cta-button" id="giveButton">Give Now</button>
     </div>
-    <script >
+    <script>
         // Select payment options and button
-const paymentOptions = document.querySelectorAll('.payment-option');
-const giveButton = document.getElementById('giveButton');
-const bankDetails = document.getElementById('bankDetails');
-
-// Active payment method tracking
-let selectedPaymentMethod = 'GPay'; // Default to GPay
-
-// Add click event to payment options
-paymentOptions.forEach(option => {
-    option.addEventListener('click', () => {
-        // Reset active class on all options
-        paymentOptions.forEach(opt => opt.classList.remove('active'));
-        // Add active class to selected option
-        option.classList.add('active');
-        // Update selected payment method
-        selectedPaymentMethod = option.innerText;
-        // Hide bank details if not "Online"
-        if (selectedPaymentMethod !== 'Online') {
-            bankDetails.style.display = 'none';
-        }
-    });
-});
-
-// Handle "Give Now" button click
-giveButton.addEventListener('click', () => {
-    if (selectedPaymentMethod === 'GPay') {
-        // Redirect to GPay UPI
-        const upiLink = `upi://pay?pa=xelishaprashanthx-2@okaxis&pn=Church%20of%20XYZ&cu=INR`;
-        window.location.href = upiLink;
-    } else if (selectedPaymentMethod === 'PhonePe') {
-        // Redirect to PhonePe UPI
-        const upiLink = `upi://pay?pa=xelishaprashanthx@axl&pn=Church%20of%20XYZ&cu=INR`;
-        window.location.href = upiLink;
-    } else if (selectedPaymentMethod === 'Paytm') {
-        // Redirect to Paytm UPI
-        const upiLink = `upi://pay?pa=your_upi_id@paytm&pn=Church%20of%20XYZ&cu=INR`;
-        window.location.href = upiLink;
-    } else if (selectedPaymentMethod === 'Online') {
-        // Show bank details
-        bankDetails.style.display = 'block';
-    }
-});
-
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        const giveButton = document.getElementById('giveButton');
+        const bankDetails = document.getElementById('bankDetails');
+    
+        // Active payment method tracking
+        let selectedPaymentMethod = 'GPay'; // Default to GPay
+    
+        // Add click event to payment options
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Reset active class on all options
+                paymentOptions.forEach(opt => opt.classList.remove('active'));
+                // Add active class to selected option
+                option.classList.add('active');
+                // Update selected payment method
+                selectedPaymentMethod = option.innerText;
+                // Hide bank details if not "Online"
+                if (selectedPaymentMethod !== 'Online') {
+                    bankDetails.style.display = 'none';
+                }
+            });
+        });
+    
+        // Handle "Give Now" button click
+        giveButton.addEventListener('click', () => {
+            let upiLink = '';
+    
+            if (selectedPaymentMethod === 'GPay') {
+                // GPay UPI Link
+                upiLink = `upi://pay?pa=xelishaprashanthx-2@okaxis&pn=Church%20of%20XYZ&cu=INR`;
+            } else if (selectedPaymentMethod === 'PhonePe') {
+                // PhonePe UPI Link
+                upiLink = `upi://pay?pa=xelishaprashanthx@axl&pn=Church%20of%20XYZ&cu=INR`;
+            } else if (selectedPaymentMethod === 'Paytm') {
+                // Paytm UPI Link
+                upiLink = `upi://pay?pa=your_upi_id@paytm&pn=Church%20of%20XYZ&cu=INR`;
+            } else if (selectedPaymentMethod === 'Online') {
+                // Show bank details
+                bankDetails.style.display = 'block';
+                return; // Prevent the script from continuing if the 'Online' option is selected
+            }
+    
+            // Try opening the UPI app using the link
+            try {
+                // For mobile devices, attempt to directly redirect to UPI link
+                window.location.href = upiLink;
+                // Fallback if UPI app is not installed
+                setTimeout(() => {
+                    alert('If the payment app did not open, please make sure it is installed on your device.');
+                }, 2000); // Wait for 2 seconds before showing alert
+            } catch (error) {
+                console.error('Error opening payment app:', error);
+            }
+        });
     </script>
+    
 </body>
 </html>
