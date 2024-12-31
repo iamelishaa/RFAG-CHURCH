@@ -67,6 +67,16 @@
             });
         });
       
+        // Check if the device is Android
+        function isAndroid() {
+            return /android/i.test(navigator.userAgent);
+        }
+
+        // Check if the device is iOS
+        function isIOS() {
+            return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        }
+      
         // Handle "Give Now" button click
         giveButton.addEventListener('click', () => {
             // For GPay, generate the UPI payment link
@@ -75,11 +85,16 @@
                 const amount = '100'; // Replace with the amount you want to donate
                 const upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
 
-                // For Android, use intent link to open GPay directly
-                if (/android/i.test(navigator.userAgent)) {
+                // Handle for Android
+                if (isAndroid()) {
                     window.location.href = `intent://pay?pa=${upiId}&am=${amount}&cu=INR#Intent;package=com.google.android.apps.nbu.paisa.user;scheme=upi;end`;
+                }
+                // Handle for iOS (GPay deep link for iOS)
+                else if (isIOS()) {
+                    const gpayLink = `https://pay.google.com/gp/p/ui/pay?pa=${upiId}&am=${amount}&cu=INR`;
+                    window.location.href = gpayLink; // Open GPay directly in iOS browser
                 } else {
-                    // For other devices, use the regular UPI link
+                    // Fallback for other devices
                     window.location.assign(upiLink);
                 }
             } else if (selectedPaymentMethod === 'PhonePe') {
