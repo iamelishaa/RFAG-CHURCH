@@ -1,188 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
-    <link rel="stylesheet" href="css/about.css">  
-    <title>Give | RFAG Church</title>
-    <link rel="stylesheet" href="css/give.css">
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+        <link rel="stylesheet" href="css/about.css">  
+        <title>Give | RFAG Church</title>
+        <link rel="stylesheet" href="css/give.css">
+    </head>
+    <body>
 
-    <nav class="navbar">
-        <div class="logo">
-            <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
-            <div class="logo-text">
-                <span style="font-weight: bold;">Rhema Faith</span>
-                <span style="font-weight: normal;">AG Church</span>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
+                <div class="logo-text">
+                    <span style="font-weight: bold;">Rhema Faith</span>
+                    <span style="font-weight: normal;">AG Church</span>
+                </div>
             </div>
-        </div>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="video.html">Sermons</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="online.html">Online</a></li>
-            <li><a href="give.html">Giving</a></li>
-            <li class="dropdown">
-                <a href="ministries.html" class="dropdown-toggle">Ministries</a>
-                <ul class="dropdown-menu">
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="events.php">Events</a></li>
-                </ul>
-            </li>
-            
-        </ul>
-    </nav>
-    <header>
-        <h1>Donate to Rhema Faith AG Church</h1>
-    </header>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="video.html">Sermons</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="online.html">Online</a></li>
+                <li><a href="give.html">Giving</a></li>
+                <li class="dropdown">
+                    <a href="ministries.html" class="dropdown-toggle">Ministries</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="events.php">Events</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+        <header>
+            <h1>Donate to Rhema Faith AG Church</h1>
+        </header>
 
-    <main>
-        <section id="donate">
-            <div class="container">
-                <!-- Left Section: QR Code Scanner -->
-                <div class="left-section">
-                    <h2>Scan to Give</h2>
-                    <div class="qr-code">
-                        <img src="images/QRCODE.jpeg" alt="QR Code to scan">
-                        <p>Scan the QR Code to donate directly using your mobile payment app.</p>
+        <main>
+            <section id="donate">
+                <div class="container">
+                    <!-- Left Section: QR Code Scanner -->
+                    <div class="left-section">
+                        <h2>Scan to Give</h2>
+                        <div class="qr-code">
+                            <img src="images/QRCODE.jpeg" alt="QR Code to scan">
+                            <p>Scan the QR Code to donate directly using your mobile payment app.</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Section: PhonePe Payment Option -->
+                    <div class="right-section">
+                        <h2>In everything I did, I showed you that by this kind of hard work we must help the weak, remembering the words the Lord Jesus himself said: 'It is more blessed to give than to receive.'</h2>
+                        <h2>Give via PhonePe</h2>
+                        <div class="donation-section">
+                            <input type="number" id="donationAmount" class="donation-input" placeholder="Enter amount (e.g., 500)">
+                            <button class="payment-option" onclick="processDonation()">Donate Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="building-project">
+                <div class="container">
+                    <div class="project-section">
+                        <h2>Help Build God's House</h2>
+                        <p>We are excited to announce the ongoing building project for our new church home! This is a significant step for our church community, and we need your support to complete it.</p>
+                        <p>Your generous donation will help us provide a place of worship, fellowship, and service for the community. Every contribution, no matter the size, brings us closer to our goal.</p>
+                        
+                        <!-- PhonePe Donation Button -->
+                        <button class="payment-option" onclick="redirectToPayment('phonepe')">Donate with PhonePe</button>
+                        
+                        <!-- Bank Payment Button -->
+                        <button class="payment-option" onclick="showBankDetails()">Donate via Bank Transfer</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Bank Details Dialog Panel -->
+            <div id="bank-details-dialog" class="dialog">
+                <div class="dialog-content">
+                    <span class="close" onclick="closeBankDetails()">&times;</span>
+                    <h3>Bank Transfer Details</h3>
+                    <p>Bank Name:RHEMA FAITH AG FOUNDATION </p>
+                    <p>Account Number: 14710100177185</p>
+                    <p>IFSC Code: FDRL0001471</p>
+                    <p>Branch: FEDERAL BANK  ( DODDA BANASAVADI)</p>
+                    <p>Please mention your name and "Building Project" as the reference.</p>
+                    <button onclick="closeBankDetails()">Close</button>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                        How can I donate? <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can donate through various methods such as online payment via PhonePe, QR code scan, or by visiting our church in person. You can also mail your donation to our church address.</p>
                     </div>
                 </div>
 
-                <!-- Right Section: PhonePe Payment Option -->
-                <div class="right-section">
-                    <h2>In everything I did, I showed you that by this kind of hard work we must help the weak, remembering the words the Lord Jesus himself said: 'It is more blessed to give than to receive.'</h2>
-                    <h2>Give via PhonePe</h2>
-                    <div class="donation-section">
-                        <h2>Enter Donation Amount</h2>
-                        <input type="number" id="donationAmount" class="donation-input" placeholder="Enter amount (e.g., 500)">
-                        <button class="payment-option" onclick="processDonation()">Donate Now</button>
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                        Is my donation tax-deductible? <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, your donation is tax-deductible if you live in India. We are a registered charitable organization, and you can receive a receipt for tax purposes.</p>
                     </div>
                 </div>
+
+                <!-- More FAQs -->
+            </section>
+        </main>
+
+        <script>
+           function redirectToPayment(paymentMethod) {
+    const donationAmount = document.getElementById("donationAmount").value;
+
+    if (!donationAmount || donationAmount <= 0) {
+        alert("Please enter a valid donation amount.");
+        return;
+    }
+
+    let appUrl = '';
+
+    if (paymentMethod === 'phonepe') {
+        const phoneNumber = '9980824255'; // Replace with the church's phone number
+        appUrl = `phonepe://pay?pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=${donationAmount}&cu=INR&pa=${phoneNumber}`;
+    } else {
+        alert('Please choose a valid payment method.');
+        return;
+    }
+
+    // Try to open the app using the deep link
+    window.location.href = appUrl;
+
+    // If the app is not installed, the user will be redirected to the PhonePe website
+    setTimeout(function() {
+        window.location.href = 'https://www.phonepe.com/';
+    }, 2000); // Timeout to redirect after 2 seconds
+}
+
+        </script>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <!-- Footer Content Here -->
             </div>
-        </section>
+        </footer>
 
-        <section id="building-project">
-            <div class="container">
-                <div class="project-section">
-                    <h2>Help Build God's House</h2>
-                    <p>We are excited to announce the ongoing building project for our new church home! This is a significant step for our church community, and we need your support to complete it.</p>
-                    <p>Your generous donation will help us provide a place of worship, fellowship, and service for the community. Every contribution, no matter the size, brings us closer to our goal.</p>
-                    
-                    <!-- PhonePe Donation Button -->
-                    <button class="payment-option" onclick="redirectToPayment('phonepe')">Donate with PhonePe</button>
-                    
-                    <!-- Bank Payment Button -->
-                    <button class="payment-option" onclick="showBankDetails()">Donate via Bank Transfer</button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Bank Details Dialog Panel -->
-        <div id="bank-details-dialog" class="dialog">
-            <div class="dialog-content">
-                <span class="close" onclick="closeBankDetails()">&times;</span>
-                <h3>Bank Transfer Details</h3>
-                <p>Bank Name:RHEMA FAITH AG FOUNDATION </p>
-                <p>Account Number: 14710100177185</p>
-                <p>IFSC Code: FDRL0001471</p>
-                <p>Branch: FEDERAL BANK  ( DODDA BANASAVADI)</p>
-                <p>Please mention your name and "Building Project" as the reference.</p>
-                <button onclick="closeBankDetails()">Close</button>
-            </div>
-        </div>
-
-        <!-- FAQ Section -->
-        <section id="faq">
-            <h2>Frequently Asked Questions</h2>
-
-            <!-- FAQ 1 -->
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleAnswer(this)">
-                    How can I donate? <span class="toggle-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>You can donate through various methods such as online payment via PhonePe, QR code scan, or by visiting our church in person. You can also mail your donation to our church address.</p>
-                </div>
-            </div>
-
-            <!-- FAQ 2 -->
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleAnswer(this)">
-                    Is my donation tax-deductible? <span class="toggle-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes, your donation is tax-deductible if you live in India. We are a registered charitable organization, and you can receive a receipt for tax purposes.</p>
-                </div>
-            </div>
-
-            <!-- More FAQs -->
-        </section>
-    </main>
-
-    <script>
-        function redirectToPayment(paymentMethod) {
-            const donationAmount = document.getElementById("donationAmount").value;
-
-            if (!donationAmount || donationAmount <= 0) {
-                alert("Please enter a valid donation amount.");
-                return;
-            }
-
-            let appUrl = '';
-            
-            if (paymentMethod === 'phonepe') {
-                appUrl = `phonepe://pay?pa=xelishaprashanthx@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=${donationAmount}&cu=INR`;
-            } else {
-                alert('Please choose a valid payment method.');
-                return;
-            }
-
-            // Try to open the app using the deep link
-            window.location.href = appUrl;
-
-            // If the app is not installed, the user will be redirected to the PhonePe website
-            setTimeout(function() {
-                window.location.href = 'https://www.phonepe.com/';
-            }, 200000); // Timeout to redirect after 2 seconds
-        }
-
-        function toggleAnswer(button) {
-            const answer = button.nextElementSibling;
-            const icon = button.querySelector('.toggle-icon');
-
-            if (answer.style.display === "block") {
-                answer.style.display = "none";
-                icon.textContent = "+"; // Change to "+" when closing the answer
-            } else {
-                answer.style.display = "block";
-                icon.textContent = "-"; // Change to "-" when opening the answer
-            }
-        }
-
-        function showBankDetails() {
-            document.getElementById("bank-details-dialog").style.display = "block"; // Show the dialog
-        }
-
-        function closeBankDetails() {
-            document.getElementById("bank-details-dialog").style.display = "none"; // Hide the dialog
-        }
-    </script>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <!-- Footer Content Here -->
-        </div>
-    </footer>
-
-</body>
-</html>
+    </body>
+    </html>
