@@ -9,6 +9,7 @@ ini_set('display_errors', 1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events</title>
     <link rel="stylesheet" href="css/events.css">
+    <link rel="shortcut icon" href="images/16.png" type="image/x-icon">
 </head>
 <body>
     <header>
