@@ -138,7 +138,7 @@ h2 {
                     appUrl = 'googlepay://pay?pa=xelishaprashanthx-2@okaxis&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
                     break;
                 case 'phonepe':
-                    appUrl = 'phonepe://pay?upi=xelishaprashanthx@axl&amount=100.00&note=Donation';
+                    appUrl = 'phonepe://payment?upi=xelishaprashanthx@axl&amount=100.00&note=Donation';
                     break;
                 case 'paytm':
                     appUrl = 'paytmmp://pay?upi=xelishaprashanthx@upi&amount=100.00&note=Donation';
@@ -153,9 +153,16 @@ h2 {
 
             // If the app is not installed, the user will be prompted to install it or redirected
             setTimeout(function() {
-                window.location = 'https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user'; // Google Pay fallback (for Android)
+                if (paymentMethod === 'phonepe') {
+                    window.location = 'https://www.phonepe.com/pay?upi=xelishaprashanthx@axl';
+                } else if (paymentMethod === 'paytm') {
+                    window.location = 'https://paytm.com/pay?upi=xelishaprashanthx@upi';
+                } else {
+                    window.location = 'https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user'; // Google Pay fallback (for Android)
+                }
             }, 1000);
         }
     </script>
 </body>
 </html>
+..
