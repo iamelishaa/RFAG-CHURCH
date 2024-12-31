@@ -32,7 +32,13 @@
             <li><a href="about.html">About</a></li>
             <li><a href="online.html">Online</a></li>
             <li><a href="give.html">Giving</a></li>
-        </ul>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Ministries</a>
+                <ul class="dropdown-menu">
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="events.php">Events</a></li>
+                </ul>
+            </li>
     </nav>
     <header>
         <h1>Donate to Rhema Faith AG Church</h1>
@@ -54,11 +60,11 @@
                 <div class="right-section">
                     <h2>In everything I did, I showed you that by this kind of hard work we must help the weak, remembering the words the Lord Jesus himself said: 'It is more blessed to give than to receive.'</h2>
                     <h2>Give via PhonePe</h2>
-
-                    <!-- Donation Input and Button -->
-                    <label for="donationAmount">Enter Donation Amount (INR):</label>
-                    <input type="number" id="donationAmount" placeholder="Enter amount" min="1" required>
-                    <button class="payment-option" onclick="redirectToPayment('phonepe')">Donate with PhonePe</button>
+                    <div class="donation-section">
+                        <h2>Enter Donation Amount</h2>
+                        <input type="number" id="donationAmount" class="donation-input" placeholder="Enter amount (e.g., 500)">
+                        <button class="payment-option" onclick="processDonation()">Donate Now</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -145,7 +151,7 @@
             // If the app is not installed, the user will be redirected to the PhonePe website
             setTimeout(function() {
                 window.location.href = 'https://www.phonepe.com/';
-            }, 2000); // Timeout to redirect after 2 seconds
+            }, 200000); // Timeout to redirect after 2 seconds
         }
 
         function toggleAnswer(button) {
