@@ -183,26 +183,35 @@
     </main>
 
     <script>
-        function redirectToPayment(paymentMethod) {
-            let appUrl = '';
-            
-            if (paymentMethod === 'phonepe') {
-                appUrl = 'phonepe://pay?pa=xelishaprashanthx@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
-            } else {
-                alert('Please choose a valid payment method.');
-                return;
-            }
+     function redirectToPayment(paymentMethod) {
+    const donationAmount = document.getElementById("donationAmount").value; // Get the user-entered amount
 
-            // Try to open the app using the deep link
-            window.location.href = appUrl;
+    // Validate donation amount
+    if (!donationAmount || isNaN(donationAmount) || donationAmount <= 0) {
+        alert("Please enter a valid donation amount.");
+        return;
+    }
 
-            // If the app is not installed, the user will be redirected to the PhonePe website
-            setTimeout(function() {
-                window.location.href = 'https://www.phonepe.com/';
-            }, 2000); // Timeout to redirect after 2 seconds
-        }
+    let appUrl = '';
 
-        function toggleAnswer(button) {
+    if (paymentMethod === 'phonepe') {
+        const phoneNumber = "9876543210"; // Replace with your PhonePe-linked phone number
+        appUrl = `phonepe://pay?pn=${phoneNumber}&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=${donationAmount}&cu=INR`;
+    } else {
+        alert('Please choose a valid payment method.');
+        return;
+    }
+
+    // Try to open the app using the deep link
+    window.location.href = appUrl;
+
+    // If the app is not installed, the user will be redirected to the PhonePe website
+    setTimeout(function () {
+        window.location.href = 'https://www.phonepe.com/';
+    }, 2000); // Timeout to redirect after 2 seconds
+}
+
+function toggleAnswer(button) {
     const answer = button.nextElementSibling;
     const icon = button.querySelector('.toggle-icon');
 
@@ -214,24 +223,6 @@
         icon.textContent = "-"; // Change to "-" when opening the answer
     }
 }
-function redirectToPayment(paymentMethod) {
-    let appUrl = '';
-    
-    if (paymentMethod === 'phonepe') {
-        appUrl = 'phonepe://pay?pa=-----------@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=50.00&cu=INR';
-    } else {
-        alert('Please choose a valid payment method.');
-        return;
-    }
-
-    // Try to open the app using the deep link
-    window.location.href = appUrl;
-
-    // If the app is not installed, the user will be redirected to the PhonePe website
-    setTimeout(function() {
-        window.location.href = 'https://www.phonepe.com/';
-    }, 2000); // Timeout to redirect after 2 seconds
-}
 
 function showBankDetails() {
     document.getElementById("bank-details-dialog").style.display = "block"; // Show the dialog
@@ -240,6 +231,7 @@ function showBankDetails() {
 function closeBankDetails() {
     document.getElementById("bank-details-dialog").style.display = "none"; // Hide the dialog
 }
+
     </script>
 
 <footer class="footer">
