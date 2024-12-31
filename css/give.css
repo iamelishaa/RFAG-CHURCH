@@ -366,11 +366,11 @@ h2 {
 
 /* Adjust the 'Donate Now' button to match the input field */
 .payment-option {
-    background-color: #007BFF;
+    background-color: #5a5ca4;
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
