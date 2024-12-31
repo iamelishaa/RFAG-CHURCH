@@ -102,9 +102,9 @@
             // For PhonePe (Android and iOS)
             else if (selectedPaymentMethod === 'PhonePe') {
                 if (isAndroid()) {
-                    window.location.href = `intent://pay?pa=your_upi_id@ybl&cu=INR#Intent;package=com.phonepe.app;scheme=upi;end`;
+                    window.location.href = `intent://pay?pa=xelishaprashanthx@axl@ybl&cu=INR#Intent;package=com.phonepe.app;scheme=upi;end`;
                 } else if (isIOS()) {
-                    window.location.href = `phonepe://pay?pa=your_upi_id@ybl&cu=INR`; // PhonePe URL scheme for iOS
+                    window.location.href = `phonepe://pay?pa=xelishaprashanthx@axl@ybl&cu=INR`; // PhonePe URL scheme for iOS
                     setTimeout(() => {
                         window.location.href = 'https://apps.apple.com/in/app/phonepe/id944575396'; // App Store link for PhonePe
                     }, 1500); // Fallback to App Store
