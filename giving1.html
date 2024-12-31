@@ -129,36 +129,32 @@ h2 {
             }
         });
 
-        // Redirect user to respective payment app or page
+        // Redirect user to the respective UPI payment app or fallback URL
         function redirectToPayment(paymentMethod) {
-            let paymentUrl = '';
             let appUrl = '';
             
             switch(paymentMethod) {
                 case 'gpay':
-                    paymentUrl = 'https://pay.google.com/gp/p2p/send';  // Fallback URL (Google Pay web)
-                    appUrl = 'intent://pay.google.com/gp/p2p/send#Intent;package=com.google.android.apps.nbu.paisa.user;scheme=googlepay;end';  // Google Pay deep link
+                    appUrl = 'googlepay://pay?pa=xelishaprashanthx-2@okaxis&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
                     break;
                 case 'phonepe':
-                    paymentUrl = 'https://www.phonepe.com/pay';  // Fallback URL (PhonePe web)
-                    appUrl = 'phonepe://payment';  // PhonePe deep link
+                    appUrl = 'phonepe://pay?upi=xelishaprashanthx@axl&amount=100.00&note=Donation';
                     break;
                 case 'paytm':
-                    paymentUrl = 'https://paytm.com';  // Fallback URL (Paytm web)
-                    appUrl = 'paytmmp://';  // Paytm deep link
+                    appUrl = 'paytmmp://pay?upi=xelishaprashanthx@upi&amount=100.00&note=Donation';
                     break;
                 default:
                     alert('Please choose a valid payment method.');
                     return;
             }
-            
-            // Try to open the app with deep link
+
+            // Try to open the app using the deep link
             window.location = appUrl;
 
-            // If app doesn't open (user doesn't have the app), fallback to the website
+            // If the app is not installed, the user will be prompted to install it or redirected
             setTimeout(function() {
-                window.location = paymentUrl;
-            }, 2000);
+                window.location = 'https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user'; // Google Pay fallback (for Android)
+            }, 1000);
         }
     </script>
 </body>
