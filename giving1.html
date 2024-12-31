@@ -79,31 +79,54 @@
       
         // Handle "Give Now" button click
         giveButton.addEventListener('click', () => {
-            // For GPay, generate the UPI payment link
-            if (selectedPaymentMethod === 'GPay') {
-                const upiId = 'xelishaprashanthx-2@okaxis'; // Replace with your actual UPI ID
-                const amount = '100'; // Replace with the amount you want to donate
-                const upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
+            const upiId = 'xelishaprashanthx-2@okaxis'; // Replace with your actual UPI ID
+            const amount = '100'; // Replace with the amount you want to donate
+            const upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
 
-                // Handle for Android
+            // For GPay (Android and iOS)
+            if (selectedPaymentMethod === 'GPay') {
                 if (isAndroid()) {
+                    // Android-specific intent for GPay
                     window.location.href = `intent://pay?pa=${upiId}&am=${amount}&cu=INR#Intent;package=com.google.android.apps.nbu.paisa.user;scheme=upi;end`;
-                }
-                // Handle for iOS (GPay deep link for iOS)
-                else if (isIOS()) {
-                    const gpayLink = `https://pay.google.com/gp/p/ui/pay?pa=${upiId}&am=${amount}&cu=INR`;
-                    window.location.href = gpayLink; // Open GPay directly in iOS browser
+                } else if (isIOS()) {
+                    // iOS-specific deep link for GPay
+                    window.location.href = `googlepay://pay?pa=${upiId}&am=${amount}&cu=INR`; // GPay scheme for iOS
+                    setTimeout(() => {
+                        // If GPay doesn't open, fallback to App Store
+                        window.location.href = 'https://apps.apple.com/in/app/google-pay/id1601202768'; // App Store link
+                    }, 1500); // Fallback after 1.5 seconds
                 } else {
-                    // Fallback for other devices
                     window.location.assign(upiLink);
                 }
-            } else if (selectedPaymentMethod === 'PhonePe') {
-                const upiLink = `upi://pay?pa=your_upi_id@ybl&cu=INR`;
-                window.location.assign(upiLink);
-            } else if (selectedPaymentMethod === 'Paytm') {
-                const upiLink = `upi://pay?pa=your_upi_id@paytm&cu=INR`;
-                window.location.assign(upiLink);
-            } else if (selectedPaymentMethod === 'Online') {
+            } 
+            // For PhonePe (Android and iOS)
+            else if (selectedPaymentMethod === 'PhonePe') {
+                if (isAndroid()) {
+                    window.location.href = `intent://pay?pa=your_upi_id@ybl&cu=INR#Intent;package=com.phonepe.app;scheme=upi;end`;
+                } else if (isIOS()) {
+                    window.location.href = `phonepe://pay?pa=your_upi_id@ybl&cu=INR`; // PhonePe URL scheme for iOS
+                    setTimeout(() => {
+                        window.location.href = 'https://apps.apple.com/in/app/phonepe/id944575396'; // App Store link for PhonePe
+                    }, 1500); // Fallback to App Store
+                } else {
+                    window.location.assign(upiLink);
+                }
+            } 
+            // For Paytm (Android and iOS)
+            else if (selectedPaymentMethod === 'Paytm') {
+                if (isAndroid()) {
+                    window.location.href = `intent://pay?pa=your_upi_id@paytm&cu=INR#Intent;package=com.paytm.android;scheme=upi;end`;
+                } else if (isIOS()) {
+                    window.location.href = `paytm://pay?pa=your_upi_id@paytm&cu=INR`; // Paytm URL scheme for iOS
+                    setTimeout(() => {
+                        window.location.href = 'https://apps.apple.com/in/app/paytm/id409791207'; // App Store link for Paytm
+                    }, 1500); // Fallback to App Store
+                } else {
+                    window.location.assign(upiLink);
+                }
+            } 
+            // For Online
+            else if (selectedPaymentMethod === 'Online') {
                 bankDetails.style.display = 'block';
             }
 
