@@ -4,98 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Church Giving Page</title>
-    <link rel="stylesheet" href="css/giving1.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+    /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-section, .right-section {
+    width: 48%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Left Section (QR Code) */
+.qr-code {
+    text-align: center;
+}
+
+.qr-code img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.qr-code p {
+    font-size: 16px;
+}
+
+/* Right Section (Payment Options) */
+.payment-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.payment-option:hover {
+    background-color: #218838;
+}
+
+/* Toggle Button */
+.toggle-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.toggle-buttons input {
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+</style>
 <body>
     <div class="container">
-        <!-- Giving Option -->
-        <h1>Tithes & Offerings</h1>
-        <p class="description">
-            Simple and secure. Give a single gift or schedule recurring giving.
-        </p>
-
-        <!-- Search Box -->
-        <div class="search-box">
-            <input type="text" placeholder="Choose your campus community" id="searchInput">
+        <!-- Left Section: QR Code Scanner -->
+        <div class="left-section">
+            <h2>Scan to Give</h2>
+            <div class="qr-code">
+                <img src="qr-code.png" alt="QR Code to scan">
+                <p>Scan the QR Code to donate directly.</p>
+            </div>
         </div>
 
-        <!-- Payment Options -->
-        <div class="payment-options">
-            <button class="payment-option active" id="gpayOption">GPay</button>
-            <button class="payment-option" id="phonepeOption">PhonePe</button>
-            <button class="payment-option" id="paytmOption">Paytm</button>
-            <button class="payment-option" id="onlineOption">Online</button>
+        <!-- Right Section: Payment Options -->
+        <div class="right-section">
+            <h2>Donate Online</h2>
+            <div class="payment-options">
+                <button class="payment-option" onclick="redirectToPayment('gpay')">GPay</button>
+                <button class="payment-option" onclick="redirectToPayment('phonepe')">PhonePe</button>
+                <button class="payment-option" onclick="redirectToPayment('paytm')">Paytm</button>
+            </div>
+            <div class="toggle-buttons">
+                <label for="online-giving">Online Giving</label>
+                <input type="checkbox" id="online-giving" class="toggle-button">
+                <div id="online-options" class="hidden">
+                    <p>Online Giving Enabled</p>
+                    <p>Choose your preferred payment method above.</p>
+                </div>
+            </div>
         </div>
-
-        <!-- Bank Details Section (Initially Hidden) -->
-        <div class="bank-details" id="bankDetails" style="display: none;">
-            <h3>Church Bank Details</h3>
-            <p><strong>Bank Name:</strong> XYZ Bank</p>
-            <p><strong>Account Name:</strong> Church of XYZ</p>
-            <p><strong>Account Number:</strong> 123456789</p>
-            <p><strong>IFSC Code:</strong> XYZB0001234</p>
-        </div>
-
-        <!-- Call-to-Action Button -->
-        <button class="cta-button" id="giveButton">Give Now</button>
     </div>
+
     <script>
-        // Select payment options and button
-        const paymentOptions = document.querySelectorAll('.payment-option');
-        const giveButton = document.getElementById('giveButton');
-        const bankDetails = document.getElementById('bankDetails');
-    
-        // Active payment method tracking
-        let selectedPaymentMethod = 'GPay'; // Default to GPay
-    
-        // Add click event to payment options
-        paymentOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Reset active class on all options
-                paymentOptions.forEach(opt => opt.classList.remove('active'));
-                // Add active class to selected option
-                option.classList.add('active');
-                // Update selected payment method
-                selectedPaymentMethod = option.innerText;
-                // Hide bank details if not "Online"
-                if (selectedPaymentMethod !== 'Online') {
-                    bankDetails.style.display = 'none';
-                }
-            });
-        });
-    
-        // Handle "Give Now" button click
-        giveButton.addEventListener('click', () => {
-            let upiLink = '';
-    
-            if (selectedPaymentMethod === 'GPay') {
-                // GPay UPI Link
-                upiLink = `upi://pay?pa=xelishaprashanthx-2@okaxis&pn=Church%20of%20XYZ&cu=INR`;
-            } else if (selectedPaymentMethod === 'PhonePe') {
-                // PhonePe UPI Link
-                upiLink = `upi://pay?pa=xelishaprashanthx@axl&pn=Church%20of%20XYZ&cu=INR`;
-            } else if (selectedPaymentMethod === 'Paytm') {
-                // Paytm UPI Link
-                upiLink = `upi://pay?pa=your_upi_id@paytm&pn=Church%20of%20XYZ&cu=INR`;
-            } else if (selectedPaymentMethod === 'Online') {
-                // Show bank details
-                bankDetails.style.display = 'block';
-                return; // Prevent the script from continuing if the 'Online' option is selected
-            }
-    
-            // Try opening the UPI app using the link
-            try {
-                // For mobile devices, attempt to directly redirect to UPI link
-                window.location.href = upiLink;
-                // Fallback if UPI app is not installed
-                setTimeout(() => {
-                    alert('If the payment app did not open, please make sure it is installed on your device.');
-                }, 2000); // Wait for 2 seconds before showing alert
-            } catch (error) {
-                console.error('Error opening payment app:', error);
+        // Toggle the online giving option
+        document.getElementById('online-giving').addEventListener('change', function() {
+            const onlineOptions = document.getElementById('online-options');
+            if (this.checked) {
+                onlineOptions.classList.remove('hidden');
+            } else {
+                onlineOptions.classList.add('hidden');
             }
         });
+
+        // Redirect user to respective payment app or page
+        function redirectToPayment(paymentMethod) {
+            let paymentUrl = '';
+            let appUrl = '';
+            
+            switch(paymentMethod) {
+                case 'gpay':
+                    paymentUrl = 'https://pay.google.com/gp/p2p/send';  // Fallback URL (Google Pay web)
+                    appUrl = 'intent://pay.google.com/gp/p2p/send#Intent;package=com.google.android.apps.nbu.paisa.user;scheme=googlepay;end';  // Google Pay deep link
+                    break;
+                case 'phonepe':
+                    paymentUrl = 'https://www.phonepe.com/pay';  // Fallback URL (PhonePe web)
+                    appUrl = 'phonepe://payment';  // PhonePe deep link
+                    break;
+                case 'paytm':
+                    paymentUrl = 'https://paytm.com';  // Fallback URL (Paytm web)
+                    appUrl = 'paytmmp://';  // Paytm deep link
+                    break;
+                default:
+                    alert('Please choose a valid payment method.');
+                    return;
+            }
+            
+            // Try to open the app with deep link
+            window.location = appUrl;
+
+            // If app doesn't open (user doesn't have the app), fallback to the website
+            setTimeout(function() {
+                window.location = paymentUrl;
+            }, 2000);
+        }
     </script>
-    
 </body>
 </html>
