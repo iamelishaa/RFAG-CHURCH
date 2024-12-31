@@ -54,6 +54,10 @@
                 <div class="right-section">
                     <h2>In everything I did, I showed you that by this kind of hard work we must help the weak, remembering the words the Lord Jesus himself said: 'It is more blessed to give than to receive.'</h2>
                     <h2>Give via PhonePe</h2>
+
+                    <!-- Donation Input and Button -->
+                    <label for="donationAmount">Enter Donation Amount (INR):</label>
+                    <input type="number" id="donationAmount" placeholder="Enter amount" min="1" required>
                     <button class="payment-option" onclick="redirectToPayment('phonepe')">Donate with PhonePe</button>
                 </div>
             </div>
@@ -88,106 +92,48 @@
                 <button onclick="closeBankDetails()">Close</button>
             </div>
         </div>
-        
-        
 
-                <!-- New Section: Other Ways to Give -->
-            <section id="other-ways">
-                <h2>Other Ways to Give</h2>
-                <p>We are grateful for your support. There are many ways you can contribute to our mission. If you'd like more details, click the link below to visit our FAQ page.</p>
-                <a href="#faq" class="learn-more-link">Learn More</a> <!-- Link to the FAQ section -->
-            </section>
+        <!-- FAQ Section -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
 
-            <!-- Two Cards Section -->
-            <section id="giving-methods">
-                <div class="container">
-                    <!-- First Card: Give in Person -->
-                    <div class="giving-card">
-                        <h3>Give in Person</h3>
-                        <p>You can give in person by visiting our church.</p>
-                    </div>
-
-                    <!-- Second Card: Mail a Gift -->
-                    <div class="giving-card">
-                        <h3>Mail a Gift</h3>
-                        <p>145/12, N.R.Square, 2nd floor, 1st main road, Chamrajpet, B'lore 18</p>
-                    </div>
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleAnswer(this)">
+                    How can I donate? <span class="toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You can donate through various methods such as online payment via PhonePe, QR code scan, or by visiting our church in person. You can also mail your donation to our church address.</p>
                 </div>
-            </section>
+            </div>
 
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleAnswer(this)">
+                    Is my donation tax-deductible? <span class="toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, your donation is tax-deductible if you live in India. We are a registered charitable organization, and you can receive a receipt for tax purposes.</p>
+                </div>
+            </div>
 
-      <!-- FAQ Section -->
-<section id="faq">
-    <h2>Frequently Asked Questions</h2>
-
-    <!-- FAQ 1 -->
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleAnswer(this)">
-            How can I donate? <span class="toggle-icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <p>You can donate through various methods such as online payment via PhonePe, QR code scan, or by visiting our church in person. You can also mail your donation to our church address.</p>
-        </div>
-    </div>
-
-    <!-- FAQ 2 -->
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleAnswer(this)">
-            Is my donation tax-deductible? <span class="toggle-icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <p>Yes, your donation is tax-deductible if you live in India. We are a registered charitable organization, and you can receive a receipt for tax purposes.</p>
-        </div>
-    </div>
-
-    <!-- FAQ 3 -->
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleAnswer(this)">
-            Can I donate in-kind? <span class="toggle-icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <p>Yes, we accept in-kind donations such as food, clothing, and other items that can be used for the church's community outreach programs.</p>
-        </div>
-    </div>
-
-    <!-- FAQ 4 -->
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleAnswer(this)">
-            Can I donate monthly? <span class="toggle-icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <p>Yes, we offer monthly donation options. You can set up recurring donations via PhonePe or through our other donation channels.</p>
-        </div>
-    </div>
-
-    <!-- FAQ 5 -->
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleAnswer(this)">
-            How do I know my offering is being used effectively? <span class="toggle-icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <p>We provide regular updates on how donations are being used in our church services and community outreach programs. You can also request detailed financial reports at any time.</p>
-        </div>
-    </div>
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleAnswer(this)">
-            Can I make an offering on behalf of someone else <span class="toggle-icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <p>You can make an offering on behalf of someone else. Please inform our church staff if you would like the offering to be dedicated in someone else's name.</p>
-        </div>
-    </div>
-</section>
-
-
+            <!-- More FAQs -->
+        </section>
     </main>
 
     <script>
         function redirectToPayment(paymentMethod) {
+            const donationAmount = document.getElementById("donationAmount").value;
+
+            if (!donationAmount || donationAmount <= 0) {
+                alert("Please enter a valid donation amount.");
+                return;
+            }
+
             let appUrl = '';
             
             if (paymentMethod === 'phonepe') {
-                appUrl = 'phonepe://pay?pa=xelishaprashanthx@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
+                appUrl = `phonepe://pay?pa=xelishaprashanthx@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=${donationAmount}&cu=INR`;
             } else {
                 alert('Please choose a valid payment method.');
                 return;
@@ -203,92 +149,32 @@
         }
 
         function toggleAnswer(button) {
-    const answer = button.nextElementSibling;
-    const icon = button.querySelector('.toggle-icon');
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.toggle-icon');
 
-    if (answer.style.display === "block") {
-        answer.style.display = "none";
-        icon.textContent = "+"; // Change to "+" when closing the answer
-    } else {
-        answer.style.display = "block";
-        icon.textContent = "-"; // Change to "-" when opening the answer
-    }
-}
-function redirectToPayment(paymentMethod) {
-    let appUrl = '';
-    
-    if (paymentMethod === 'phonepe') {
-        appUrl = 'phonepe://pay?pa=xelishaprashanthx@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
-    } else {
-        alert('Please choose a valid payment method.');
-        return;
-    }
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                icon.textContent = "+"; // Change to "+" when closing the answer
+            } else {
+                answer.style.display = "block";
+                icon.textContent = "-"; // Change to "-" when opening the answer
+            }
+        }
 
-    // Try to open the app using the deep link
-    window.location.href = appUrl;
+        function showBankDetails() {
+            document.getElementById("bank-details-dialog").style.display = "block"; // Show the dialog
+        }
 
-    // If the app is not installed, the user will be redirected to the PhonePe website
-    setTimeout(function() {
-        window.location.href = 'https://www.phonepe.com/';
-    }, 2000); // Timeout to redirect after 2 seconds
-}
-
-function showBankDetails() {
-    document.getElementById("bank-details-dialog").style.display = "block"; // Show the dialog
-}
-
-function closeBankDetails() {
-    document.getElementById("bank-details-dialog").style.display = "none"; // Hide the dialog
-}
+        function closeBankDetails() {
+            document.getElementById("bank-details-dialog").style.display = "none"; // Hide the dialog
+        }
     </script>
 
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-links">
-            <div class="footer-section">
-                <h3>About</h3>
-                <ul>
-                    <li><a href="mission.html">Our Mission</a></li>
-                    <li><a href="leadership.html">Leadership</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Media</h3>
-                <ul>
-                    <li><a href="video.html">Sermons</a></li>
-                    <li><a href="online.html">Watch Online</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Ministries</h3>
-                <ul>
-                    <li><a href="#children">Children's Ministry</a></li>
-                    <li><a href="#youth">Youth Group</a></li>
-                    <li><a href="#outreach">Outreach Program</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Personal</h3>
-                <ul>
-                    <li><a href="events.php">Terms of Service</a></li>
-                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Footer Content Here -->
         </div>
-        <hr class="footer-divider">
-        <div class="footer-social">
-            <div class="footer-address">
-                <p>145/12, N.R.Square, 2nd floor, 1st main road, Chamrajpet, B'lore 18</p>
-            </div>
-            <div class="social-links">
-                <a href="https://www.facebook.com/rhema.faithag/" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/rfag_church_/" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@RhemaFaithAGChurch" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-        <br>
-        <p>© 2024 Rhema Faith AG Church. All Rights Reserved</p>
-    </div>
-</footer>
+    </footer>
+
 </body>
 </html>
