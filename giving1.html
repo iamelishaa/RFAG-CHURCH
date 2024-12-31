@@ -619,7 +619,32 @@ h2 {
         icon.textContent = "-"; // Change to "-" when opening the answer
     }
 }
+function redirectToPayment(paymentMethod) {
+    let appUrl = '';
+    
+    if (paymentMethod === 'phonepe') {
+        appUrl = 'phonepe://pay?pa=xelishaprashanthx@axl&pn=Church&mc=1234&tid=1234567890&tr=TR123456&tn=Donation&am=100.00&cu=INR';
+    } else {
+        alert('Please choose a valid payment method.');
+        return;
+    }
 
+    // Try to open the app using the deep link
+    window.location.href = appUrl;
+
+    // If the app is not installed, the user will be redirected to the PhonePe website
+    setTimeout(function() {
+        window.location.href = 'https://www.phonepe.com/';
+    }, 2000); // Timeout to redirect after 2 seconds
+}
+
+function showBankDetails() {
+    document.getElementById("bank-details-dialog").style.display = "block"; // Show the dialog
+}
+
+function closeBankDetails() {
+    document.getElementById("bank-details-dialog").style.display = "none"; // Hide the dialog
+}
     </script>
 </body>
 </html>
