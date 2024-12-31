@@ -346,21 +346,13 @@ h2 {
 .faq-answer p {
     margin: 0;
 }
-/* 
-.faq-question:hover {
-    background-color: #000; 
-    color: white; 
-} */
+
 
 .faq-question:focus {
     outline: none; /* Removes outline when focused */
 }
 
-/* .faq-item:hover {
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-} */
+
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
@@ -374,6 +366,73 @@ h2 {
 
     .faq-answer p {
         font-size: 14px;
+    }
+}
+
+/* Dialog Panel Styles */
+.dialog {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    padding-top: 60px;
+}
+
+.dialog-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-content h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dialog-content p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.dialog .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.dialog .close:hover,
+.dialog .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dialog-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .dialog-content h3 {
+        font-size: 20px;
+    }
+
+    .dialog-content p {
+        font-size: 16px;
     }
 }
 
@@ -411,10 +470,30 @@ h2 {
                     <h2>Help Build God's House</h2>
                     <p>We are excited to announce the ongoing building project for our new church home! This is a significant step for our church community, and we need your support to complete it.</p>
                     <p>Your generous donation will help us provide a place of worship, fellowship, and service for the community. Every contribution, no matter the size, brings us closer to our goal.</p>
-                    <!-- <button class="payment-option" onclick="redirectToPayment('building-project')">Donate to Building Project</button> -->
+                    
+                    <!-- PhonePe Donation Button -->
+                    <button class="payment-option" onclick="redirectToPayment('phonepe')">Donate with PhonePe</button>
+                    
+                    <!-- Bank Payment Button -->
+                    <button class="payment-option" onclick="showBankDetails()">Donate via Bank Transfer</button>
                 </div>
             </div>
         </section>
+        
+        <!-- Bank Details Dialog Panel -->
+        <div id="bank-details-dialog" class="dialog">
+            <div class="dialog-content">
+                <span class="close" onclick="closeBankDetails()">&times;</span>
+                <h3>Bank Transfer Details</h3>
+                <p>Bank Name:RHEMA FAITH AG FOUNDATION </p>
+                <p>Account Number: 14710100177185</p>
+                <p>IFSC Code: FDRL0001471</p>
+                <p>Branch: FEDERAL BANK  ( DODDA BANASAVADI)</p>
+                <p>Please mention your name and "Building Project" as the reference.</p>
+                <button onclick="closeBankDetails()">Close</button>
+            </div>
+        </div>
+        
         
 
                 <!-- New Section: Other Ways to Give -->
