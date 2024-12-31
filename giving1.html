@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Giving Page</title>
+    <link rel="stylesheet" href="css/giving1.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Giving Title -->
+        <h1>Tithes & Offerings</h1>
+        <p class="description">
+            Simple and secure. Give a single gift or schedule recurring giving.
+        </p>
+
+        <!-- Payment Options -->
+        <div class="payment-options">
+            <button class="payment-option active" id="gpayOption">GPay</button>
+            <button class="payment-option" id="phonepeOption">PhonePe</button>
+            <button class="payment-option" id="paytmOption">Paytm</button>
+            <button class="payment-option" id="onlineOption">Online</button>
+        </div>
+
+        <!-- Bank Details Section (Initially Hidden) -->
+        <div class="bank-details" id="bankDetails" style="display: none;">
+            <h3>Church Bank Details</h3>
+            <p><strong>Bank Name:</strong> XYZ Bank</p>
+            <p><strong>Account Name:</strong> Church of XYZ</p>
+            <p><strong>Account Number:</strong> 123456789</p>
+            <p><strong>IFSC Code:</strong> XYZB0001234</p>
+        </div>
+
+        <!-- Call-to-Action Button -->
+        <button class="cta-button" id="giveButton">Give Now</button>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="notificationModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p id="notificationMessage"></p>
+            <button id="closeModal">Close</button>
+        </div>
+    </div>
+
+    <script>
+      // Select elements
+      const paymentOptions = document.querySelectorAll('.payment-option');
+      const giveButton = document.getElementById('giveButton');
+      const bankDetails = document.getElementById('bankDetails');
+      const notificationModal = document.getElementById('notificationModal');
+      const notificationMessage = document.getElementById('notificationMessage');
+      const closeModal = document.getElementById('closeModal');
+
+      // Active payment method tracking
+      let selectedPaymentMethod = 'GPay'; // Default to GPay
+
+      // Add click event to payment options
+      paymentOptions.forEach(option => {
+          option.addEventListener('click', () => {
+              paymentOptions.forEach(opt => opt.classList.remove('active'));
+              option.classList.add('active');
+              selectedPaymentMethod = option.innerText;
+              if (selectedPaymentMethod !== 'Online') {
+                  bankDetails.style.display = 'none';
+              }
+          });
+      });
+
+      // Handle "Give Now" button click
+      giveButton.addEventListener('click', () => {
+          // For GPay, generate the UPI payment link
+          if (selectedPaymentMethod === 'GPay') {
+              const upiId = 'xelishaprashanthx-2@okaxis'; // Replace with your UPI ID
+              const amount = '100'; // Replace with the amount you want to donate
+              const upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
+
+              // Redirect to the GPay app for payment
+              window.location.href = upiLink;
+          } else if (selectedPaymentMethod === 'PhonePe') {
+              const upiLink = `upi://pay?pa=your_upi_id@ybl&cu=INR`;
+              window.location.href = upiLink;
+          } else if (selectedPaymentMethod === 'Paytm') {
+              const upiLink = `upi://pay?pa=your_upi_id@paytm&cu=INR`;
+              window.location.href = upiLink;
+          } else if (selectedPaymentMethod === 'Online') {
+              bankDetails.style.display = 'block';
+          }
+
+          // Simulate text notification (No name, amount, phone)
+          if (selectedPaymentMethod !== 'Online') {
+              const simulatedMessage = `Thank you for your generous contribution!`;
+              notificationMessage.textContent = simulatedMessage;
+              notificationModal.style.display = 'flex';
+          }
+      });
+
+      // Close modal
+      closeModal.addEventListener('click', () => {
+          notificationModal.style.display = 'none';
+      });
+    </script>
+</body>
+</html>
