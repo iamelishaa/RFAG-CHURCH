@@ -67,11 +67,6 @@
             });
         });
       
-        // Check if the device is Android
-        function isAndroid() {
-            return /android/i.test(navigator.userAgent);
-        }
-      
         // Handle "Give Now" button click
         giveButton.addEventListener('click', () => {
             // For GPay, generate the UPI payment link
@@ -79,34 +74,24 @@
                 const upiId = 'xelishaprashanthx-2@okaxis'; // Replace with your actual UPI ID
                 const amount = '100'; // Replace with the amount you want to donate
                 const upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
-      
-                if (isAndroid()) {
-                    // Android-specific intent link for GPay
+
+                // For Android, use intent link to open GPay directly
+                if (/android/i.test(navigator.userAgent)) {
                     window.location.href = `intent://pay?pa=${upiId}&am=${amount}&cu=INR#Intent;package=com.google.android.apps.nbu.paisa.user;scheme=upi;end`;
                 } else {
-                    // Regular UPI link for other devices
+                    // For other devices, use the regular UPI link
                     window.location.assign(upiLink);
                 }
             } else if (selectedPaymentMethod === 'PhonePe') {
                 const upiLink = `upi://pay?pa=your_upi_id@ybl&cu=INR`;
-                if (isAndroid()) {
-                    // Android-specific intent link for PhonePe
-                    window.location.href = `intent://pay?pa=your_upi_id@ybl&cu=INR#Intent;package=com.phonepe.app;scheme=upi;end`;
-                } else {
-                    window.location.assign(upiLink);
-                }
+                window.location.assign(upiLink);
             } else if (selectedPaymentMethod === 'Paytm') {
                 const upiLink = `upi://pay?pa=your_upi_id@paytm&cu=INR`;
-                if (isAndroid()) {
-                    // Android-specific intent link for Paytm
-                    window.location.href = `intent://pay?pa=your_upi_id@paytm&cu=INR#Intent;package=com.paytm.android;scheme=upi;end`;
-                } else {
-                    window.location.assign(upiLink);
-                }
+                window.location.assign(upiLink);
             } else if (selectedPaymentMethod === 'Online') {
                 bankDetails.style.display = 'block';
             }
-      
+
             // Simulate text notification (No name, amount, phone)
             if (selectedPaymentMethod !== 'Online') {
                 const simulatedMessage = `Thank you for your generous contribution!`;
@@ -114,13 +99,12 @@
                 notificationModal.style.display = 'flex';
             }
         });
-      
+
         // Close modal
         closeModal.addEventListener('click', () => {
             notificationModal.style.display = 'none';
         });
-      </script>
-      
+    </script>
 
 </body>
 </html>
