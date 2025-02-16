@@ -15,57 +15,15 @@
     <link rel="shortcut icon" href="./images/16.png" type="image/x-icon">
     
 </head>
-<style>
-   .floating-live-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none; /* Initially hidden */
-    align-items: center;
-    z-index: 1000;
-}
-
-.floating-live-button .live-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.live-image {
-    width: 45px; /* Adjust size as needed */
-    height: 45px;
-    margin-right: 8px;
-    animation: pulse 1s infinite;
-}
-
-.live-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: black; /* Red for "Live" vibe */
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.7;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-</style>
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
+            <img src="./images/120.png" alt="Logo">
             <div class="logo-text">
                 <span style="font-weight: bold;">Rhema Faith</span>
                 <span style="font-weight: normal;">AG Church</span>
             </div>
+            <a href="https://www.youtube.com/@RhemaFaithAGChurch/live" target="_blank" id="live-now" class="live-now" style="display: none;">LIVE NOW</a>
         </div>
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -87,20 +45,37 @@
             
         </ul>
     </nav>
-    <div id="floatingLiveButton" class="floating-live-button">
-        <a id="floatingLiveLink" href="#" target="_blank" class="live-link">
-            <img src="./images/live.png" alt="Live Indicator" class="live-image">
-            <span class="live-text">Watch Now</span>
-        </a>
-    </div>
-    
-    <!-- Pastor image with typewriting effect  -->
-    <div class="content-container">
-        <img src="./images/pastor.png" alt="pastor image" class="content-image"> <!-- Replace with your image path -->
-        <div class="overlay">
-            <h2 id="typewriter-text"></h2> <!-- Text to display with typewriter effect -->
-        </div>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="images/pastor.png" alt="Image 1">
+                <div class="watch-more-overlay">
+                    <h2>Watch the Latest Sermons from RFAG Church</h2>
+                    <a href="/video.html" class="watch-more-button">Watch sermon</a>
+                </div>
+            </div>
        
+        
+            <div class="slide">
+                <img src="images/splashscreen.jpg" alt="Image 2">
+                <div class="bible-verse-overlay">
+                    <p class="invitation"> Join Us in Building God's House! Your support helps create a place of worship and community. <br>Let's build this house for His glory! <br> <br> Join us today and be a part of something greater!</p>
+                
+                    <p class="bible-verse">Psalm 127:1 - "Unless the Lord builds the house, the builders labor in vain. <br>Unless the Lord watches over the city, the guards stand watch in vain."</p>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+        <div class="dots-container">
+            <div class="dot" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+        </div>
     </div>
 
     <div class="text-container">
@@ -141,18 +116,16 @@
         <div class="parallax-content">
             <div class="video-grid">
                 <div class="service-video">
-                    <iframe src="https://www.youtube.com/embed/IG98pWDO5vw?si=VCVqKTx6fk4czO8v" title="YouTube video player" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/5Q6cA9fBYUA" title="YouTube video player" allowfullscreen></iframe>
                 </div>
                 <div class="service-video">
-                    <iframe src="https://www.youtube.com/embed/BYY5OBEYp1A?si=apPhdCoXGl7BtSqz" title="YouTube video player" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/WkdvGSslP0Y" title="YouTube video player" allowfullscreen></iframe>
                 </div>
             </div>
-            
-            <!-- Title and Button Below the Videos -->
-            <div class="watch-more">
-                <h2>Watch the Latest Sermons from RFAG Church</h2>
-                <a href="/video.html" class="watch-more-button">Watch More</a>
-            </div>
+        </div>
+    </div>
+    
+                
         </div>
     </div>
 
@@ -207,38 +180,62 @@
     </footer>
     
     <script>
+     async function checkYouTubeLive() {
+            const liveIndicator = document.getElementById('live-now');
+            if (!liveIndicator) return;
 
-const API_KEY = 'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70'; //  YouTube API Key
-const CHANNEL_ID = 'UCfGHCtW5XlkY78l97_Rwu4Q'; // Replace with your channel ID
+            const apiKey = 'AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70';
+            const channelId = 'UCfGHCtW5XlkY78l97_Rwu4Q';
+            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
 
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
 
-function checkIfLive() {
-    // YouTube API URL to check live status
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&eventType=live&type=video`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const floatingLiveButton = document.getElementById("floatingLiveButton");
-            const floatingLiveLink = document.getElementById("floatingLiveLink");
-
-            if (data.items && data.items.length > 0) {
-                const liveVideoId = data.items[0].id.videoId;
-                floatingLiveButton.style.display = "block"; // Show the button
-                floatingLiveLink.href ="live.html"; // Link to the live video
-            } else {
-                floatingLiveButton.style.display = "none"; // Hide the button if no live video
+                if (data.items && data.items.length > 0) {
+                    liveIndicator.style.display = 'inline-block';
+                } else {
+                    liveIndicator.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error fetching YouTube live status:', error);
             }
-        })
-        .catch(error => console.error("Error checking live status:", error));
-}
+        }
+        
+        let currentIndex = 0;
 
-// Check live status when the page loads
-window.onload = checkIfLive;
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
 
-// Optional: Recheck live status periodically (e.g., every 1 minute)
-setInterval(checkIfLive, 60000); // Check every 60 seconds
-    // Get references to the hamburger icon and the navigation links
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            updateDots();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            updateDots();
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        updateDots();
+
+         // Get references to the hamburger icon and the navigation links
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
@@ -255,57 +252,6 @@ setInterval(checkIfLive, 60000); // Check every 60 seconds
             navLinks.classList.remove('active'); // Hide the menu
             hamburger.classList.remove('active'); // Reset hamburger icon
         });
-    });
-
-    // Typewriter text content and typing speed
-    const text =
-        "“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.” - Jeremiah 29:11";
-    const typingSpeed = 100; // Speed in milliseconds
-    let index = 0;
-
-    // Function to display text with a typewriter effect
-    function typeWriter() {
-        const typewriterElement = document.getElementById("typewriter-text");
-        if (index < text.length) {
-            typewriterElement.innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, typingSpeed);
-        }
-    }
-
-    // Start typewriter effect when the page loads
-    window.addEventListener("load", typeWriter);
-
-    // Parallax effect setup
-    const parallaxSection = document.getElementById('parallax');
-    const iframeContainer = document.querySelector('.iframe-container');
-    const iframe1 = document.getElementById('iframe1');
-    const iframe2 = document.getElementById('iframe2');
-
-    // Colors for parallax effect
-    const originalColor = '#f9f9f9'; // Initial background color
-    const scrollColor = '#5a5ca4';   // Final background color after scrolling
-
-    // Scroll event listener for parallax effect
-    window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY;
-
-        if (scrollPosition < 500) {
-            // Initial state
-            parallaxSection.style.backgroundColor = originalColor;
-            iframeContainer.style.opacity = 0; // Hide iframes
-        } else if (scrollPosition < 1000) {
-            // Transition state
-            const ratio = (scrollPosition - 500) / 500;
-            parallaxSection.style.backgroundColor = `rgba(90, 92, 164, ${ratio})`;
-            iframeContainer.style.opacity = 0; // Keep iframes hidden
-        } else {
-            // Final state
-            parallaxSection.style.backgroundColor = scrollColor;
-            iframeContainer.style.opacity = 1; // Show iframes
-            iframe1.style.opacity = 1;
-            iframe2.style.opacity = 1;
-        }
     });
 </script>
 </body>

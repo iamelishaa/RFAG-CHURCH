@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/newindex.css">
+  <link rel="manifest" href="manifest.json">
+  <title>RFAG Church - A Mission With A Big Vision</title>
+  <link rel="shortcut icon" href="./images/16.png" type="image/x-icon">
+</head>
+<body>
+  <body>
+
+  
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./images/120.png" alt="Logo">
+            <div class="logo-text">
+                <span style="font-weight: bold;">Rhema Faith</span>
+                <span style="font-weight: normal;">AG Church</span>
+            </div>
+            <a href="https://www.youtube.com/@RhemaFaithAGChurch/live" target="_blank" id="live-now" class="live-now" style="display: none;">LIVE NOW</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="video.html">Sermons</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="online.html">Online</a></li>
+            <li><a href="give.html">Giving</a></li>
+            <li class="dropdown">
+                <a href="ministries.html" class="dropdown-toggle">Ministries</a>
+                <ul class="dropdown-menu"></ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="images/pastor.png" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="images/splashscreen.jpg" alt="Image 2">
+                <div class="bible-verse-overlay">
+                    <p class="invitation"> Join Us in Building God's House! Your support helps create a place of worship and community. <br>Let's build this house for His glory! <br> <br> Join us today and be a part of something greater!</p>
+                
+                    <p class="bible-verse">Psalm 127:1 - "Unless the Lord builds the house, the builders labor in vain. <br>Unless the Lord watches over the city, the guards stand watch in vain."</p>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+        <div class="dots-container">
+            <div class="dot" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+        </div>
+    </div>
+
+    <!-- Heading and Description Section -->
+    <div class="content">
+        <h1>Find your place at Rhema Faith AG Church</h1>
+        <p>Discover the ministry that fits your calling and make a difference within our community.</p>
+    </div>
+
+    <!-- Card Container Section -->
+    <div class="card-container">
+      <div class="card">
+        <h1>Worship Team</h1>
+        <p>Join our passionate worship team to lead others in powerful, spirit-filled worship.</p>
+        <a href="newindex.html" class="button-class">Join Us</a>
+      </div>
+        <div class="card">
+            <h1>Children's Ministry</h1>
+            <p>Help guide our young generation with love, faith, and fun-filled learning.</p>
+            <a href="newindex.html" class="button-class">Learn More</a>
+        </div>
+        <div class="card">
+            <h1>Youths Group</h1>
+            <p>Connect with other youth and build a strong foundation of faith for life’s journey.</p>
+            <a href="newindex.html" class="button-class">Join Now</a>
+        </div>
+        <div class="card">
+            <h1>Outreach Ministry</h1>
+            <p>Be the hands and feet of Jesus in our community, sharing His love with those in need.</p>
+            <a href="newindex.html" class="button-class">Volunteer</a>
+        </div>
+        <div class="card">
+            <h1>Men's Ministry</h1>
+            <p>Grow in your faith and fellowship with other men, as we support each other and lead by example.</p>
+            <a href="newindex.html" class="button-class">Learn More</a>
+        </div>
+    </div>
+    <div class="media-container">
+            <div class="video-container">
+          <a href="https://www.youtube.com/watch?v=5Q6cA9fBYUA" target="_blank">
+              <iframe src="https://www.youtube.com/embed/5Q6cA9fBYUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </a>
+            <a href="https://www.youtube.com/watch?v=WkdvGSslP0Y" target="_blank">
+              <iframe src="https://www.youtube.com/embed/WkdvGSslP0Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </a>
+      </div>
+        <div class="sermon-section">
+          <h2>Watch the Latest Sermons from RFAG Church</h2>
+          <a href="video.html" class="watch-more-btn">Watch More</a>
+      </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-links">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="mission.html">Our Mission</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Media</h3>
+                <ul>
+                    <li><a href="video.html">Sermons</a></li>
+                    <li><a href="online.html">Watch Online</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ministries</h3>
+                <ul>
+                    <li><a href="#children">Childrens Ministry</a></li>
+                    <li><a href="#youth">Youth Group</a></li>
+                    <li><a href="#outreach">Outreach</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Personal</h3>
+                <ul>
+                    <li><a href="termsofuse.html">Terms of Service</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-social">
+            <div class="footer-address">
+                <p>145/12, N.R.Square, 2nd floor, 1st main road, Chamrajpet, B'lore 18</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/rhema.faithag/" aria-label="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/rfag_church_/" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@RhemaFaithAGChurch" aria-label="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <p>© 2024 Rhema Faith AG Church. All Rights Reserved.</p>
+    </div>
+</footer>
+    <script>
+          async function checkYouTubeLive() {
+            const liveIndicator = document.getElementById('live-now');
+            if (!liveIndicator) return;
+
+            const channelId = "UCxq5Pft2tXvwK-_GVhPrutQ";
+            const apiKey = "AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70";
+            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.items && data.items.length > 0) {
+                    liveIndicator.style.display = 'inline-block';
+                } else {
+                    liveIndicator.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error fetching YouTube live status:', error);
+            }
+        }
+        
+        checkYouTubeLive();
+        setInterval(checkYouTubeLive, 300000);
+        
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            updateDots();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            updateDots();
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        updateDots();
+
+         // Get references to the hamburger icon and the navigation links
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
+
+    // Toggle the active class on hamburger click
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active'); // Show/hide the navigation menu
+        hamburger.classList.toggle('active'); // Toggle the "X" animation for hamburger
+    });
+
+    // Close the menu when a navigation link is clicked
+    Array.from(navItems).forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active'); // Hide the menu
+            hamburger.classList.remove('active'); // Reset hamburger icon
+        });
+    });
+    </script>
+
+</body>
+</html>
