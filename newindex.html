@@ -16,16 +16,13 @@
 </head>
 <body>
   <body>
-
-  
     <nav class="navbar">
         <div class="logo">
-            <img src="./images/120.png" alt="Logo">
+            <img src="./images/120.png" alt="Logo"> <!-- Logo with rounded corners -->
             <div class="logo-text">
                 <span style="font-weight: bold;">Rhema Faith</span>
                 <span style="font-weight: normal;">AG Church</span>
             </div>
-            <a href="https://www.youtube.com/@RhemaFaithAGChurch/live" target="_blank" id="live-now" class="live-now" style="display: none;">LIVE NOW</a>
         </div>
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -40,8 +37,11 @@
             <li><a href="give.html">Giving</a></li>
             <li class="dropdown">
                 <a href="ministries.html" class="dropdown-toggle">Ministries</a>
-                <ul class="dropdown-menu"></ul>
+                <ul class="dropdown-menu">
+                    <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                </ul>
             </li>
+            
         </ul>
     </nav>
     <div class="slider-container">
@@ -51,15 +51,7 @@
             </div>
             <div class="slide">
                 <img src="images/splashscreen.jpg" alt="Image 2">
-                <div class="bible-verse-overlay">
-                    <p class="invitation"> Join Us in Building God's House! Your support helps create a place of worship and community. <br>Let's build this house for His glory! <br> <br> Join us today and be a part of something greater!</p>
-                
-                    <p class="bible-verse">Psalm 127:1 - "Unless the Lord builds the house, the builders labor in vain. <br>Unless the Lord watches over the city, the guards stand watch in vain."</p>
-                </div>
             </div>
-            
-            
-            
         </div>
 
         <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
@@ -83,7 +75,7 @@
         <h1>Worship Team</h1>
         <p>Join our passionate worship team to lead others in powerful, spirit-filled worship.</p>
         <a href="newindex.html" class="button-class">Join Us</a>
-      </div>
+    </div>
         <div class="card">
             <h1>Children's Ministry</h1>
             <p>Help guide our young generation with love, faith, and fun-filled learning.</p>
@@ -167,82 +159,42 @@
     </div>
 </footer>
     <script>
-          async function checkYouTubeLive() {
-            const liveIndicator = document.getElementById('live-now');
-            if (!liveIndicator) return;
+         let currentIndex = 0;
 
-            const channelId = "UCxq5Pft2tXvwK-_GVhPrutQ";
-            const apiKey = "AIzaSyAf_zqsjoEIG7Wksrko5qj5C7pxg4n5R70";
-            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
+// Function to move the slide
+function moveSlide(direction) {
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
 
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    const slider = document.querySelector('.slider');
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-                if (data.items && data.items.length > 0) {
-                    liveIndicator.style.display = 'inline-block';
-                } else {
-                    liveIndicator.style.display = 'none';
-                }
-            } catch (error) {
-                console.error('Error fetching YouTube live status:', error);
-            }
+    updateDots();
+}
+
+// Function to go directly to a specific slide
+function goToSlide(index) {
+    currentIndex = index;
+    const slider = document.querySelector('.slider');
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    updateDots();
+}
+
+// Function to update the active state of dots
+function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.remove('active');
+        if (index === currentIndex) {
+            dot.classList.add('active');
         }
-        
-        checkYouTubeLive();
-        setInterval(checkYouTubeLive, 300000);
-        
-        let currentIndex = 0;
-
-        function moveSlide(direction) {
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
-
-            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-            const slider = document.querySelector('.slider');
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-            updateDots();
-        }
-
-        function goToSlide(index) {
-            currentIndex = index;
-            const slider = document.querySelector('.slider');
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-            updateDots();
-        }
-
-        function updateDots() {
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((dot, index) => {
-                dot.classList.remove('active');
-                if (index === currentIndex) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-
-        updateDots();
-
-         // Get references to the hamburger icon and the navigation links
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const navItems = navLinks.getElementsByTagName('li'); // Get all list items in the nav
-
-    // Toggle the active class on hamburger click
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active'); // Show/hide the navigation menu
-        hamburger.classList.toggle('active'); // Toggle the "X" animation for hamburger
     });
+}
 
-    // Close the menu when a navigation link is clicked
-    Array.from(navItems).forEach(item => {
-        item.addEventListener('click', () => {
-            navLinks.classList.remove('active'); // Hide the menu
-            hamburger.classList.remove('active'); // Reset hamburger icon
-        });
-    });
+// Initialize active dot
+updateDots();
     </script>
 
 </body>
